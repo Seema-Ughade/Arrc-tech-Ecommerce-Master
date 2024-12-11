@@ -1,0 +1,489 @@
+.container {
+  /* box-sizing: border-box; */
+  margin: auto;
+  width: 100%;
+  /* border: 2px solid red; */
+}
+
+.container1 {
+  overflow-x: hidden;
+}
+
+#shopping {
+  /* display: flex;
+    justify-content: end; */
+}
+
+#shopping > img {
+}
+
+.home1 {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.leftBox {
+  margin-left: 8rem;
+  font-size: large;
+  margin-top: 100px;
+}
+
+.leftBox > p {
+  font-weight: bold;
+}
+
+.leftBox > h1 {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.products {
+  display: flex;
+  gap: 2rem;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product > img {
+  width: 190px;
+  height: 190px;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.text > p {
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text > strong {
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.sale1 {
+  padding: 10px;
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+
+.sale2 {
+  padding: 10px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sale3 {
+  padding: 10px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head > strong {
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  font-size: 20px;
+}
+
+.home4 {
+  width: 100%;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 20px;
+}
+
+.cart {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cart1 {
+  position: relative;
+  clear: both;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.box1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.imgBox:hover {
+}
+
+.heartIcon {
+  background-color: white;
+  padding: 8px;
+  font-size: 1.2rem;
+  position: absolute;
+  border-radius: 50%;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
+.infinity {
+  background-color: white;
+  padding: 8px;
+  font-size: 1.2rem;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 7rem;
+  left: 1.5rem;
+  cursor: pointer;
+}
+
+.eye {
+  background-color: white;
+  padding: 8px;
+  font-size: 1.2rem;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 7rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
+.buttons {
+  background-color: white;
+  padding: 5px;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 7rem;
+  cursor: pointer;
+  margin-left: 7px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.cartContent > .contentHead {
+  font-weight: bold;
+}
+
+.text {
+  font-weight: bold;
+}
+
+.heartIcon1 {
+  background-color: white;
+  padding: 8px;
+  font-size: 1.2rem;
+  position: absolute;
+  border-radius: 50%;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
+.infinity1 {
+  background-color: white;
+  padding: 8px;
+  font-size: 1.2rem;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 2rem;
+  left: 1.5rem;
+  cursor: pointer;
+}
+
+.eye1 {
+  background-color: white;
+  padding: 8px;
+  font-size: 1.2rem;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 2rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
+.featuresimg {
+  position: relative;
+  clear: both;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.buttons2 {
+  background-color: white;
+  padding: 5px;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 2rem;
+  left: 30%;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.home6 {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop-btn {
+  font-family: sans-serif, "Roboto";
+  background-color: #ff4c3b;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.home6 {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+
+  background-color: rgba(255, 76, 59, 0.05);
+}
+
+.Deal {
+  height: fit-content;
+  position: relative;
+  left: 5rem;
+}
+
+.Deal > strong {
+  font-size: 2rem;
+}
+.Deal > h3 {
+  font-weight: bold;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+.Deal > p {
+  font-size: 1.1rem;
+  font-family: sans-serif;
+}
+
+.Dealimg {
+  margin-left: 2rem;
+  position: relative;
+  right: -17rem;
+}
+.DD {
+  display: flex;
+  gap: 2.2rem;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.D-btn {
+  background-color: white;
+}
+
+.logos > strong {
+  margin-left: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+
+.logos > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}
+
+.logoimage {
+  border: 1px solid grey;
+  width: 180px;
+  height: 88px;
+}
+/* 
+.home8{
+    margin-left: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+} */
+.sellingpimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.qimg {
+  height: 10%;
+  width: 10%;
+  font-size: 36px;
+  margin-bottom: 10px;
+  display: block;
+}
+.qualitycontainer {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+}
+.qualitylogo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1f0300;
+  color: white;
+  padding: 40px;
+  margin-bottom: 20px;
+}
+
+.qualitycontainer > h3 {
+  margin: 5px 0;
+  font-size: 18px;
+  font-size: 1rem;
+}
+.qualitycontainer > p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+
+.post > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+}
+.post > strong {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 2.5rem;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.posti {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+  box-sizing: border-box;
+  gap: 1.5rem;
+}
+
+.home11 {
+  background-color: #ff4c3b;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  padding: 20px;
+  margin-top: 2rem;
+}
+
+.signup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup > h1 {
+  margin-left: 3.5rem;
+  margin-top: 1.5rem;
+}
+.newsletter-form {
+  display: flex;
+}
+.newsletter-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease-in;
+  background-color: black;
+  color: white;
+  border-radius: 0px 8px 8px 0px;
+}
+
+.All {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* font-family: "Roboto", sans-serif; */
+}
+
+.All > h2 {
+  margin-top: -10px;
+}
+
+.All > strong {
+  font-size: 24px;
+}
+
+.All > p > h4 {
+  font-size: 16px;
+}
+
+.All > h4 {
+  font-weight: bold;
+}
+
+.newsletter-button:hover {
+  background-color: #333;
+}

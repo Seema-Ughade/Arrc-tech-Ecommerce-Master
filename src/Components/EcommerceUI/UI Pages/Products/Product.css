@@ -1,0 +1,21 @@
+.products{
+    /* height: 100; */
+    width: 100vw;
+}
+
+.productHeader > img {
+    box-sizing: border-box;
+    object-fit:fill;
+    width: 100vw;
+    height: 20%;
+}
+
+.text{
+    background-color: white;
+  padding: 8px;
+  font-size: 1.2rem;
+  position: relative;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
