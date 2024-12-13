@@ -90,27 +90,3 @@ export const {
 } = pageSlice.actions;
 export default pageSlice.reducer;
 
-
-
-
-
-
-
-// I want to create a Redux action and reducer for managing [component name, e.g., products, users, categories, etc.]. The component needs the following actions:
-
-// Create - To create a new [component].
-// Update - To update an existing [component].
-// Delete - To delete a [component].
-// Get All - To fetch all [components].
-// Error Handling - For catching any errors and displaying error messages.
-// The state should include loading, success message, error, and data for the [component].
-
-// The action should handle asynchronous API calls (using axios or any other tool) for these operations.
-// The reducer should include actions for the request, success, failure, and resetting error/message states.
-// Also, use Redux Toolkit (createSlice) to simplify the reducer setup. The component state should have:
-
-// loading: Boolean to track loading state.
-// data: Stores the list of [components].
-// message: Stores success messages.
-// error: Stores error messages.
-// Also, include actions for clearing errors and messages."
