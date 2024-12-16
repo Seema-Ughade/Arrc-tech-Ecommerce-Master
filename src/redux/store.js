@@ -6,7 +6,7 @@ import sliderReducer from "./reducers/sliderReducer"
 import categoriesReducer from './reducers/maincategoryReducer';
 
 // PRODUCTION
-export const server = "http://127.0.0.1:5000";
+export const server = "https://ecommerce-panel-backend.onrender.com";
 
 // DEVELOPMENT
 // export const server = "http://localhost:3000/api/v1";
