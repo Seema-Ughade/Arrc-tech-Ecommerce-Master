@@ -4,25 +4,25 @@ const SearchBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <div className="flex justify-center items-center w-full p-6">
-      <div className="flex items-center border border-gray-300 rounded-lg shadow-md w-4/5 bg-white relative">
+    <div className="flex justify-center items-center w-full p-4 md:p-6">
+      <div className="flex items-center border border-gray-300 rounded-lg shadow-md w-full md:w-4/5 bg-white relative">
         {/* Search Input */}
         <input
           type="text"
           placeholder="Search Any Product Here"
-          className="flex-grow h-16 px-6 text-lg text-gray-700 focus:outline-none rounded-l-lg"
+          className="flex-grow h-12 md:h-16 px-4 md:px-6 text-sm md:text-lg text-gray-700 focus:outline-none rounded-l-lg"
         />
 
         {/* Category Dropdown */}
         <div className="relative">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="border-l border-gray-300 text-lg text-gray-700 bg-white px-6 py-4 flex items-center focus:outline-none"
+            className="border-l border-gray-300 text-sm md:text-lg text-gray-700 bg-white px-4 md:px-6 py-3 md:py-4 flex items-center focus:outline-none"
           >
             All Categories
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 ml-1"
+              className="h-5 w-5 md:h-6 md:w-6 ml-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -56,7 +56,7 @@ const SearchBar = () => {
                 ].map((category, index) => (
                   <li
                     key={index}
-                    className="px-4 py-3 text-sm text-gray-700 hover:bg-red-500 hover:text-white cursor-pointer"
+                    className="px-4 py-3 text-sm md:text-base text-gray-700 hover:bg-red-500 hover:text-white cursor-pointer"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     {category}
@@ -68,10 +68,10 @@ const SearchBar = () => {
         </div>
 
         {/* Search Button */}
-        <button className="bg-red-500 text-white px-6 py-4 rounded-r-lg">
+        <button className="bg-red-500 text-white px-4 md:px-6 py-3 md:py-4 rounded-r-lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="h-5 w-5 md:h-6 md:w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

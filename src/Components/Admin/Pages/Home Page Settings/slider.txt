@@ -1,0 +1,427 @@
+import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
+import { EditOutlined } from '@ant-design/icons';
+import { TrashIcon } from '@heroicons/react/24/solid';
+
+const SliderComponent = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newSlider, setNewSlider] = useState({
+    name: '',
+    slug: '',
+    subTitle: '',
+    title: '',
+    description: '',
+    subTitleColor: '#000000',
+    titleColor: '#000000',
+    descriptionColor: '#000000',
+    image: null,
+    link: '',
+  });
+  const [editingSliderId, setEditingSliderId] = useState(null);
+  const [sliders, setSliders] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  useEffect(() => {
+    const fetchSliders = async () => {
+      try {
+        const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/sliders');
+        setSliders(response.data);
+      } catch (error) {
+        toast.error('Error fetching sliders. Please try again.');
+        console.error('Error fetching sliders:', error);
+      }
+    };
+    fetchSliders();
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewSlider((prevSlider) => ({ ...prevSlider, [name]: value }));
+  };
+
+  const handleImageChange = (e) => {
+    setNewSlider((prevSlider) => ({ ...prevSlider, image: e.target.files[0] }));
+  };
+
+  const handleUpdateSlider = async () => {
+    const formData = new FormData();
+    Object.keys(newSlider).forEach(key => {
+      if (key !== 'image') {
+        formData.append(key, newSlider[key]);
+      }
+    });
+    if (newSlider.image) {
+      formData.append('image', newSlider.image);
+    }
+
+    try {
+      const response = await axios.put(
+        `https://ecommerce-panel-backend.onrender.com/api/sliders/${editingSliderId}`,
+        formData,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
+      );
+      setSliders((prevSliders) =>
+        prevSliders.map((slider) => (slider._id === editingSliderId ? response.data : slider))
+      );
+      setEditingSliderId(null);
+      setIsModalOpen(false);
+      toast.success('Slider updated successfully!');
+    } catch (error) {
+      toast.error('Error updating slider. Please try again.');
+      console.error('Error updating slider:', error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (editingSliderId) {
+      await handleUpdateSlider();
+    } else {
+      const formData = new FormData();
+      Object.keys(newSlider).forEach(key => {
+        if (key !== 'image') {
+          formData.append(key, newSlider[key]);
+        }
+      });
+      if (newSlider.image) {
+        formData.append('image', newSlider.image);
+      }
+
+      try {
+        const response = await axios.post('https://ecommerce-panel-backend.onrender.com/api/sliders', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        });
+
+        setSliders((prev) => [...prev, response.data]);
+        setNewSlider({
+          name: '',
+          slug: '',
+          subTitle: '',
+          title: '',
+          description: '',
+          subTitleColor: '#000000',
+          titleColor: '#000000',
+          descriptionColor: '#000000',
+          image: null,
+          link: '',
+        });
+        setIsModalOpen(false);
+        toast.success('Slider created successfully!');
+      } catch (error) {
+        toast.error('Error creating slider. Please try again.');
+        console.error('Error creating slider:', error);
+      }
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/sliders/${id}`);
+      setSliders(sliders.filter(slider => slider._id !== id));
+      toast.success('Slider deleted successfully!');
+    } catch (error) {
+      toast.error('Error deleting slider. Please try again.');
+      console.error('Error deleting slider:', error);
+    }
+  };
+
+  const filteredSliders = sliders.filter((slider) =>
+    slider.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const totalPages = Math.ceil(filteredSliders.length / itemsPerPage);
+  const currentSliders = filteredSliders.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  return (
+    <>
+      <div className="content-area p-8 bg-gray-100 min-h-screen">
+        <h4 className="heading text-violet-600 text-3xl font-bold mb-6">Sliders</h4>
+        <div className="flex justify-between mb-6">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-400 w-64"
+          />
+          <button
+            onClick={() => {
+              setIsModalOpen(true);
+              setEditingSliderId(null);
+              setNewSlider({
+                name: '',
+                slug: '',
+                subTitle: '',
+                title: '',
+                description: '',
+                subTitleColor: '#000000',
+                titleColor: '#000000',
+                descriptionColor: '#000000',
+                image: null,
+                link: '',
+              });
+            }}
+            className="btn btn-primary rounded-lg px-6 py-2 bg-violet-600 text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 transition duration-200 ease-in-out"
+          >
+            + Add New Slider
+          </button>
+        </div>
+
+        {/* Slider Table */}
+        <div className="overflow-x-auto bg-white rounded-lg shadow">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Featured Image</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Slug</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sub Title</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Link</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created At</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Options</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {currentSliders.map((slider) => (
+                <tr key={slider._id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {slider.image ? <img src={slider.image} alt={slider.name} className="w-16 h-16 rounded-full object-cover" /> : '-'}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">{slider.name}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{slider.slug}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{slider.subTitle}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{slider.title}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{slider.description}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <a href={slider.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                      Link
+                    </a>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {new Date(slider.createdAt).toLocaleDateString()}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <button
+                      onClick={() => {
+                        setEditingSliderId(slider._id);
+                        setNewSlider({ ...slider, image: null });
+                        setIsModalOpen(true);
+                      }}
+                      className="text-indigo-600 hover:text-indigo-900 mr-4"
+                    >
+                      <EditOutlined className="h-5 w-5" />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(slider._id)}
+                      className="text-red-600 hover:text-red-900"
+                    >
+                      <TrashIcon className="h-5 w-5" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Pagination */}
+        <div className="mt-4 flex justify-center">
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i + 1)}
+              className={`mx-1 px-4 py-2 rounded ${
+                currentPage === i + 1 ? 'bg-violet-600 text-white' : 'bg-white text-violet-600 hover:bg-violet-100'
+              } transition duration-200 ease-in-out`}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+
+        {/* Add/Edit Slider Modal */}
+        {isModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 overflow-y-auto">
+            <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+              <h2 className="text-2xl font-bold mb-6">{editingSliderId ? 'Edit Slider' : 'Add New Slider'}</h2>
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="name">Name *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={newSlider.name}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Enter Name"
+                    className="border rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="slug">Slug *</label>
+                  <input
+                    type="text"
+                    id="slug"
+                    name="slug"
+                    value={newSlider.slug}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Enter Slug"
+                    className="border rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="subTitle">Sub Title *</label>
+                  <input
+                    type="text"
+                    id="subTitle"
+                    name="subTitle"
+                    value={newSlider.subTitle}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Enter Sub Title"
+                    className="border rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="title">Title *</label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value={newSlider.title}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Enter Title"
+                    className="border rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-400"
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium mb-1" htmlFor="description">Description *</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    value={newSlider.description}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Enter Description"
+                    className="border rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="subTitleColor">Sub Title Color</label>
+                  <div className="flex items-center">
+                    <input
+                      type="color"
+                      id="subTitleColor"
+                      name="subTitleColor"
+                      value={newSlider.subTitleColor}
+                      onChange={handleInputChange}
+                      className="border rounded w-12 h-8 mr-2"
+                    />
+                    <input
+                      type="text"
+                      value={newSlider.subTitleColor}
+                      onChange={(e) => handleInputChange({ target: { name: 'subTitleColor', value: e.target.value } })}
+                      className="border rounded-lg px-2 py-1 w-24 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="titleColor">Title Color</label>
+                  <div className="flex items-center">
+                    <input
+                      type="color"
+                      id="titleColor"
+                      name="titleColor"
+                      value={newSlider.titleColor}
+                      onChange={handleInputChange}
+                      className="border rounded w-12 h-8 mr-2"
+                    />
+                    <input
+                      type="text"
+                      value={newSlider.titleColor}
+                      onChange={(e) => handleInputChange({ target: { name: 'titleColor', value: e.target.value } })}
+                      className="border rounded-lg px-2 py-1 w-24 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="descriptionColor">Description Color</label>
+                  <div className="flex items-center">
+                    <input
+                      type="color"
+                      id="descriptionColor"
+                      name="descriptionColor"
+                      value={newSlider.descriptionColor}
+                      onChange={handleInputChange}
+                      className="border rounded w-12 h-8 mr-2"
+                    />
+                    <input
+                      type="text"
+                      value={newSlider.descriptionColor}
+                      onChange={(e) => handleInputChange({ target: { name: 'descriptionColor', value: e.target.value } })}
+                      className="border rounded-lg px-2 py-1 w-24 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium mb-1">Set Image *</label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    className="border rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    required={!editingSliderId}
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Preferred Size: (1920x800) or Square Sized Image</p>
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium mb-1" htmlFor="link">Link *</label>
+                  <input
+                    type="url"
+                    id="link"
+                    name="link"
+                    value={newSlider.link}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Enter Link"
+                    className="border rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-400"
+                  />
+                </div>
+                <div className="md:col-span-2 flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-4 mt-4">
+                  <button
+                    type="button"
+                    onClick={() => setIsModalOpen(false)}
+                    className="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-200 ease-in-out w-full sm:w-auto"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-6 py-2 bg-violet-600 text-white rounded-lg hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 transition duration-200 ease-in-out w-full sm:w-auto"
+                  >
+                    {editingSliderId ? 'Update Slider' : 'Create Slider'}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
+      </div>
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} />
+    </>
+  );
+};
+
+export default SliderComponent;
+

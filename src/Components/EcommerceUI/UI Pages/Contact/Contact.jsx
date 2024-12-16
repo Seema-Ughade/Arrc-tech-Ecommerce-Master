@@ -1,5 +1,5 @@
 import React from "react";
-import allimg from "../../../../assets/Assets/allpage.png";
+import allimg from "../Assets/allpage.png";
 import { PiPhonePlus } from "react-icons/pi";
 import { FaFax } from "react-icons/fa";
 
@@ -7,23 +7,23 @@ const ContactPage = () => {
   return (
     <div className="contact">
       <div className="object-cover relative">
-        <img src={allimg} alt="" className="w-screen h-[300px]" />
+        <img src={allimg} alt="Contact Banner" className="w-full h-[300px] object-cover" />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h1 className="text-white text-4xl font-bold">CONTACT</h1>
-          <h3 className=" mt-4 bg-white">Home // CONTACT</h3>
+          <h1 className="text-white text-4xl sm:text-5xl font-bold">CONTACT</h1>
+          <h3 className="mt-4 bg-white text-sm sm:text-lg">Home // CONTACT</h3>
         </div>
       </div>
 
       <div className="p-8 bg-gray-100 font-sans">
-        <div className="flex flex-wrap justify-center gap-5">
+        <div className="flex flex-col lg:flex-row justify-center gap-8">
           {/* Contact Information Section */}
           <div className="w-full md:w-1/2 lg:w-2/5 space-y-6">
-            <h1 className="text-5xl font-bold ml-4 mb-8">Get in Touch</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold mb-8">Get in Touch</h1>
+            
             {/* Office Address */}
             <div className="flex items-center bg-gray-200 p-4 rounded-md shadow-md">
               <div className="flex-shrink-0 w-12 h-12 bg-purple-400 rounded-full flex items-center justify-center text-white">
-                <PiPhonePlus />
-                <i className="fas fa-map-marker-alt text-xl"></i>
+                <PiPhonePlus size={24} />
               </div>
               <div className="ml-4">
                 <h3 className="text-lg font-semibold">Our Office Address</h3>
@@ -34,8 +34,7 @@ const ContactPage = () => {
             {/* Contact Number */}
             <div className="flex items-center bg-gray-200 p-4 rounded-md shadow-md">
               <div className="flex-shrink-0 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-white">
-                <PiPhonePlus />
-                <i className="fas fa-phone text-xl"></i>
+                <PiPhonePlus size={24} />
               </div>
               <div className="ml-4">
                 <h3 className="text-lg font-semibold">Contact Number</h3>
@@ -46,8 +45,7 @@ const ContactPage = () => {
             {/* Fax */}
             <div className="flex items-center bg-gray-200 p-4 rounded-md shadow-md">
               <div className="flex-shrink-0 w-12 h-12 bg-green-400 rounded-full flex items-center justify-center text-white">
-                <FaFax />
-                <i className="fas fa-fax text-xl"></i>
+                <FaFax size={24} />
               </div>
               <div className="ml-4">
                 <h3 className="text-lg font-semibold">Fax</h3>
@@ -57,14 +55,12 @@ const ContactPage = () => {
           </div>
 
           {/* Contact Form */}
-          <div>
-            <h2 className="text-5xl font-bold  mb-4 ">
-              Feel free to message us
-            </h2>
-            <div className=" mr-16 w-full bg-white p-6 rounded-md shadow-md">
+          <div className="w-full md:w-1/2 lg:w-3/5">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Feel free to message us</h2>
+            <div className="bg-white p-6 rounded-md shadow-md">
               <form className="space-y-4">
                 {/* Name and Phone Number */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="text"
                     placeholder="Your Name"

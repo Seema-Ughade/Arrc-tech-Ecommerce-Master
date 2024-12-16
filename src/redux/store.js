@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 // Importing Reducers
 import fontsReducer from "./reducers/fontsReducer"; // Importing fontsReducer
 import sliderReducer from "./reducers/sliderReducer"
+import categoriesReducer from './reducers/maincategoryReducer';
 
 // PRODUCTION
 export const server = "http://127.0.0.1:5000";
@@ -14,6 +15,8 @@ const store = configureStore({
   reducer: {
     fonts: fontsReducer, // Adding fontsReducer to the store
     slider: sliderReducer,
+        categories: categoriesReducer,
+
     
 
   },

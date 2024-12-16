@@ -9,35 +9,39 @@ import { IoLogoTwitter } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa6";
 import { IoLogoGoogleplus } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa";
-import footer1 from "../../../../assets/Assets/footer1jpg.jpg";
-import footer2 from "../../../../assets/Assets/footer2.jpg";
-import footer3 from "../../../../assets/Assets/footer3.jpg";
+import footer1 from "../Assets/footer1jpg.jpg";
+import footer2 from "../Assets/footer2.jpg";
+import footer3 from "../Assets/footer3.jpg";
 
 const Footer = () => {
   return (
     <>
-      <div className="home11">
-        <div className="signup">
-          <h1>SIGN UP TO NEWSLATTER</h1>
-
-          <form className="newsletter-form">
-            <input
-              type="email"
-              placeholder="Enter Your Email"
-              className="newsletter-input"
-            />
-            <button type="submit" className="newsletter-button">
-              Send
-            </button>
-          </form>
+      <div className="bg-red-500 text-white font-bold text-lg py-5 mt-8">
+        <div className=" mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <h1 className="text-2xl md:text-3xl">SIGN UP TO NEWSLETTER</h1>
+            <form className="flex flex-col sm:flex-row items-center gap-2">
+              <input
+                type="email"
+                placeholder="Enter Your Email"
+                className="px-3 py-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-auto"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 bg-white text-red-500 font-medium rounded-md hover:bg-gray-200 transition duration-300"
+              >
+                Send
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-      
+
       <footer className="footer">
         <div className="footer-container">
           {/* About Section */}
           <div className="footer-section">
-            <h4>Genius Shop</h4>
+            <h4>Arrc Technology</h4>
             <div className="flex gap-10">
               {/* <i className="ri-shopping-cart-line color:{'#00bcd4'}" ></i> */}
               <IoCallOutline fontSize={"25px"} />

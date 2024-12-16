@@ -1,5 +1,5 @@
 import React from "react";
-import allimg from "../../../../assets/Assets/allpage.png";
+import allimg from "../Assets/allpage.png";
 import "./Product.css";
 import ProductGrid from "./ProductGrid";
 
