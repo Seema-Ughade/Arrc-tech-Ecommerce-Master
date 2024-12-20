@@ -4,6 +4,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import fontsReducer from "./reducers/fontsReducer"; // Importing fontsReducer
 import sliderReducer from "./reducers/sliderReducer"
 import categoriesReducer from './reducers/maincategoryReducer';
+import productReducer from '../redux/actions/productSlice';
+import dealReducer from "./reducers/dealReducer"; // Adjust the path as needed
 
 // PRODUCTION
 export const server = "https://ecommerce-panel-backend.onrender.com";
@@ -16,6 +18,8 @@ const store = configureStore({
     fonts: fontsReducer, // Adding fontsReducer to the store
     slider: sliderReducer,
         categories: categoriesReducer,
+        product: productReducer,
+        deal: dealReducer, // Add the deal slice reducer
 
     
 

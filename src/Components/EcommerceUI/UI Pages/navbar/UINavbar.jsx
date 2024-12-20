@@ -8,8 +8,9 @@ import { FaRupeeSign } from "react-icons/fa";
 // import { FaBars, FaCode, FaBriefcase, FaChartLine, FaHeartbeat, FaGraduationCap, FaPalette, FaChevronDown } from "react-icons/fa";
 import { RiMenu5Fill } from "react-icons/ri";
 import "./navbar.css";
+import { useNavigate } from "react-router-dom";
 
-const UINavbar = () => {
+const UINavbar = (isAuthenticated) => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownPages, setDropdownPages] = useState(false);
@@ -25,6 +26,16 @@ const UINavbar = () => {
     setNav2(!nav2);
     setNav1(false);
   };
+
+  const navigate = useNavigate();
+
+  const handleVendorLogin = () => {
+    navigate("/user/vendor-register");
+  };
+  const handleRiderLogin = () => {
+    navigate("/user/rider-register");
+  };
+
 
   const categories = [
     "Electronic",
@@ -52,6 +63,7 @@ const UINavbar = () => {
 
   return (
     <>
+    
       <header className="header">
         <div className="gap-20 max-w-7xl h-15 py-2 px-4 flex flex-wrap items-center justify-between md:justify-around">
           {/* Contact Info */}
@@ -61,10 +73,12 @@ const UINavbar = () => {
 
           {/* Login Buttons */}
           <div className="hidden md:flex flex-wrap gap-2 justify-center items-center flex-1 md:flex-none">
-            <button className="px-2 py-1 text-white border border-white hover:bg-white hover:text-gray-800 transition">
+            <button       onClick={handleVendorLogin}
+ className="px-2 py-1 text-white border border-white hover:bg-white hover:text-gray-800 transition">
               Vendor Login
             </button>
-            <button className="px-2 py-1 text-white border border-white hover:bg-white hover:text-gray-800 transition">
+
+            <button onClick={handleRiderLogin} className="px-2 py-1 text-white border border-white hover:bg-white hover:text-gray-800 transition">
               Rider Login
             </button>
           </div>

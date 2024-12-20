@@ -49,7 +49,7 @@
 
 //     try {
 //       const response = await axios.put(
-//         `https://ecommerce-panel-backend.onrender.com/api/sliders/${editingSliderId}`,
+//         `https://ecommerce-panel-backend.onrender.com/api/sliders/₹{editingSliderId}`,
 //         formData,
 //         { headers: { 'Content-Type': 'multipart/form-data' } }
 //       );
@@ -94,7 +94,7 @@
 //   };
 //   const handleDelete = async (id) => {
 //     try {
-//       await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/sliders/${id}`);
+//       await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/sliders/₹{id}`);
 //       setSliders(sliders.filter(slider => slider._id !== id)); // Use _id for filtering
 //       toast.success('Slider deleted successfully!');
 //     } catch (error) {
@@ -433,7 +433,7 @@ const SliderComponent = () => {
             <button
               key={i}
               onClick={() => dispatch(setCurrentPage(i + 1))}
-              className={`mx-1 px-3 py-1 rounded ${
+              className={`mx-1 px-3 py-1 rounded ₹{
                 currentPage === i + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'
               }`}
             >
@@ -606,7 +606,7 @@ export default SliderComponent;
 
 //     try {
 //       const response = await axios.put(
-//         `https://ecommerce-panel-backend.onrender.com/api/sliders/${editingSliderId}`,
+//         `https://ecommerce-panel-backend.onrender.com/api/sliders/₹{editingSliderId}`,
 //         formData,
 //         { headers: { 'Content-Type': 'multipart/form-data' } }
 //       );
@@ -667,7 +667,7 @@ export default SliderComponent;
 
 //   const handleDelete = async (id) => {
 //     try {
-//       await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/sliders/${id}`);
+//       await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/sliders/₹{id}`);
 //       setSliders(sliders.filter(slider => slider._id !== id));
 //       toast.success('Slider deleted successfully!');
 //     } catch (error) {
@@ -785,7 +785,7 @@ export default SliderComponent;
 //             <button
 //               key={i}
 //               onClick={() => setCurrentPage(i + 1)}
-//               className={`mx-1 px-3 py-1 rounded ${
+//               className={`mx-1 px-3 py-1 rounded ₹{
 //                 currentPage === i + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'
 //               }`}
 //             >

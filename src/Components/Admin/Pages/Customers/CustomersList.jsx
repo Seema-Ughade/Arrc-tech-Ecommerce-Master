@@ -236,7 +236,7 @@ const CustomersList = () => {
                       Make Vendor
                     </button>
                     <button className="bg-blue-500 text-white px-3 py-1 rounded"         onClick={handleDetailsClick}
-                    >Details</button>
+>Details</button>
                     <button className="bg-indigo-500 text-white px-3 py-1 rounded">Edit</button>
                     <button className="bg-indigo-500 text-white px-3 py-1 rounded">send</button>
                     <button

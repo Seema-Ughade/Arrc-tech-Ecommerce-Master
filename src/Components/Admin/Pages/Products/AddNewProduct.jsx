@@ -24,7 +24,7 @@ const AddNewProduct = () => {
         </div>
 
         <div className="ap-product-categories">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20">
             {/* Physical Product Category */}
             <div 
               className="cat-box box1 p-6 shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
@@ -53,16 +53,16 @@ const AddNewProduct = () => {
               onMouseEnter={() => setHoveredIndex(1)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <Link to="/admin/products/digital/create" className="flex flex-col items-center text-center">
+              <Link to="/admin/products/listing/create" className="flex flex-col items-center text-center">
                 <div className={`icon-circle bg-pink-600 rounded-full p-4 flex items-center justify-center h-24 w-24 transition-transform duration-300 ${hoveredIndex === 1 ? 'transform rotate-[360deg]' : ''}`}>
                   <FaLaptop className="text-white text-4xl" />
                 </div>
-                <h5 className="title text-lg font-semibold text-white mt-4">Digital</h5>
+                <h5 className="title text-lg font-semibold text-white mt-4">Classified Listing</h5>
               </Link>
             </div>
 
             {/* License Product Category */}
-            <div 
+            {/* <div 
               className="cat-box box3 p-6 shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
               style={{
                 backgroundImage: 'linear-gradient(to right, #464de4 0%, #814eff 100%)', // Background Gradient
@@ -77,16 +77,16 @@ const AddNewProduct = () => {
                 </div>
                 <h5 className="title text-lg font-semibold text-white mt-4">License</h5>
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* Second Row - Classified Listing Category in the second column */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"> */}
             {/* Empty div for first column */}
-            <div className="hidden md:block"></div>
+            {/* <div className="hidden md:block"></div> */}
 
             {/* Classified Listing Category */}
-            <div 
+            {/* <div 
               className="cat-box box4 p-6 shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
               style={{
                 backgroundImage: 'linear-gradient(to right, #464de4 0%, #814eff 100%)', // Background Gradient
@@ -101,11 +101,11 @@ const AddNewProduct = () => {
                 </div>
                 <h5 className="title text-lg font-semibold text-white mt-4">Classified Listing</h5>
               </Link>
-            </div>
+            </div> */}
 
             {/* Empty div for third column */}
-            <div className="hidden md:block"></div>
-          </div>
+            {/* <div className="hidden md:block"></div> */}
+          {/* </div> */}
         </div>
       </div>
     </div>

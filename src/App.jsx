@@ -1,4 +1,5 @@
 
+
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from "react-router-dom";
 
@@ -19,6 +20,8 @@ import ManageStaffs from './Components/Admin/Pages/Manage Staffs/ManageStaffs';
 import PhysicalCreateProduct from './Components/Admin/Pages/Products/PhysicalCreateProduct';
 import DigitalProductCreate from './Components/Admin/Pages/Products/DigitalProductCreate';
 import LicenseProductCreate from './Components/Admin/Pages/Products/LicenseProductCreate';
+import ProductSettings from './Components/Admin/Pages/Products/ProductSettings';
+import ProductCatalog from './Components/Admin/Pages/Products/ProductCatalog';
 import ListingProductCreate from './Components/Admin/Pages/Products/ListingProductCreate';
 import ProductList from './Components/Admin/Pages/Products/ProductList';
 import DeactivatedProducts from './Components/Admin/Pages/Products/DeactivatedProducts';
@@ -36,6 +39,7 @@ import SliderComponent from './Components/Admin/Pages/Home Page Settings/SliderC
 import ServiceComponent from './Components/Admin/Pages/Home Page Settings/ServiceComponent';
 import PartnersComponent from './Components/Admin/Pages/Home Page Settings/PartnersComponent';
 import BestMonthOffer from './Components/Admin/Pages/Home Page Settings/BestMonthOffer';
+import DealOfDay from './Components/Admin/Pages/Home Page Settings/DealofDay.jsx';
 import FaqComponent from './Components/Admin/Pages/Menu Page Settings/FaqComponent';
 import PageComponent from './Components/Admin/Pages/Menu Page Settings/PageComponent';
 import PaymentGatewayComponent from './Components/Admin/Pages/Payment Settings/PaymentGatewayComponent';
@@ -157,13 +161,56 @@ import HealthFitnessGadgets from './Components/EcommerceUI/UI Pages/Products/POR
 import Blogdetails from './Components/EcommerceUI/UI Pages/Blog/Blogdetails.jsx';
 
 
-
+//Vendor Component
+import VendorAuthForm from './Components/VendorDashboard/VendorAuthForm.jsx'
+import RiderAuthForm from "./Components/RiderDashboard/RiderAuthForm.jsx";
+import VendorDashboard from "./Components/VendorDashboard/VendorDashboard.jsx";
+import VendorLoginForm from './Components/VendorDashboard/VendorLoginForm'; // Import your component
+import VendorLayout from "./Components/VendorDashboard/VendorLayout.jsx";
+import EditTax from "./Components/Admin/Pages/Manage Country/EditTax.jsx";
+import Withdrawals from "./Components/Admin/Pages/Customers/Withdrawals.jsx";
+import CustomerDefaultImage from "./Components/Admin/Pages/Customers/CustomerDefaultImage.jsx";
+import Tickets from "./Components/Admin/Pages/Massage/Tickets.jsx";
+import ConversationDetails from "./Components/Admin/Pages/Massage/ConversationDetails.jsx";
+import BlogSettings from "./Components/Admin/Pages/Blog/BlogSettings.jsx";
+import AffiliateProgram from "./Components/Admin/Pages/General Settings/AffiliateProgram.jsx";
+import PopupBanner from "./Components/Admin/Pages/General Settings/PopupBanner.jsx";
+import BreadcrumbBanner from "./Components/Admin/Pages/General Settings/BreadcrumbBanner.jsx";
+import WebsiteContents from "./Components/Admin/Pages/General Settings/WebsiteContents.jsx";
+import ErrorPageBanner from "./Components/Admin/Pages/General Settings/ErrorPageBanner.jsx";
+import WebsiteMaintenance from "./Components/Admin/Pages/General Settings/WebsiteMaintenance.jsx";
+import HomePageSelector from "./Components/Admin/Pages/Home Page Settings/HomePageSelector.jsx";
+import HomePageCustomization from "./Components/Admin/Pages/Home Page Settings/HomePageCustomization.jsx";
+import ContactUs from "./Components/Admin/Pages/Menu Page Settings/ContactUs.jsx";
+import CustomizeMenuLinks from "./Components/Admin/Pages/Menu Page Settings/CustomizeMenuLinks.jsx";
+import EmailTemplates from "./Components/Admin/Pages/EmailSettings/EmailTemplates.jsx";
+import EmailConfiguration from "./Components/Admin/Pages/EmailSettings/EmailConfiguration.jsx";
+import GroupEmail from "./Components/Admin/Pages/EmailSettings/GroupEmail.jsx";
+import PaymentInformation from "./Components/Admin/Pages/Payment Settings/PaymentInformation.jsx";
+import RewardsManagement from "./Components/Admin/Pages/Payment Settings/RewardsManagement.jsx";
+import FacebookLoginSettings from "./Components/Admin/Pages/Social Settings/FacebookLoginSettings.jsx";
+import GoogleLoginSettings from "./Components/Admin/Pages/Social Settings/GoogleLoginSettings.jsx";
+import PopularProducts from "./Components/Admin/Pages/SEO Tools/PopularProducts.jsx";
+import GoogleAnalyticsSettings from "./Components/Admin/Pages/SEO Tools/GoogleAnalyticsSettings.jsx";
+import MetaKeywordsSettings from "./Components/Admin/Pages/SEO Tools/MetaKeywordsSettings.jsx";
+import SubscriberTable from "./Components/Admin/Pages/Subscribers/SubscriberTable.jsx";
+//rider Component
+// import VendorAuthForm from './Components/VendorDashboard/VendorAuthForm.jsx'
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Tracks authentication status
   const [loggedInUser, setLoggedInUser] = useState(null); // Tracks logged-in user details
   const [permissions, setPermissions] = useState(null); // Tracks user permissions
   const [isSidebarCollapsed, setSidebarCollapsed] = useState(false); // Toggles sidebar state
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [userType, setUserType] = useState(null);
+
+  // Define the handleSwitchToRegister function
+  const handleSwitchToRegister = () => {
+    setIsRegistered(true); // or any other logic you'd like
+    console.log('Switching to registration page');
+  };
+
 
   // Handles user login
   const handleLogin = (staff, token) => {
@@ -171,7 +218,10 @@ const App = () => {
     setLoggedInUser(staff);
     setPermissions(staff.role.permissions); // Set user permissions
     localStorage.setItem('token', token); // Save token to local storage
+    localStorage.setItem('userType', type);
+
   };
+
 
   // Handles user logout
   const handleLogout = () => {
@@ -179,9 +229,11 @@ const App = () => {
     setIsAuthenticated(false);
     setLoggedInUser(null);
     setPermissions(null);
+    setUserType(null);
 
     // Clear local storage and other session data
     localStorage.removeItem('token');
+    localStorage.removeItem('userType');
 
     // Redirect user to login page
     window.location.href = '/login'; // Forces a page reload to clear stateful data
@@ -195,7 +247,7 @@ const App = () => {
   // **Protected Route**: Redirects to login if not authenticated
   const ProtectedRoute = ({ children }) => {
     if (!isAuthenticated) {
-      return <Navigate to="/login" />;
+      return <Navigate to="/dashboard" />;
     }
     return children || <Outlet />;
   };
@@ -207,7 +259,7 @@ const App = () => {
     }
     return children || <Outlet />;
   };
-  
+
   return (
     <Router>
       <div className="h-full w-full">
@@ -235,109 +287,137 @@ const App = () => {
 
                 <Route element={<PublicRoute />}>
 
-              <Route path='/' element={<Home />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/products/electronics/television' element={<Television />} />
-          <Route path='/products/electronics/refrigerator' element={<Refrigeartor />} />
-          <Route path='/products/electronics/washingmachine' element={<WashingMachine />} />
-          <Route path='/products/electronics/airconditionersy' element={<AirConditioners />} />
+                  <Route path='/' element={<Home />} />
+                  <Route path='/products' element={<Products />} />
+                  <Route path='/products/electronics/television' element={<Television />} />
+                  <Route path='/products/electronics/refrigerator' element={<Refrigeartor />} />
+                  <Route path='/products/electronics/washingmachine' element={<WashingMachine />} />
+                  <Route path='/products/electronics/airconditionersy' element={<AirConditioners />} />
 
-          <Route path='/products/fashionbeauty/accessories' element={<Accessories />} />
-          <Route path='/products/fashionbeauty/bags' element={<Bags />} />
-          <Route path='/products/fashionbeauty/clothings' element={<Clothings />} />
-          <Route path='/products/fashionbeauty/shoes' element={<Shoes />} />
+                  <Route path='/products/fashionbeauty/accessories' element={<Accessories />} />
+                  <Route path='/products/fashionbeauty/bags' element={<Bags />} />
+                  <Route path='/products/fashionbeauty/clothings' element={<Clothings />} />
+                  <Route path='/products/fashionbeauty/shoes' element={<Shoes />} />
 
-          <Route path='/products/cameraphoto/dslr' element={<Dslr />} />
-          <Route path='/products/cameraphoto/cameraphone' element={<CameraPhone />} />
-          <Route path='/products/cameraphoto/actioncamera' element={<ActionCamera />} />
-          <Route path='/products/cameraphoto/digitalcamera' element={<DigitalCamera />} />
+                  <Route path='/products/cameraphoto/dslr' element={<Dslr />} />
+                  <Route path='/products/cameraphoto/cameraphone' element={<CameraPhone />} />
+                  <Route path='/products/cameraphoto/actioncamera' element={<ActionCamera />} />
+                  <Route path='/products/cameraphoto/digitalcamera' element={<DigitalCamera />} />
 
-          <Route path='/products/samartphonetable/apple' element={< Apple />} />
-          <Route path='/products/samartphonetable/samsung' element={<Samsung />} />
-          <Route path='/products/samartphonetable/lg' element={<Lg />} />
-          <Route path='/products/samartphonetable/sony' element={<Sony />} />
+                  <Route path='/products/samartphonetable/apple' element={< Apple />} />
+                  <Route path='/products/samartphonetable/samsung' element={<Samsung />} />
+                  <Route path='/products/samartphonetable/lg' element={<Lg />} />
+                  <Route path='/products/samartphonetable/sony' element={<Sony />} />
 
-          <Route path='/products/sportoutdoor/sportequipment' element={<SportsEquipment />} />
-          <Route path='/products/sportoutdoor/outdoorapparel' element={<OutdoorApparel />} />
-          <Route path='/products/sportoutdoor/campinghiking' element={<CampingHiking />} />
-          <Route path='/products/sportoutdoor/watersports' element={<WaterSports />} />
+                  <Route path='/products/sportoutdoor/sportequipment' element={<SportsEquipment />} />
+                  <Route path='/products/sportoutdoor/outdoorapparel' element={<OutdoorApparel />} />
+                  <Route path='/products/sportoutdoor/campinghiking' element={<CampingHiking />} />
+                  <Route path='/products/sportoutdoor/watersports' element={<WaterSports />} />
 
-          <Route path='/products/jewelrywatches/finejewelry' element={<FineJewelry />} />
-          <Route path='/products/jewelrywatches/fashionjewelry' element={<FashionJewelry />} />
-          <Route path='/products/jewelrywatches/meansjewelry' element={<MensJewelry />} />
-          <Route path='/products/jewelrywatches/womensjewelry' element={< WomaensJewelry />} />
+                  <Route path='/products/jewelrywatches/finejewelry' element={<FineJewelry />} />
+                  <Route path='/products/jewelrywatches/fashionjewelry' element={<FashionJewelry />} />
+                  <Route path='/products/jewelrywatches/meansjewelry' element={<MensJewelry />} />
+                  <Route path='/products/jewelrywatches/womensjewelry' element={< WomaensJewelry />} />
 
-          <Route path='/products/healthbeauty/skincare' element={<Skincare />} />
-          <Route path='/products/healthbeauty/haircare' element={<HairCare />} />
-          <Route path='/products/healthbeauty/makeup' element={<Makeup />} />
-          <Route path='/products/healthbeauty/personalcare' element={<PersonalCare />} />
+                  <Route path='/products/healthbeauty/skincare' element={<Skincare />} />
+                  <Route path='/products/healthbeauty/haircare' element={<HairCare />} />
+                  <Route path='/products/healthbeauty/makeup' element={<Makeup />} />
+                  <Route path='/products/healthbeauty/personalcare' element={<PersonalCare />} />
 
-          <Route path='/products/booksoffice/books' element={<Books />} />
-          <Route path='/products/booksoffice/officesupplies' element={<OfficeSupplies />} />
-          <Route path='/products/booksoffice/officefurniture' element={<OfficeFurniture />} />
-          <Route path='/products/booksoffice/computerselectronics' element={<ComputersElectroics />} />
+                  <Route path='/products/booksoffice/books' element={<Books />} />
+                  <Route path='/products/booksoffice/officesupplies' element={<OfficeSupplies />} />
+                  <Route path='/products/booksoffice/officefurniture' element={<OfficeFurniture />} />
+                  <Route path='/products/booksoffice/computerselectronics' element={<ComputersElectroics />} />
 
-          <Route path='/products/toyshobbies/toys' element={<Toys />} />
-          <Route path='/products/toyshobbies/artscrafts' element={<ArtsCrafts />} />
-          <Route path='/products/toyshobbies/gamespuzzles' element={<GamesPuzzles />} />
-          <Route path='/products/toyshobbies/collectibles' element={<Collectibles />} />
+                  <Route path='/products/toyshobbies/toys' element={<Toys />} />
+                  <Route path='/products/toyshobbies/artscrafts' element={<ArtsCrafts />} />
+                  <Route path='/products/toyshobbies/gamespuzzles' element={<GamesPuzzles />} />
+                  <Route path='/products/toyshobbies/collectibles' element={<Collectibles />} />
 
-          <Route path='/products/automobiles/newcars' element={<NewCars />} />
-          <Route path='/products/automobiles/usedcars' element={<UsedCars />} />
-          <Route path='/products/automobiles/caraccessories' element={<CarAccessories />} />
-          <Route path='/products/automobiles/fluidschemical' element={<FluidsChemicals />} />
+                  <Route path='/products/automobiles/newcars' element={<NewCars />} />
+                  <Route path='/products/automobiles/usedcars' element={<UsedCars />} />
+                  <Route path='/products/automobiles/caraccessories' element={<CarAccessories />} />
+                  <Route path='/products/automobiles/fluidschemical' element={<FluidsChemicals />} />
 
-          <Route path='/products/homedecoration/wallart' element={<WallArt />} />
-          <Route path='/products/homedecoration/lighting' element={<Lighting />} />
-          <Route path='/products/homedecoration/furniture' element={<Furniture />} />
-          <Route path='/products/homedecoration/textiles' element={<Textiles />} />
+                  <Route path='/products/homedecoration/wallart' element={<WallArt />} />
+                  <Route path='/products/homedecoration/lighting' element={<Lighting />} />
+                  <Route path='/products/homedecoration/furniture' element={<Furniture />} />
+                  <Route path='/products/homedecoration/textiles' element={<Textiles />} />
 
-          <Route path='/products/portablepersonal/portableelectronics' element={<PortableElectronics />} />
-          <Route path='/products/portablepersonal/personalcaredevices' element={<PersonalCareDevice />} />
-          <Route path='/products/portablepersonal/travelessentials' element={<TravelEssentials />} />
-          <Route path='/products/portablepersonal/healthfitnessgadgets' element={<HealthFitnessGadgets />} />
-
-
+                  <Route path='/products/portablepersonal/portableelectronics' element={<PortableElectronics />} />
+                  <Route path='/products/portablepersonal/personalcaredevices' element={<PersonalCareDevice />} />
+                  <Route path='/products/portablepersonal/travelessentials' element={<TravelEssentials />} />
+                  <Route path='/products/portablepersonal/healthfitnessgadgets' element={<HealthFitnessGadgets />} />
 
 
 
-          <Route path='/aboutus' element={<AboutUs />} />
-          <Route path='/privacy' element={<Privacy />} />
-          <Route path='/faq' element={<Faq />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/Blog' element={<Blog />} />
-          <Route path='blogdetails/:id' element={<Blogdetails />} />
-          <Route path='/UILogin' element={<UILogin />} />
-          <Route path='/search' element={<Search />} />
-          <Route path='/compare' element={<Compare />} />
-          <Route path='/Cart' element={<Cart />} />
+
+
+                  <Route path='/aboutus' element={<AboutUs />} />
+                  <Route path='/privacy' element={<Privacy />} />
+                  <Route path='/faq' element={<Faq />} />
+                  <Route path='/contact' element={<Contact />} />
+                  <Route path='/Blog' element={<Blog />} />
+                  <Route path='blogdetails/:id' element={<Blogdetails />} />
+                  <Route path='/UILogin' element={<UILogin />} />
+                  <Route path='/search' element={<Search />} />
+                  <Route path='/compare' element={<Compare />} />
+                  <Route path='/Cart' element={<Cart />} />
+
+                  {/* vonder code */}
+                  <Route path="/user/vendor-register" element={<VendorAuthForm />} />
+                  <Route path="/user/rider-register" element={<RiderAuthForm />} />
+                  <Route path="/user/VendorDashboard" element={<VendorDashboard />} />
+                  <Route path="/" element={<VendorLoginForm onSwitchToRegister={handleSwitchToRegister} />} />
+                  <Route path="/vendor-dashboard" element={<VendorDashboard />} />
+                  <Route path="/appdashboard" element={<VendorLayout />} />
                 </Route>
 
                 {/* Protected Admin Routes */}
-                <Route  element={<ProtectedRoute />}>
+                <Route element={<ProtectedRoute />}>
 
-                  <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/admin/products/types" element={<AddNewProduct />} />
-                  <Route path="/admin/products/types" element={<AddNewProduct />} />
-                  <Route path="/admin/category" element={<MainCategories />} />
-                  <Route path="/admin/subcategory" element={<SubCategories />} />
-                  <Route path="/admin/childcategory" element={<ChildCategories />} />
-                  <Route path="/admin/blog/categories" element={<Categories />} />
-                  <Route path="/admin/blog/posts" element={<Posts />} />
-                  <Route path="/admin/blog/manage-staffs" element={<ManageStaffs />} />
                   <Route path="/admin/products/physical/create" element={<PhysicalCreateProduct />} />
                   <Route path="/admin/products/digital/create" element={<DigitalProductCreate />} />
                   <Route path="/admin/products/license/create" element={<LicenseProductCreate />} />
                   <Route path="/admin/products/listing/create" element={<ListingProductCreate />} />
+                  <Route path="/admin/products/catalogs" element={<ProductCatalog />} />
+                  <Route path="/admin/products/product-settings" element={<ProductSettings />} />
                   <Route path="/admin/products" element={<ProductList />} />
                   <Route path="/admin/products/deactive" element={<DeactivatedProducts />} />
-                  <Route path="/admin/coupon" element={<SetCoupans />} />
-                  <Route path="/admin/social-link" element={<SocialLinks />} />
+
                   <Route path="/admin/products/add-affiliate/AddAffiliateProduct" element={<AddAffiliateProduct />} />
                   <Route path="/admin/products/AllAffiliateProducts" element={<AffiliateProducts />} />
+
+                  <Route path="/dashboard" element={<Dashboard />} />
+
+                  <Route path="/admin/category" element={<MainCategories />} />
+                  <Route path="/admin/subcategory" element={<SubCategories />} />
+                  <Route path="/admin/childcategory" element={<ChildCategories />} />
+
+                  <Route path="/admin/blog/settings" element={<BlogSettings />} />
+                  <Route path="/admin/blog/categories" element={<Categories />} />
+                  <Route path="/admin/blog/posts" element={<Posts />} />
+                  <Route path="/admin/blog/manage-staffs" element={<ManageStaffs />} />
+
+                  <Route path="/admin/coupon" element={<SetCoupans />} />
+                  <Route path="/admin/social-link" element={<SocialLinks />} />
                   <Route path="/admin/ProductBulkUpload" element={<ProductBulkUpload />} />
+
                   <Route path="/admin/general-settings/logo" element={<LogoUpload />} />
                   <Route path="/admin/general-settings/favicon" element={<FaviconUpload />} />
+                  <Route path="/admin/general-settings/affilate" element={<AffiliateProgram />} />
+                  <Route path="/admin/general-settings/popup" element={<PopupBanner />} />
+                  <Route path="/admin/general-settings/breadcrumb" element={<BreadcrumbBanner />} />
+                  <Route path="/admin/general-settings/contents" element={<WebsiteContents />} />
+                  <Route path="/admin/general-settings/error-banner" element={<ErrorPageBanner />} />
+                  <Route path="/admin/general-settings/maintenance" element={<WebsiteMaintenance />} />
+
+                  <Route path="/admin/home-page-settings" element={<HomePageSelector />} />
+                  <Route path="/admin/page-settings/contact" element={<ContactUs />} />
+                  <Route path="/admin/page-settings/customize" element={<HomePageCustomization />} />
+
+                  <Route path="/admin/menu/links" element={<CustomizeMenuLinks />} />
                   <Route path="/admin/shipping" element={<ShippingMethods />} />
                   <Route path="/admin/package" element={<Packagings />} />
                   <Route path="/admin/pickup" element={<PickupLocations />} />
@@ -346,50 +426,82 @@ const App = () => {
                   <Route path="/admin/partner" element={<PartnersComponent />} />
                   <Route path="/admin/faq" element={<FaqComponent />} />
                   <Route path="/admin/page" element={<PageComponent />} />
-                  <Route path="/admin/paymentgateway" element={<PaymentGatewayComponent />} />
+
+                  <Route path="/admin/allorder" element={<AllOrders />} />
+                  <Route path="/admin/orderspending" element={<PendingOrders />} />
+                  <Route path="/admin/ordersprocessing" element={<ProcessingOrders />} />
+                  <Route path="/admin/orderscompleted" element={<CompletedOrders />} />
+                  <Route path="/admin/ordersdeclined" element={<DeclinedOrders />} />
                   <Route path="/admin/order/create" element={<ProductUserDetail />} />
-                  <Route path="/admin/currency" element={<Currencies />} />
+
                   <Route path="/admin/fonts" element={<Fonts />} />
                   <Route path="/admin/role" element={<Roles />} />
                   <Route path="/admin/cities" element={<Cities />} />
-              <Route path="/admin/states" element={<States />} />
-              <Route path="/admin/TaxManagementForm" element={<TaxManagementForm />} />
-              <Route path="/admin/manage/country/tax" element={<ManageTax />} />
-              <Route path="/admin/manage/country" element={<Countries />} />
-              <Route path="/admin/users" element={<CustomersList />} />
-              {/* <Route path="/admin/subscription" element={<VendorSubscriptionPlans />} /> */}
-              <Route path="/admin/allorder" element={<AllOrders />} />
-              <Route path="/admin/orderspending" element={<PendingOrders />} />
-              <Route path="/admin/ordersprocessing" element={<ProcessingOrders />} />
-              <Route path="/admin/orderscompleted" element={<CompletedOrders />} />
-              <Route path="/admin/ordersdeclined" element={<DeclinedOrders />} />
-              <Route path="/admin/tax/calculate" element={<TaxCalculate />} />
-              <Route path="/admin/subscription/earning" element={<SubscriptionEarnings />} />
-              <Route path="/admin/withdraw/earning" element={<WithdrawEarnings />} />
-              <Route path="/admin/commission/earning" element={<CommissionEarningDashboard />} />
-              <Route path="/admin/ratings" element={<ProductReviews />} />
-              <Route path="/admin/reports" element={<ProductDiscussionReports />} />
-              <Route path="/admin/riders" element={<RidersList />} />
-              <Route path="/admin/riders/withdraws" element={<Withdraws />} />
-              <Route path="/admin/users/deposits/all" element={<CompletedDeposits />} />
-              <Route path="/admin/users/deposits/pending" element={<PendingDeposits />} />
-              <Route path="/admin/users/transactions" element={<Transactions />} />
-              <Route path="/admin/vendors" element={<VendorsList />} />
-              <Route path="/admin/vendors/withdraws" element={<VendorsWithdraws />} />
-              <Route path="/admin/vendors/subs/completed" element={<CompletedVendorSubscriptions />} />
-              <Route path="/admin/vendors/subs/pending" element={<PendingVendorSubscriptions />} />
-              <Route path="/admin/verificatons/all" element={<VendorVerifications />} />
-              <Route path="/admin/verificatons/pending" element={<PendingVerifications />} />
-              <Route path="/admin/subscription" element={<VendorSubscriptionPlans />} />
-              <Route path="/admin/arrival" element={<BestMonthOffer />} />
+                  <Route path="/admin/states" element={<States />} />
+                  <Route path="/admin/TaxManagementForm" element={<TaxManagementForm />} />
+                  <Route path="/admin/manage/country/tax" element={<ManageTax />} />
+                  <Route path="/tax/country" element={<EditTax />} />
+                  <Route path="/admin/manage/country" element={<Countries />} />
 
-              {/* <Route path="/admin/customerdetails" element={<CustomerDetails />} /> */}
+                  <Route path="/admin/users" element={<CustomersList />} />
+                  <Route path="/admin/users/deposits/all" element={<CompletedDeposits />} />
+                  <Route path="/admin/users/deposits/pending" element={<PendingDeposits />} />
+                  <Route path="/admin/users/transactions" element={<Transactions />} />
+                  <Route path="/admin/users/withdraws" element={<Withdrawals />} />
+
+
+                  {/* <Route path="/admin/users/withdraws" element={<CustomerDetails />} /> */}
+                  {/* <Route path="/admin/subscription" element={<VendorSubscriptionPlans />} /> */}
+                  <Route path="/admin/tax/calculate" element={<TaxCalculate />} />
+                  <Route path="/admin/subscription/earning" element={<SubscriptionEarnings />} />
+                  <Route path="/admin/withdraw/earning" element={<WithdrawEarnings />} />
+                  <Route path="/admin/commission/earning" element={<CommissionEarningDashboard />} />
+                  <Route path="/admin/ratings" element={<ProductReviews />} />
+                  <Route path="/admin/reports" element={<ProductDiscussionReports />} />
+
+                  <Route path="/admin/riders" element={<RidersList />} />
+                  <Route path="/admin/riders/withdraws" element={<Withdraws />} />
+
+                  <Route path="/admin/vendors" element={<VendorsList />} />
+                  <Route path="/admin/vendors/withdraws" element={<VendorsWithdraws />} />
+                  <Route path="/admin/vendors/subs/completed" element={<CompletedVendorSubscriptions />} />
+                  <Route path="/admin/vendors/subs/pending" element={<PendingVendorSubscriptions />} />
+
+                  <Route path="/admin/verificatons/all" element={<VendorVerifications />} />
+                  <Route path="/admin/verificatons/pending" element={<PendingVerifications />} />
+                  <Route path="/admin/subscription" element={<VendorSubscriptionPlans />} />
+                  <Route path="/admin/arrival" element={<BestMonthOffer />} />
+                  <Route path="/admin/deal/of/day" element={<DealOfDay />} />
+
+                  <Route path="/admin/customerdetails" element={<CustomerDetails />} />
+                  <Route path="/admin/user/default/image" element={<CustomerDefaultImage />} />
+                  <Route path="/admin/tickets" element={<Tickets />} />
+                  {/* <Route path="/admin/disputes" element={<Disputes />} /> */}
+                  <Route path="/admin/Coversation" element={<ConversationDetails />} />
+
+                  <Route path="/admin/email-templates" element={<EmailTemplates />} />
+                  <Route path="/admin/email-config" element={<EmailConfiguration />} />
+                  <Route path="/admin/groupemail" element={<GroupEmail />} />
+
+                  <Route path="/admin/payment-informations" element={<PaymentInformation />} />
+                  <Route path="/admin/paymentgateway" element={<PaymentGatewayComponent />} />
+                  <Route path="/admin/currency" element={<Currencies />} />
+                  <Route path="/admin/rewards" element={<RewardsManagement />} />
+
+                  <Route path="/admin/social/facebook" element={<FacebookLoginSettings />} />
+                  <Route path="/admin/social/google" element={<GoogleLoginSettings />} />
+
+                  <Route path="/admin/products/popular/30" element={<PopularProducts />} />
+                  <Route path="/admin/seotools/analytics" element={<GoogleAnalyticsSettings />} />
+                  <Route path="/admin/seotools/keywords" element={<MetaKeywordsSettings />} />
+
+                  <Route path="/admin/subscribers" element={<SubscriberTable />} />
 
                   <Route path="/" element={<Navigate to="/dashboard" />} />
 
                 </Route>
 
-           
+
 
 
                 <Route path="/login" element={<Login onLogin={handleLogin} />} />

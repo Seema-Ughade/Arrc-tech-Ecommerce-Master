@@ -356,16 +356,16 @@ const menuItems = [
       { key: 'google-login', icon: <MdGTranslate />, label: 'Google Login', to: '/admin/social/google' },
     ],
   },
-  {
-    key: 'language-settings',
-    icon: <MdLanguage />, // Replace with an appropriate icon
-    label: 'Language Settings',
-    permission : "Language Settings",
-    children: [
-      { key: 'website-language', icon: <MdLanguage />, label: 'Website Language', to: '/admin/languages' },
-      { key: 'admin-panel-language', icon: <MdLanguage />, label: 'Admin Panel Language', to: '/admin/adminlanguages' },
-    ],
-  },
+  // {
+  //   key: 'language-settings',
+  //   icon: <MdLanguage />, // Replace with an appropriate icon
+  //   label: 'Language Settings',
+  //   permission : "Language Settings",
+  //   children: [
+  //     { key: 'website-language', icon: <MdLanguage />, label: 'Website Language', to: '/admin/languages' },
+  //     { key: 'admin-panel-language', icon: <MdLanguage />, label: 'Admin Panel Language', to: '/admin/adminlanguages' },
+  //   ],
+  // },
   {
     key: 'font-option',
     icon: <MdFontDownload />, // Replace with an appropriate icon
