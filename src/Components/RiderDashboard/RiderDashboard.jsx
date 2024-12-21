@@ -107,7 +107,6 @@
 // }
 
 
-'use client'
 
 import { useState } from "react"
 import { Menu, Bell, ChevronDown, Store, Truck, ShoppingBag, Package, Upload, MessageSquare, Wallet, Settings, LayoutGrid, Cog, DollarSign } from 'lucide-react'

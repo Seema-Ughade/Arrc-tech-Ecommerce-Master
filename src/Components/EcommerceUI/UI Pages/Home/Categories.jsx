@@ -1,724 +1,134 @@
-// import React from 'react';
-import cart1 from "../Assets/cart1.jpg";
-import cart2 from "../Assets/cart2.jpg";
-import cart3 from "../Assets/cart3.jpg";
-import cart4 from "../Assets/cart4.jpg";
-import cart5 from "../Assets/cart5.jpg";
-import cart6 from "../Assets/cart6.jpg";
-import cart7 from "../Assets/cart7.jpg";
-import cart8 from "../Assets/cart8.jpg";
-// import cart9 from "../Assets/cart9.jpg";
-// import cart10 from "../Assets/cart10.jpg";
-// import cart11 from "../Assets/cart11.jpg";
-// import cart12 from "../Assets/cart12.jpg";
-// import { FaRegHeart } from "react-icons/fa";
-// import { FaInfinity } from "react-icons/fa6";
-// import { IoEyeOutline } from "react-icons/io5";
-// import { GoStarFill } from "react-icons/go";
-
-// const Home4 = () => {
-//   return (
-//     <div className="home4">
-//       <div className="head text-center my-5">
-//         <h2 class="text-4xl font-bold inline-block whitespace-nowrap">Explore Our Products</h2>
-//       </div>
-
-//       <nav className="flex justify-center items-center my-5">
-//         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 text-center mt-4 mb-5">
-//           <a
-//             href="/"
-//             className="relative font-semibold text-2xl hover:text-red-500 hover:underline active:text-red-500"
-//           >
-//             NEW ARRIVAL
-//             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-red-500 scale-x-0 transition-transform origin-left hover:scale-x-100 active:scale-x-100"></span>
-//           </a>
-//           <a
-//             href="/"
-//             className="relative font-semibold text-2xl hover:text-red-500 hover:underline active:text-red-500"
-//           >
-//             TRENDING
-//             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-red-500 scale-x-0 transition-transform origin-left hover:scale-x-100 active:scale-x-100"></span>
-//           </a>
-//           <a
-//             href="/"
-//             className="relative font-semibold text-2xl hover:text-red-500 hover:underline active:text-red-500"
-//           >
-//             BEST SELLING
-//             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-red-500 scale-x-0 transition-transform origin-left hover:scale-x-100 active:scale-x-100"></span>
-//           </a>
-//           <a
-//             href="/"
-//             className="relative font-semibold text-2xl hover:text-red-500 hover:underline active:text-red-500"
-//           >
-//             POPULAR
-//             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-red-500 scale-x-0 transition-transform origin-left hover:scale-x-100 active:scale-x-100"></span>
-//           </a>
-//         </div>
-//       </nav>
-
-
-
-
-//       <div className="cart">
-//         <div className="cart1 group relative">
-//           <div className="imgBox overflow-hidden">
-//             <img
-//               src={cart1}
-//               alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button className="cart-btn text-white">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead hover:text-red-700 cursor-pointer">
-//               Chic Off-Shoulder Ruffle Dress with Floral Print
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl contentHead hover:text-red-700 cursor-pointer">
-//                   318.95$
-//                 </h3>
-//                 <h3>423.95$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-
-//         <div className="cart1 group">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart2} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button className="cart-btn text-white">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead ">
-//               Cozy Knit Sweater with Turtleneck and Cable Knit P...
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">267.50$</h3>
-//                 <h3>404$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart1 group">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart3} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button class="cart-btn">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead">
-//               High-Waisted Skinny Jeans with Distressed Details ...
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">146.75$</h3>
-//                 <h3>236$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart1 group">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart4} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button class="cart-btn">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead">
-//               Gaming Headset with Surround Sound, LED Lighting, ...
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">215$</h3>
-//                 <h3>372.50$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart1 group">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart5} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button class="cart-btn">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2e">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead">
-//               Classic Science Fiction Novel with Dystopian Theme...
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">99$</h3>
-//                 <h3>160$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart1 group">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart6} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button class="cart-btn">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead">
-//               Luxury Smartwatch with Stainless Steel Case, Sapph.
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">250$</h3>
-//                 <h3>400$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart1 group">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart7} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button class="cart-btn">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead">
-//               Hydrating Facial Serum with Vitamin C and Hyaluron...
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">60$</h3>
-//                 <h3>150$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart1 group">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart8} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button class="cart-btn">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead">
-//               Stacking Rings Toy with Bright Colors and Easy-Gri...
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">140$</h3>
-//                 <h3>220$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart1 group ">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart9} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button class="cart-btn">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead">
-//               Professional Baseball Glove with Premium Leather a...
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">60$ $</h3>
-//                 <h3>90$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart1 group">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart10} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button class="cart-btn">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead">
-//               Classic Leather Ankle Boots with Block Heel and Zi...
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">90$</h3>
-//                 <h3>160$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart1 group">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart11} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button class="cart-btn">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead">
-//               Mid-Range Mobile with 48MP AI Camera, 6GB RAM, and...
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">480$</h3>
-//                 <h3>750$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart1 group">
-//           <div className="imgBox overflow-hidden">
-//             <img src={cart12} alt=""
-//               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-
-//           <div className="heartIcon">
-//             <FaRegHeart />
-//           </div>
-
-//           {/* Hidden by default and shown on hover */}
-//           <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//             <div className="buttons">
-//               <button class="cart-btn">Add To Cart</button>
-//             </div>
-
-//             <div className="infinity !rounded-md  mx-2">
-//               <FaInfinity />
-//             </div>
-
-//             <div className="eye !rounded-md mx-2">
-//               <IoEyeOutline />
-//             </div>
-//           </div>
-
-//           <div className="cartContent">
-//             <div className="contentHead">
-//               Elegant Velvet Wrap Dress with Belt – Evening Glam...
-//             </div>
-//             <div>
-//               <div className="flex gap-5">
-//                 <h3 className="font-bold text-1xl">155$</h3>
-//                 <h3>160$</h3>
-//               </div>
-//               <div className='flex items-center gap-2'>
-//                 <GoStarFill color='yellow ' />
-//                 <h4>0.0 (0)</h4>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Home4
-
-
-
-
-
-
-
-import React from "react";
-import { FaRegHeart } from "react-icons/fa";
-import { FaInfinity } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FaRegHeart, FaInfinity } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
 import { GoStarFill } from "react-icons/go";
 
-// Sample JSON data for products
-const products = [
-  {
-    id: 1,
-    image: "http://localhost:5173/src/Components/EcommerceUI/UI%20Pages/Assets/Featur3.jpg",
-    name: "Chic Off-Shoulder Ruffle Dress with Floral Print",
-    price: "318.95$",
-    discountedPrice: "423.95$",
-    rating: 0.0,
-    reviews: 0,
-  },
-  {
-    id: 2,
-    image: "http://localhost:5173/src/Components/EcommerceUI/UI%20Pages/Assets/Featur3.jpg",
-    name: "Cozy Knit Sweater with Turtleneck and Cable Knit Pattern",
-    price: "267.50$",
-    discountedPrice: "404$",
-    rating: 0.0,
-    reviews: 0,
-  },
-  {
-    id: 3,
-    image: "http://localhost:5173/src/Components/EcommerceUI/UI%20Pages/Assets/Featur3.jpg",
-    name: "High-Waisted Skinny Jeans with Distressed Details",
-    price: "146.75$",
-    discountedPrice: "236$",
-    rating: 0.0,
-    reviews: 0,
-  },
-  {
-    id: 4,
-    image: "http://localhost:5173/src/Components/EcommerceUI/UI%20Pages/Assets/Featur3.jpg",
-    name: "High-Waisted Skinny Jeans with Distressed Details",
-    price: "146.75$",
-    discountedPrice: "236$",
-    rating: 0.0,
-    reviews: 0,
-  },
-  // Add more products as needed
-];
-
 const Home4 = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [activeTab, setActiveTab] = useState("NEW ARRIVAL");
+
+  const tabs = ["NEW ARRIVAL", "TRENDING", "BEST SELLING", "POPULAR"];
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/products/');
+        setProducts(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to fetch products');
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center py-10">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-center py-10 text-red-500">{error}</div>;
+  }
+
+  const calculateDiscount = (price, discountPrice) => {
+    if (!discountPrice) return null;
+    const discount = ((price - discountPrice) / price) * 100;
+    return Math.round(discount);
+  };
+
   return (
-    <div className="home4">
-      <div className="head text-center my-5">
-        <h2 className="text-4xl font-bold inline-block whitespace-nowrap">
+    <div className="container mx-auto px-4 py-8">
+      <div className="text-center mb-10">
+        <h2 className="text-4xl font-bold">
           Explore Our Products
         </h2>
       </div>
 
-      {/* Navigation for product categories */}
-      <nav className="flex justify-center items-center my-5">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 text-center mt-4 mb-5">
-          <a href="/" className="relative font-semibold text-2xl hover:text-red-500 hover:underline active:text-red-500">
-            NEW ARRIVAL
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-red-500 scale-x-0 transition-transform origin-left hover:scale-x-100 active:scale-x-100"></span>
-          </a>
-          <a href="/" className="relative font-semibold text-2xl hover:text-red-500 hover:underline active:text-red-500">
-            TRENDING
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-red-500 scale-x-0 transition-transform origin-left hover:scale-x-100 active:scale-x-100"></span>
-          </a>
-          <a href="/" className="relative font-semibold text-2xl hover:text-red-500 hover:underline active:text-red-500">
-            BEST SELLING
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-red-500 scale-x-0 transition-transform origin-left hover:scale-x-100 active:scale-x-100"></span>
-          </a>
-          <a href="/" className="relative font-semibold text-2xl hover:text-red-500 hover:underline active:text-red-500">
-            POPULAR
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-red-500 scale-x-0 transition-transform origin-left hover:scale-x-100 active:scale-x-100"></span>
-          </a>
+      {/* Navigation Tabs */}
+      <div className="flex justify-center mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`relative font-semibold text-xl md:text-2xl transition-colors duration-300 ${
+                activeTab === tab ? 'text-red-500' : 'hover:text-red-500'
+              }`}
+            >
+              {tab}
+              <span
+                className={`absolute left-0 bottom-0 w-full h-0.5 bg-red-500 transition-transform duration-300 ${
+                  activeTab === tab ? 'scale-x-100' : 'scale-x-0'
+                }`}
+              />
+            </button>
+          ))}
         </div>
-      </nav>
+      </div>
 
       {/* Products Grid */}
-      <div className="cart">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((product) => (
-          <div key={product.id} className="cart1 group relative">
-            <div className="imgBox overflow-hidden">
+          <div key={product._id} className="group relative bg-white rounded-lg overflow-hidden">
+            {/* Discount Badge */}
+            {calculateDiscount(product.price, product.discountPrice) && (
+              <div className="absolute top-4 left-4 z-10 bg-black text-white px-3 py-1 text-sm font-medium">
+                -{calculateDiscount(product.price, product.discountPrice)}%
+              </div>
+            )}
+            
+            {/* Product Image */}
+            <div className="relative aspect-square overflow-hidden bg-gray-100">
               <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                src={product.featureImage}
+                alt={product.productName}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-            </div>
+              
+              {/* Wishlist Button */}
+              <button className="absolute top-4 right-4 z-10 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md transition-transform duration-300 hover:scale-110">
+                <FaRegHeart className="text-gray-600 hover:text-red-500" />
+              </button>
 
-            {/* Heart Icon */}
-            <div className="heartIcon">
-              <FaRegHeart />
-            </div>
-
-            {/* Hidden by default and shown on hover */}
-            <div className="box1 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="buttons">
-                <button className="cart-btn hover:text-white ">Add To Cart</button>
-              </div>
-
-              <div className="infinity !rounded-md mx-2">
-                <FaInfinity />
-              </div>
-
-              <div className="eye !rounded-md mx-2">
-                <IoEyeOutline />
+              {/* Quick Action Buttons */}
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center items-center gap-2 opacity-0 transform translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                <button className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-md hover:bg-red-500 hover:text-white transition-colors duration-300">
+                  <FaInfinity size={20} />
+                </button>
+                <button className="px-6 py-2 bg-white rounded-lg shadow-md hover:bg-red-500 hover:text-white transition-colors duration-300 font-medium">
+                  Add To Cart
+                </button>
+                <button className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-md hover:bg-red-500 hover:text-white transition-colors duration-300">
+                  <IoEyeOutline size={20} />
+                </button>
               </div>
             </div>
 
-            {/* Product Content */}
-            <div className="cartContent">
-              <div className="contentHead hover:text-red-700 cursor-pointer">
-                {product.name}
-              </div>
-              <div>
-                <div className="flex gap-5">
-                  <h3 className="font-bold text-1xl contentHead hover:text-red-700 cursor-pointer">
-                    {product.price}
-                  </h3>
-                  <h3>{product.discountedPrice}</h3>
-                </div>
+            {/* Product Details */}
+            <div className="p-4">
+              <h3 className="text-lg font-medium mb-2 hover:text-red-500 cursor-pointer truncate">
+                {product.productName}
+              </h3>
+              
+              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <GoStarFill color="yellow" />
-                  <h4>{product.rating} ({product.reviews})</h4>
+                  <span className="text-xl font-bold">
+                    ${product.discountPrice ? product.discountPrice.toFixed(2) : product.price.toFixed(2)}
+                  </span>
+                  {product.discountPrice > 0 && (
+                    <span className="text-gray-500 line-through text-sm">
+                      ${product.price.toFixed(2)}
+                    </span>
+                  )}
+                </div>
+                <div className="flex items-center gap-1">
+                  <GoStarFill className="text-yellow-400" />
+                  <span className="text-sm text-gray-600">0.0 (0)</span>
                 </div>
               </div>
             </div>
@@ -730,3 +140,4 @@ const Home4 = () => {
 };
 
 export default Home4;
+

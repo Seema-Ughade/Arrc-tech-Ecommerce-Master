@@ -508,7 +508,7 @@ const App = () => {
 
 
                 {/* Fallback for Undefined Routes */}
-                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="*" element={<Navigate to="/login" />} />
               </Routes>
             </main>
 
