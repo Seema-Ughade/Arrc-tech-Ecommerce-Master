@@ -39,7 +39,7 @@ import SliderComponent from './Components/Admin/Pages/Home Page Settings/SliderC
 import ServiceComponent from './Components/Admin/Pages/Home Page Settings/ServiceComponent';
 import PartnersComponent from './Components/Admin/Pages/Home Page Settings/PartnersComponent';
 import BestMonthOffer from './Components/Admin/Pages/Home Page Settings/BestMonthOffer';
-import DealOfDay from './Components/Admin/Pages/Home Page Settings/DealofDay.jsx';
+import DealOfDay from './Components/Admin/Pages/Home Page Settings/DealOfDay.jsx';
 import FaqComponent from './Components/Admin/Pages/Menu Page Settings/FaqComponent';
 import PageComponent from './Components/Admin/Pages/Menu Page Settings/PageComponent';
 import PaymentGatewayComponent from './Components/Admin/Pages/Payment Settings/PaymentGatewayComponent';
@@ -508,7 +508,7 @@ const App = () => {
 
 
                 {/* Fallback for Undefined Routes */}
-                <Route path="*" element={<Navigate to="/login" />} />
+                <Route path="*" element={<Navigate to="/" />} />
               </Routes>
             </main>
 
