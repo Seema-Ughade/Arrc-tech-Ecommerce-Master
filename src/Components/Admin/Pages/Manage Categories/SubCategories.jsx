@@ -4,6 +4,9 @@ import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
 import { EditOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const SubCategories = () => {
   const [showModal, setShowModal] = useState(false);
@@ -101,17 +104,21 @@ const SubCategories = () => {
     try {
       if (editMode) {
         await axios.put(`https://ecommerce-panel-backend.onrender.com/api/subcategories/${currentSubCategoryId}`, subCategoryData);
-      } else {
+        toast.success('Subcategory successfully updated.');
+
+      }
+       else {
         await axios.post('https://ecommerce-panel-backend.onrender.com/api/subcategories', subCategoryData);
+        toast.success('Subcategory successfully added.');
+
       }
 
-      alert('Subcategory successfully submitted.');
       await fetchSubCategories(); // Refresh subcategories after adding or updating
       await fetchSubCategories(); // Refresh subcategories after adding or updating
 
       handleModalClose();
     } catch (error) {
-      setError('Failed to submit subcategory. Please try again.');
+      toast.error('Failed to submit subcategory. Please try again.');
       console.error('Error submitting subcategory:', error);
     }
   };
@@ -562,7 +569,10 @@ const SubCategories = () => {
           </div>
         </div>
       )}
+            <ToastContainer />
+      
     </div>
+    
   );
 };
 

@@ -43,11 +43,17 @@ const MainCategories = () => {
         console.log('Fetched categories:', response.data);
         if (Array.isArray(response.data)) {
           setCategories(response.data);
+          toast.success('Categories fetched successfully!');
+
         } else {
           console.error('Expected an array but got:', response.data);
+          toast.error('Unexpected response format while fetching categories.');
+
         }
       } catch (error) {
         console.error('Error fetching categories:', error);
+        toast.error('Failed to fetch categories. Please try again.');
+
       }
     };
 
@@ -228,15 +234,35 @@ const MainCategories = () => {
   };
 
   // Function to handle delete - send request to backend to remove the attribute
+  // const handleDeleteAttribute = async (attributeId) => {
+  //   try {
+  //     await deleteAttributeFromCategory(selectedCategoryId, attributeId); // API request to delete
+  //     await fetchAttributes(); // Refresh the list of attributes
+  //   } catch (error) {
+  //     console.error("Error deleting attribute:", error);
+  //   }
+  // };
+
   const handleDeleteAttribute = async (attributeId) => {
     try {
       await deleteAttributeFromCategory(selectedCategoryId, attributeId); // API request to delete
-      await fetchAttributes(); // Refresh the list of attributes
+      setShowAttributes(); // Refresh the list of attributes
     } catch (error) {
       console.error("Error deleting attribute:", error);
     }
   };
-
+  
+  const deleteAttributeFromCategory = async (categoryId, attributeId) => {
+    try {
+      const response = await axios.delete(`http://127.0.0.1:5000/api/categories/${categoryId}/attributes/${attributeId}`);
+      if (response.status === 200) {
+        console.log('Attribute deleted successfully');
+      }
+    } catch (error) {
+      console.error('Error deleting attribute:', error);
+    }
+  };
+  
   // Function to open the edit modal
   const handleEditCategory = (category) => {
     setEditingCategoryId(category._id); // Set the ID of the category to be edited
@@ -352,7 +378,7 @@ const MainCategories = () => {
                 </td>
                 <td className="py-2 px-4   border">
                   {category.image ? <img src={category.image} alt={category.name} 
-                  className="w-12   h-12 rounded"
+                  className="w-12   h-12 "
                   // className="w-14 border rounded-md p-1 m-3 h-14 " 
 
                    /> : '-'}

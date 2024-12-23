@@ -368,8 +368,8 @@ const App = () => {
                   <Route path="/user/vendor-register" element={<VendorAuthForm />} />
                   <Route path="/user/rider-register" element={<RiderAuthForm />} />
                   <Route path="/user/VendorDashboard" element={<VendorDashboard />} />
-                  <Route path="/" element={<VendorLoginForm onSwitchToRegister={handleSwitchToRegister} />} />
-                  <Route path="/vendor-dashboard" element={<VendorDashboard />} />
+                  <Route path="/vendor/login" element={<VendorLoginForm  />} />
+                  <Route path="/vendor/dashboard" element={<VendorDashboard />} />
                   <Route path="/appdashboard" element={<VendorLayout />} />
                 </Route>
 

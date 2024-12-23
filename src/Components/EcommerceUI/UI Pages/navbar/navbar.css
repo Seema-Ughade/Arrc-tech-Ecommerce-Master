@@ -82,7 +82,7 @@ body {
 
 .navbar-item {
   position: relative;
-  margin: 0 15px;
+  /* margin: 0 15px; */
   font-size: 1rem;
   font-weight: 500;
   color: #333;

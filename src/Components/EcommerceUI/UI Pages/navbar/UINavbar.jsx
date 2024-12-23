@@ -36,6 +36,9 @@ const UINavbar = (isAuthenticated) => {
     navigate("/user/rider-register");
   };
 
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   const categories = [
     "Electronic",
@@ -109,7 +112,7 @@ const UINavbar = (isAuthenticated) => {
           {/* Account Button */}
           <div className="hidden md:flex items-center gap-2 flex-1 md:flex-none justify-center">
             <FaUser color="white" />
-            <button className="px-2 py-1 text-white border border-white hover:bg-white hover:text-gray-800 transition">
+            <button onClick={handleLogin} className="px-2 py-1 text-white border border-white hover:bg-white hover:text-gray-800 transition">
               My Account
             </button>
           </div>
@@ -636,10 +639,10 @@ const UINavbar = (isAuthenticated) => {
                     </div>
                   )}
                 </li>
+                <Link to={"/Blog"}>BLOG</Link>
 
                 <Link to={"/Faq"}>FAQ</Link>
                 <Link to={"/contact"}>CONTACT US</Link>
-                <Link to={"/Blog"}>BLOG</Link>
               </div>
             </div>
           </nav>

@@ -67,12 +67,22 @@ const ChildCategories = () => {
     const fetchChildCategories = async () => {
       try {
         const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/childcategories');
-        setChildCategories(response.data);
-      } catch (error) {
-        console.error('Error fetching child categories:', error);
-      }
-    };
+        if (Array.isArray(response.data)) {
 
+        setChildCategories(response.data);
+          toast.success('Childcategories fetched successfully!');
+
+        } else {
+          console.error('Expected an array but got:', response.data);
+          toast.error('Unexpected response format while fetching Childcategories.');
+
+        }
+      } catch (error) {
+        console.error('Error fetching Childcategories:', error);
+        toast.error('Failed to fetch Childcategories. Please try again.');
+
+      }
+    }
     fetchChildCategories();
   }, []);
 
