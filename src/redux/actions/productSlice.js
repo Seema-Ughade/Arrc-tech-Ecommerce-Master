@@ -5,7 +5,7 @@ export const createProduct = createAsyncThunk(
   'products/createProduct',
   async (productData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/products', productData, {
+      const response = await axios.post('https://ecommerce-panel-backend.onrender.com/api/products', productData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       return response.data;

@@ -40,8 +40,8 @@ const SubCategories = () => {
     const fetchData = async () => {
       try {
         const [mainResponse, subResponse] = await Promise.all([
-          axios.get('http://127.0.0.1:5000/api/categories'),
-          axios.get('http://127.0.0.1:5000/api/subcategories'),
+          axios.get('https://ecommerce-panel-backend.onrender.com/api/categories'),
+          axios.get('https://ecommerce-panel-backend.onrender.com/api/subcategories'),
         ]);
 
         setMainCategories(mainResponse.data || []);
@@ -66,7 +66,7 @@ const SubCategories = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`http://127.0.0.1:5000/api/subcategories/${selectedCategoryId}/attributes`, newAttribute);
+      const response = await axios.post(`https://ecommerce-panel-backend.onrender.com/api/subcategories/${selectedCategoryId}/attributes`, newAttribute);
       // Assuming you have the selected category ID in state and an endpoint to handle adding attributes
       setSubCategories(prev =>
         prev.map(cat => (cat._id === selectedCategoryId ? { ...cat, attributes: [...cat.attributes, response.data] } : cat))
@@ -103,12 +103,12 @@ const SubCategories = () => {
 
     try {
       if (editMode) {
-        await axios.put(`http://127.0.0.1:5000/api/subcategories/${currentSubCategoryId}`, subCategoryData);
+        await axios.put(`https://ecommerce-panel-backend.onrender.com/api/subcategories/${currentSubCategoryId}`, subCategoryData);
         toast.success('Subcategory successfully updated.');
 
       }
        else {
-        await axios.post('http://127.0.0.1:5000/api/subcategories', subCategoryData);
+        await axios.post('https://ecommerce-panel-backend.onrender.com/api/subcategories', subCategoryData);
         toast.success('Subcategory successfully added.');
 
       }
@@ -140,7 +140,7 @@ const SubCategories = () => {
 
   const fetchSubCategories = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/api/subcategories');
+      const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/subcategories');
       // setSubCategories(response.data?.subCategories || []);
       setSubCategories(response.data); // Assuming setSubCategories updates the state correctly
 
@@ -171,7 +171,7 @@ const SubCategories = () => {
   const handleDeleteClick = async (id) => {
     if (window.confirm('Are you sure you want to delete this subcategory?')) {
       try {
-        await axios.delete(`http://127.0.0.1:5000/api/subcategories/${id}`);
+        await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/subcategories/${id}`);
         alert('Subcategory deleted successfully.');
         await fetchSubCategories(); // Refresh subcategories after deletion
       } catch (error) {
@@ -184,7 +184,7 @@ const SubCategories = () => {
 
   const handleStatusChange = async (categoryId, newStatus) => {
     try {
-      const response = await axios.put(`http://127.0.0.1:5000/api/subcategories/${categoryId}/status`, { status: newStatus });
+      const response = await axios.put(`https://ecommerce-panel-backend.onrender.com/api/subcategories/${categoryId}/status`, { status: newStatus });
       console.log('Updated Subcategory:', response.data); // Log the updated subcategory
       // Update categories in the state
       setSubCategories(prev =>

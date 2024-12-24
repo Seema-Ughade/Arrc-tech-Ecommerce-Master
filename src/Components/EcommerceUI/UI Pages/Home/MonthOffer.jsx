@@ -10,7 +10,7 @@ const BestMonthOffer = () => {
 
   const fetchOffers = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/offers')
+      const response = await fetch('https://ecommerce-panel-backend.onrender.com/api/offers')
       if (response.ok) {
         const data = await response.json()
         setOffers(data)

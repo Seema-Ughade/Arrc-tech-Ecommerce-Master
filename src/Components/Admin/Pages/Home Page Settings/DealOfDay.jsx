@@ -27,7 +27,7 @@ export default function DealOfTheDayAdmin() {
     }
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/deals', {
+      const response = await fetch('https://ecommerce-panel-backend.onrender.com/api/deals', {
         method: currentDeal ? 'PUT' : 'POST',
         body: data
       })
@@ -54,7 +54,7 @@ export default function DealOfTheDayAdmin() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this deal?')) {
       try {
-        const response = await fetch(`http://127.0.0.1:5000/api/deals/${id}`, {
+        const response = await fetch(`https://ecommerce-panel-backend.onrender.com/api/deals/${id}`, {
           method: 'DELETE'
         })
         if (response.ok) {
@@ -68,7 +68,7 @@ export default function DealOfTheDayAdmin() {
 
   const fetchDeals = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/deals')
+      const response = await fetch('https://ecommerce-panel-backend.onrender.com/api/deals')
       if (response.ok) {
         const data = await response.json()
         setEntries(data)

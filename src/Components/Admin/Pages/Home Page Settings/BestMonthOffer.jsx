@@ -19,8 +19,8 @@ export default function BestMonthOffer() {
 
     try {
       const endpoint = currentOffer
-      ? `http://127.0.0.1:5000/api/offers/${currentOffer._id}` // PUT for update
-      : 'http://127.0.0.1:5000/api/offers' // POST for create
+      ? `https://ecommerce-panel-backend.onrender.com/api/offers/${currentOffer._id}` // PUT for update
+      : 'https://ecommerce-panel-backend.onrender.com/api/offers' // POST for create
 
     const response = await fetch(endpoint, {
       method: currentOffer ? 'PUT' : 'POST',
@@ -51,7 +51,7 @@ export default function BestMonthOffer() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this offer?')) {
       try {
-        const response = await fetch(`http://127.0.0.1:5000/api/offers/${id}`, {
+        const response = await fetch(`https://ecommerce-panel-backend.onrender.com/api/offers/${id}`, {
           method: 'DELETE'
         })
         if (response.ok) {
@@ -66,7 +66,7 @@ export default function BestMonthOffer() {
   // Fetch entries
   const fetchEntries = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/offers')
+      const response = await fetch('https://ecommerce-panel-backend.onrender.com/api/offers')
       if (response.ok) {
         const data = await response.json()
         setEntries(data)

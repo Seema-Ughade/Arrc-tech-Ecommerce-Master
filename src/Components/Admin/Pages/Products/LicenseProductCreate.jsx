@@ -40,7 +40,7 @@ const LicenseProductCreate = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             const response = await axios.get(
-                "http://127.0.0.1:5000/api/categories"
+                "https://ecommerce-panel-backend.onrender.com/api/categories"
             );
             setCategories(response.data);
         };
@@ -51,7 +51,7 @@ const LicenseProductCreate = () => {
         if (product.category) {
             const fetchSubCategories = async () => {
                 const response = await axios.get(
-                    'http://127.0.0.1:5000/api/subcategories'
+                    'https://ecommerce-panel-backend.onrender.com/api/subcategories'
                 );
                 setSubCategories(response.data);
             };
@@ -63,7 +63,7 @@ const LicenseProductCreate = () => {
         if (product.subCategory) {
             const fetchChildCategories = async () => {
                 const response = await axios.get(
-                    'http://127.0.0.1:5000/api/childcategories'
+                    'https://ecommerce-panel-backend.onrender.com/api/childcategories'
                 );
                 setChildCategories(response.data);
             };

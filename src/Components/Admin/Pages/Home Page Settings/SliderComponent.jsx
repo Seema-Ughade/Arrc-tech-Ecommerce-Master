@@ -20,7 +20,7 @@
 //   useEffect(() => {
 //     const fetchSliders = async () => {
 //       try {
-//         const response = await axios.get('http://127.0.0.1:5000/api/sliders');
+//         const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/sliders');
 //         setSliders(response.data);
 //       } catch (error) {
 //         toast.error('Error fetching sliders. Please try again.');
@@ -49,7 +49,7 @@
 
 //     try {
 //       const response = await axios.put(
-//         `http://127.0.0.1:5000/api/sliders/₹{editingSliderId}`,
+//         `https://ecommerce-panel-backend.onrender.com/api/sliders/₹{editingSliderId}`,
 //         formData,
 //         { headers: { 'Content-Type': 'multipart/form-data' } }
 //       );
@@ -78,7 +78,7 @@
 //       }
 
 //       try {
-//         const response = await axios.post('http://127.0.0.1:5000/api/sliders', formData, {
+//         const response = await axios.post('https://ecommerce-panel-backend.onrender.com/api/sliders', formData, {
 //           headers: { 'Content-Type': 'multipart/form-data' },
 //         });
 
@@ -94,7 +94,7 @@
 //   };
 //   const handleDelete = async (id) => {
 //     try {
-//       await axios.delete(`http://127.0.0.1:5000/api/sliders/₹{id}`);
+//       await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/sliders/₹{id}`);
 //       setSliders(sliders.filter(slider => slider._id !== id)); // Use _id for filtering
 //       toast.success('Slider deleted successfully!');
 //     } catch (error) {
@@ -574,7 +574,7 @@ export default SliderComponent;
 //   useEffect(() => {
 //     const fetchSliders = async () => {
 //       try {
-//         const response = await axios.get('http://127.0.0.1:5000/api/sliders');
+//         const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/sliders');
 //         setSliders(response.data);
 //       } catch (error) {
 //         toast.error('Error fetching sliders. Please try again.');
@@ -606,7 +606,7 @@ export default SliderComponent;
 
 //     try {
 //       const response = await axios.put(
-//         `http://127.0.0.1:5000/api/sliders/₹{editingSliderId}`,
+//         `https://ecommerce-panel-backend.onrender.com/api/sliders/₹{editingSliderId}`,
 //         formData,
 //         { headers: { 'Content-Type': 'multipart/form-data' } }
 //       );
@@ -639,7 +639,7 @@ export default SliderComponent;
 //       }
 
 //       try {
-//         const response = await axios.post('http://127.0.0.1:5000/api/sliders', formData, {
+//         const response = await axios.post('https://ecommerce-panel-backend.onrender.com/api/sliders', formData, {
 //           headers: { 'Content-Type': 'multipart/form-data' },
 //         });
 
@@ -667,7 +667,7 @@ export default SliderComponent;
 
 //   const handleDelete = async (id) => {
 //     try {
-//       await axios.delete(`http://127.0.0.1:5000/api/sliders/₹{id}`);
+//       await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/sliders/₹{id}`);
 //       setSliders(sliders.filter(slider => slider._id !== id));
 //       toast.success('Slider deleted successfully!');
 //     } catch (error) {

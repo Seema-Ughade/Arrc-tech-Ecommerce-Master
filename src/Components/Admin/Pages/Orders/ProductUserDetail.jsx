@@ -15,7 +15,7 @@ const ProductUserDetail = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/products/');
+        const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/products/');
         setProducts(response.data);
       } catch (error) {
         setError('Error fetching products. Please try again later.');
@@ -28,7 +28,7 @@ const ProductUserDetail = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/customers');
+        const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/customers');
         setUsers(response.data);  // Assuming the API returns a list of users in 'data'
         setLoading(false);
       } catch (err) {

@@ -19,7 +19,7 @@ export default function RiderLoginForm({ onSwitchToRegister, onSubmit }) {
     setError(null); // Clear any previous error
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/riders/login', {
+      const response = await axios.post('https://ecommerce-panel-backend.onrender.com/api/riders/login', {
         email,
         password,
       }, {

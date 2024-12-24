@@ -21,7 +21,7 @@ export default function RiderAuthForm() {
       data.role = "vendor";
     }
   
-    const url = isLogin ? 'http://127.0.0.1:5000/api/riders' : 'http://127.0.0.1:5000/api/riders/register';
+    const url = isLogin ? 'https://ecommerce-panel-backend.onrender.com/api/riders' : 'https://ecommerce-panel-backend.onrender.com/api/riders/register';
 
     try {
       const response = await fetch(url, {

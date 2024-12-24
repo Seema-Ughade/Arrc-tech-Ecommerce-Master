@@ -73,7 +73,7 @@ const Home6 = () => {
   useEffect(() => {
     const fetchDeal = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/deals');
+        const response = await fetch('https://ecommerce-panel-backend.onrender.com/api/deals');
         if (response.ok) {
           const data = await response.json();
           // Assuming the first deal is the "Deal of the Day"
