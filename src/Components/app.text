@@ -637,9 +637,6 @@ const App = () => {
           <Route path='/products/portablepersonal/healthfitnessgadgets' element={<HealthFitnessGadgets />} />
 
 
-
-
-
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/privacy' element={<Privacy />} />
           <Route path='/faq' element={<Faq />} />

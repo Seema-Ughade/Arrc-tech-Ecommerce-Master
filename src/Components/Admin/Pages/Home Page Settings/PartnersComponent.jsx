@@ -17,7 +17,7 @@ const PartnersComponent = () => {
   useEffect(() => {
     const fetchPartners = async () => {
       try {
-        const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/partners');
+        const response = await axios.get('http://127.0.0.1:5000/api/partners');
         setPartners(response.data);
       } catch (error) {
         toast.error('Error fetching partners. Please try again.');
@@ -45,7 +45,7 @@ const PartnersComponent = () => {
 
     try {
       const response = await axios.put(
-        `https://ecommerce-panel-backend.onrender.com/api/partners/${editingPartnerId}`,
+        `http://127.0.0.1:5000/api/partners/${editingPartnerId}`,
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
@@ -73,7 +73,7 @@ const PartnersComponent = () => {
       }
 
       try {
-        const response = await axios.post('https://ecommerce-panel-backend.onrender.com/api/partners', formData, {
+        const response = await axios.post('http://127.0.0.1:5000/api/partners', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
 
@@ -90,7 +90,7 @@ const PartnersComponent = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/partners/${id}`);
+      await axios.delete(`http://127.0.0.1:5000/api/partners/${id}`);
       setPartners(partners.filter(partner => partner._id !== id));
       toast.success('Partner deleted successfully!');
     } catch (error) {

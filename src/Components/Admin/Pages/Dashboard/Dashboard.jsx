@@ -5,6 +5,7 @@ import DashboardOverview from './DashboardOverview'
 import RecentProducts from './RecentProducts'
 import SalesChart from './SalesChart'
 import ResponsiveCharts from './ResponsiveCharts'
+import PopularProduct from './PopularProduct'
 
 const Dashboard = () => {
   return (
@@ -12,6 +13,7 @@ const Dashboard = () => {
         <AdminDashboardCards/>
         <CardsRow />
         <DashboardOverview />
+        <PopularProduct/>
         <RecentProducts />
         <SalesChart />
         <ResponsiveCharts />

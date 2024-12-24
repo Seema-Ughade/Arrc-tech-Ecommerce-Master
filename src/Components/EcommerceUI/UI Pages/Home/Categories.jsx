@@ -15,7 +15,7 @@ const Home4 = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/products/');
+        const response = await axios.get('http://127.0.0.1:5000/api/products/');
         setProducts(response.data);
         setLoading(false);
       } catch (err) {

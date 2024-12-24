@@ -1,60 +1,51 @@
 import React from "react";
 
 const CardsRow = () => {
-  const cardsData = [
+  const stats = [
     {
-      count: 1,
+      color: "yellow-500",
+      value: 2,
       title: "New Customers",
-      description: "Last 30 Days",
-      bgClass: "border-blue-500",
+      subtitle: "Last 30 Days",
     },
     {
-      count: 11,
+      color: "cyan-500",
+      value: 12,
       title: "Total Customers",
-      description: "All Time",
-      bgClass: "border-green-500",
+      subtitle: "All Time",
     },
     {
-      count: 0,
+      color: "purple-500",
+      value: 0,
       title: "Total Sales",
-      description: "Last 30 Days",
-      bgClass: "border-orange-500",
+      subtitle: "Last 30 Days",
     },
     {
-      count: 4,
+      color: "green-500",
+      value: 4,
       title: "Total Sales",
-      description: "All Time",
-      bgClass: "border-purple-500",
+      subtitle: "All Time",
     },
   ];
 
   return (
-    <div className="flex flex-wrap -mx-4 mt-8">
-      {cardsData.map((card, index) => (
+    <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {stats.map((stat, index) => (
         <div
           key={index}
-          className="w-full sm:w-1/2 lg:w-1/4 px-4 mb-6"
+          className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center"
         >
-          <div className="card shadow-lg rounded-lg overflow-hidden">
-            <div className="flex items-center justify-center p-6">
-              <div className="relative">
-                {/* Outer Border */}
-                <div
-                  className={`absolute inset-0 w-36 h-36 rounded-full border-8 ${card.bgClass} m-auto`}
-                ></div>
-                {/* Inner Circle */}
-                <div
-                  className="w-24 h-24 rounded-full flex items-center justify-center bg-white text-black border border-gray-200"
-                >
-                  <p className="text-2xl font-bold">{card.count}</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 text-center">
-              <h6 className="text-lg font-semibold mb-1">{card.title}</h6>
-              <p className="text-sm text-gray-600">{card.description}</p>
-            </div>
+          {/* Large Circle with Border */}
+          <div
+            className={`w-44 h-44 flex items-center justify-center rounded-full border-[15px]  border-${stat.color} text-5xl font-bold text-gray-800`}
+          >
+            {stat.value}
           </div>
+          {/* Title and Subtitle */}
+          <p className="text-center font-semibold mt-6 text-lg text-gray-700">
+            {stat.title}
+          </p>
+          <p className="text-center text-sm text-gray-500">{stat.subtitle}</p>
         </div>
       ))}
     </div>

@@ -24,7 +24,7 @@ const Countries = () => {
   useEffect(() => {
     const fetchStates = async () => {
       try {
-        const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/states');
+        const response = await axios.get('http://127.0.0.1:5000/api/states');
         setStates(response.data);
         setCurrentStates(response.data); // Assuming you have pagination or filtering logic
       } catch (error) {
@@ -39,11 +39,11 @@ const Countries = () => {
   useEffect(() => {
     const fetchCountriesAndStates = async () => {
       try {
-        const countryResponse = await axios.get('https://ecommerce-panel-backend.onrender.com/api/states');
+        const countryResponse = await axios.get('http://127.0.0.1:5000/api/states');
         setCountries(countryResponse.data);
         setFilteredCountries(countryResponse.data);
 
-        const stateResponse = await axios.get('https://ecommerce-panel-backend.onrender.com/api/states');
+        const stateResponse = await axios.get('http://127.0.0.1:5000/api/states');
         setStates(stateResponse.data);  // Set the states data
       } catch (error) {
         console.error('Error fetching countries and states:', error);
@@ -68,7 +68,7 @@ const Countries = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://ecommerce-panel-backend.onrender.com/api/countries', newCountry);
+      const response = await axios.post('http://127.0.0.1:5000/api/countries', newCountry);
       setCountries([...countries, response.data]);
       setNewCountry({ countryName: '', tax: '' });
       setIsOpen(false);
@@ -81,7 +81,7 @@ const Countries = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/countries/${id}`);
+      await axios.delete(`http://127.0.0.1:5000/api/countries/${id}`);
       setCountries(countries.filter((country) => country._id !== id));
       setFilteredCountries(filteredCountries.filter((country) => country._id !== id));
       toast.success('Country deleted successfully!');
@@ -109,7 +109,7 @@ const Countries = () => {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`https://ecommerce-panel-backend.onrender.com/api/countries/${editCountry._id}`, editCountry);
+      const response = await axios.put(`http://127.0.0.1:5000/api/countries/${editCountry._id}`, editCountry);
       setCountries(countries.map((country) =>
         country._id === editCountry._id ? response.data : country
       ));
@@ -127,7 +127,7 @@ const Countries = () => {
 
   const handleCountryStatusChange = async (countryId, newStatus) => {
     try {
-      const response = await axios.put(`https://ecommerce-panel-backend.onrender.com/api/countries/${countryId}/status`, { status: newStatus });
+      const response = await axios.put(`http://127.0.0.1:5000/api/countries/${countryId}/status`, { status: newStatus });
       console.log('Updated Country:', response.data);
   
       // Update countries in the state
@@ -142,7 +142,7 @@ const Countries = () => {
 
   const handleStateStatusChange = async (stateId, newStatus) => {
     try {
-      const response = await axios.put(`https://ecommerce-panel-backend.onrender.com/api/states/${stateId}/status`, { status: newStatus });
+      const response = await axios.put(`http://127.0.0.1:5000/api/states/${stateId}/status`, { status: newStatus });
       console.log('Updated State:', response.data);
   
       // Update states in the state

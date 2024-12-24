@@ -1,15 +1,31 @@
-function RecentProducts() {
+function PopularProduct() {
     const products = [
       {
         id: 1,
-        image: "https://demo.geniusocean.com/ecommerce-king1/assets/images/products/1729164074wdHfH0jH.png",
-        name: "Budha Statue",
-        category: "Home decoration Wall Art",
+        image: "https://demo.geniusocean.com/ecommerce-king1/assets/images/products/1724470967EBxw5rOk.png",
+        name: "Cozy Knit Sweater with Turtleneck and Cable Knit P...",
+        category: "Fashion & Beauty CLOTHINGS",
         type: "Physical",
-        price: "6"
+        price: "267.50"
       },
       {
         id: 2,
+        image: "https://demo.geniusocean.com/ecommerce-king1/assets/images/products/1724470141AJMw9CT3.png",
+        name: "Chic Off-Shoulder Ruffle Dress with Floral Print -...",
+        category: "Fashion & Beauty CLOTHINGS",
+        type: "Physical",
+        price: "318.95"
+      },
+      {
+        id: 3,
+        image: "https://demo.geniusocean.com/ecommerce-king1/assets/images/products/1724470967EBxw5rOk.png",
+        name: "High-Waisted Skinny Jeans with Distressed Details ...",
+        category: "Fashion & Beauty CLOTHINGS",
+        type: "Physical",
+        price: "146.75"
+      },
+      {
+        id: 4,
         image: "https://demo.geniusocean.com/ecommerce-king1/assets/images/products/1724497056aUjkT7cx.png",
         name: "All-Natural Organic Face Oil with Jojoba and Roseh...",
         category: "Fashion & Beauty ACCESSORIES",
@@ -17,38 +33,22 @@ function RecentProducts() {
         price: "178.25"
       },
       {
-        id: 3,
-        image: "https://demo.geniusocean.com/ecommerce-king1/assets/images/products/1724495553nrw16T53.png",
-        name: "Flagship 5G Smartphone with 256GB ROM, 12GB RAM, a...",
-        category: "Smart Phone & Table APPLE",
-        type: "Physical",
-        price: "551"
-      },
-      {
-        id: 4,
-        image: "https://demo.geniusocean.com/ecommerce-king1/assets/images/products/1724474664kxRSJUo4.png",
-        name: "Exquisite Emerald Pendant Necklace with 14K Gold C...",
-        category: "Jewelry & Watches",
-        type: "Physical",
-        price: "948.95"
-      },
-      {
         id: 5,
-        image: "https://demo.geniusocean.com/ecommerce-king1/assets/images/products/1724474252xKZ183yZ.png",
-        name: "Luxurious Rose Gold Bracelet with Customizable Cha...",
-        category: "Jewelry & Watches",
+        image: "https://demo.geniusocean.com/ecommerce-king1/assets/images/products/1724228373zw83XbKc.png",
+        name: "Luxury Smartwatch with Stainless Steel Case, Sapph...",
+        category: "Electronic",
         type: "Physical",
-        price: "948.95"
+        price: "250"
       }
     ];
   
     return (
-      <div className="bg-white  rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-6">Recent Product(s)</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full">
+      <div className="bg-white shadow-lg rounded-lg p-6">
+        <h2 className="text-2xl font-semibold  text-gray-800 mb-6">Popular Product(s)</h2>
+        <div className="overflow-x-auto table-responsive">
+          <table className="w-full ">
             <thead>
-              <tr className="border-b bg-teal-400 text-white p-4 rounded text-lg font-semibold border-gray-200">
+              <tr className="border-b   border-gray-200 text-white bg-teal-400">
                 <th className="text-left py-3 px-4 font-semibold ">Featured Image</th>
                 <th className="text-left py-3 px-4 font-semibold ">Name</th>
                 <th className="text-left py-3 px-4 font-semibold ">Category</th>
@@ -112,6 +112,6 @@ function RecentProducts() {
     );
   }
   
-  export default RecentProducts;
+  export default PopularProduct;
   
   

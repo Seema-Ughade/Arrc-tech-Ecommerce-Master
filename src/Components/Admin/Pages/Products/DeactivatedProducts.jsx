@@ -34,7 +34,7 @@ const DeactivatedProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/products/');
+      const response = await axios.get('http://127.0.0.1:5000/api/products/');
       const inactiveProducts = response.data.filter(product => product.status === 'inactive');
       setProducts(inactiveProducts);
     } catch (error) {
@@ -67,7 +67,7 @@ const DeactivatedProducts = () => {
   const handleDeleteClick = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/products/${id}`);
+        await axios.delete(`http://127.0.0.1:5000/api/products/${id}`);
         fetchProducts();
       } catch (error) {
         setError('Failed to delete product. Please try again.');
@@ -121,7 +121,7 @@ const DeactivatedProducts = () => {
 
   const handleStatusChange = async (productId, newStatus) => {
     try {
-      await axios.put(`https://ecommerce-panel-backend.onrender.com/api/products/${productId}/status`, { status: newStatus });
+      await axios.put(`http://127.0.0.1:5000/api/products/${productId}/status`, { status: newStatus });
       setProducts(prev => prev.filter(product => product._id !== productId || product.status === 'inactive'));
     } catch (error) {
       setError('Error updating product status. Please try again.');

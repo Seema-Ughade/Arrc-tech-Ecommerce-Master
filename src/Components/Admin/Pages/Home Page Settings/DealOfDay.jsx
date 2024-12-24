@@ -1,166 +1,234 @@
-import React, { useState } from 'react';
-import { ArrowLeft, Upload } from 'lucide-react';
 
-const initialDeal = {
-  id: 1,
-  text: "CLICK SHOP NOW FOR ALL DEAL OF THE PRODUCT",
-  details:
-    "Donec condimentum Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus pretium sapien, in pulvinar ipsum molestie id. Aliquam erat volutpat. Duis quam tellus, ullamcorper.....",
-  dateLimit: "18-06-2025",
-  image:
-    "https://demo.geniusocean.com/ecommerce-king1/assets/images/arrival/1724155614Banner2png.png",
-};
+import { useState, useEffect } from 'react'
 
-export default function DealOfDay() {
-  const [deal, setDeal] = useState(initialDeal);
-  const [editMode, setEditMode] = useState(false);
+export default function DealOfTheDayAdmin() {
+  const [entries, setEntries] = useState([])
+  const [editMode, setEditMode] = useState(false)
+  const [currentDeal, setCurrentDeal] = useState(null)
+  const [formData, setFormData] = useState({
+    text: '',
+    details: '',
+    dateLimit: '',
+    image: null
+  })
 
-  const handleUpdate = (e) => {
-    e.preventDefault();
-    setEditMode(false);
-  };
+  useEffect(() => {
+    fetchDeals()
+  }, [])
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setDeal({ ...deal, image: reader.result });
-      };
-      reader.readAsDataURL(file);
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const data = new FormData()
+    data.append('text', formData.text)
+    data.append('details', formData.details)
+    data.append('dateLimit', formData.dateLimit)
+    if (formData.image) {
+      data.append('image', formData.image)
     }
-  };
 
-  if (editMode) {
-    return (
-      <div className="p-6 bg-white rounded-lg shadow">
-        <div className="mb-6">
-          <div className="flex items-center gap-4 mb-4">
-            <button
-              onClick={() => setEditMode(false)}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back
-            </button>
-            <h1 className="text-2xl font-bold">Edit Deal Of The Day</h1>
-          </div>
+    try {
+      const response = await fetch('http://127.0.0.1:5000/api/deals', {
+        method: currentDeal ? 'PUT' : 'POST',
+        body: data
+      })
+      if (response.ok) {
+        fetchDeals()
+        resetForm()
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
 
-          <div className="flex items-center text-sm text-gray-500">
-            <span>Dashboard</span>
-            <span className="mx-2">›</span>
-            <span>Home Page Settings</span>
-            <span className="mx-2">›</span>
-            <span>Deal Of The Day</span>
-            <span className="mx-2">›</span>
-            <span>Edit</span>
-          </div>
-        </div>
+  const handleEdit = (deal) => {
+    setCurrentDeal(deal)
+    setFormData({
+      text: deal.text,
+      details: deal.details,
+      dateLimit: deal.dateLimit.split('T')[0],
+      image: null
+    })
+    setEditMode(true)
+  }
 
-        <form onSubmit={handleUpdate} className="max-w-2xl">
-          <div className="mb-6">
-            <label className="block mb-2">
-              Text <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              value={deal.text}
-              onChange={(e) => setDeal({ ...deal, text: e.target.value })}
-              className="w-full border rounded-md px-3 py-2"
-              required
-            />
-          </div>
+  const handleDelete = async (id) => {
+    if (window.confirm('Are you sure you want to delete this deal?')) {
+      try {
+        const response = await fetch(`http://127.0.0.1:5000/api/deals/${id}`, {
+          method: 'DELETE'
+        })
+        if (response.ok) {
+          fetchDeals()
+        }
+      } catch (error) {
+        console.error('Error:', error)
+      }
+    }
+  }
 
-          <div className="mb-6">
-            <label className="block mb-2">
-              Details <span className="text-red-500">*</span>
-            </label>
-            <textarea
-              value={deal.details}
-              onChange={(e) => setDeal({ ...deal, details: e.target.value })}
-              className="w-full border rounded-md px-3 py-2"
-              rows={4}
-              required
-            />
-          </div>
+  const fetchDeals = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/api/deals')
+      if (response.ok) {
+        const data = await response.json()
+        setEntries(data)
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
 
-          <div className="mb-6">
-            <label className="block mb-2">
-              Date Limit <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="date"
-              value={deal.dateLimit}
-              onChange={(e) => setDeal({ ...deal, dateLimit: e.target.value })}
-              className="w-full border rounded-md px-3 py-2"
-              required
-            />
-          </div>
-
-          <div className="mb-6">
-            <label className="block mb-2">
-              Current Featured Image <span className="text-red-500">*</span>
-            </label>
-            <div className="mb-2">
-              <img
-                src={deal.image}
-                alt="Deal"
-                className="max-w-full h-auto rounded-lg"
-              />
-            </div>
-            <div className="text-sm text-gray-500 mb-4">
-              Prefered Size: (1920x800) or Square Sized Image
-            </div>
-            <div>
-              <label className="inline-flex items-center gap-2 px-4 py-2 bg-white border rounded-md cursor-pointer hover:bg-gray-50">
-                <Upload className="w-4 h-4" />
-                Upload Image
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  className="hidden"
-                />
-              </label>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-          >
-            Update Deal
-          </button>
-        </form>
-      </div>
-    );
+  const resetForm = () => {
+    setFormData({
+      text: '',
+      details: '',
+      dateLimit: '',
+      image: null
+    })
+    setEditMode(false)
+    setCurrentDeal(null)
   }
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Deal Of The Day</h1>
-      </div>
+    <div className="p-6">
+      {editMode ? (
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold">
+              {currentDeal ? 'Edit Deal' : 'Create New Deal'}
+            </h2>
+            <button
+              onClick={resetForm}
+              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+            >
+              Back
+            </button>
+          </div>
+          
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label className="block mb-2">Text*</label>
+              <input
+                type="text"
+                value={formData.text}
+                onChange={(e) => setFormData({...formData, text: e.target.value})}
+                required
+                className="w-full p-2 border rounded"
+                placeholder="CLICK SHOP NOW FOR ALL DEAL OF THE PRODUCT"
+              />
+            </div>
 
-      <div>
-        <p className="text-lg">{deal.text}</p>
-        <p className="text-sm text-gray-600">{deal.details}</p>
-        <p className="text-sm text-gray-600">
-          Date Limit: <strong>{deal.dateLimit}</strong>
-        </p>
-        <img
-          src={deal.image}
-          alt="Deal"
-          className="max-w-full h-auto rounded-lg mt-4"
-        />
-      </div>
+            <div>
+              <label className="block mb-2">Details*</label>
+              <textarea
+                value={formData.details}
+                onChange={(e) => setFormData({...formData, details: e.target.value})}
+                required
+                className="w-full p-2 border rounded min-h-[100px]"
+              />
+            </div>
 
-      <button
-        onClick={() => setEditMode(true)}
-        className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-      >
-        Edit Deal
-      </button>
+            <div>
+              <label className="block mb-2">Date Limit*</label>
+              <input
+                type="date"
+                value={formData.dateLimit}
+                onChange={(e) => setFormData({...formData, dateLimit: e.target.value})}
+                required
+                className="w-full p-2 border rounded"
+              />
+            </div>
+
+            <div>
+              <label className="block mb-2">Featured Image *</label>
+              {currentDeal?.image && (
+                <img
+                  src={currentDeal.image}
+                  alt="Current"
+                  className="max-w-md mb-4 rounded"
+                />
+              )}
+              <p className="text-sm text-gray-500 mb-2">
+                Prefered Size: (600x770) or Square Sized Image
+              </p>
+              <input
+                type="file"
+                onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
+                accept="image/*"
+                className="w-full"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            >
+              {currentDeal ? 'Update Deal' : 'Create Deal'}
+            </button>
+          </form>
+        </div>
+      ) : (
+        <div>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold">Deal of the Day</h2>
+            <button
+              onClick={() => setEditMode(true)}
+              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            >
+              Add New Deal
+            </button>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="border p-2 text-left">Image</th>
+                  <th className="border p-2 text-left">Text</th>
+                  <th className="border p-2 text-left">Details</th>
+                  <th className="border p-2 text-left">Date Limit</th>
+                  <th className="border p-2 text-left">Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                {entries.map((entry, index) => (
+                  <tr key={index} className="border-b">
+                    <td className="p-2">
+                      <img
+                        src={entry.image}
+                        alt="Deal"
+                        className="w-24 h-24 object-cover rounded"
+                      />
+                    </td>
+                    <td className="p-2">{entry.text}</td>
+                    <td className="p-2">{entry.details}</td>
+                    <td className="p-2">
+                      {new Date(entry.dateLimit).toLocaleDateString()}
+                    </td>
+                    <td className="p-2">
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleEdit(entry)}
+                          className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleDelete(entry._id)}
+                          className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
-  );
+  )
 }
+
