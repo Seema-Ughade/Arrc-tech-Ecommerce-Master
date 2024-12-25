@@ -44,7 +44,7 @@ const BestMonthOffer = () => {
             <img
               src={offers[0].image}
               alt="Offer 1"
-              className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+              className="w-full lg:h-[44rem] md:h-24 sm:h-24 object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
               onClick={() => handleImageClick(offers[0].url)}
             />
           </div>
@@ -56,7 +56,7 @@ const BestMonthOffer = () => {
               <img
                 src={offers[1].image}
                 alt="Offer 2"
-                className="w-full h-auto object-cover rounded-none transition-transform duration-300 hover:scale-105 cursor-pointer"
+                className="w-full h-[20.7rem] object-cover rounded-none transition-transform duration-300 hover:scale-105 cursor-pointer"
                 onClick={() => handleImageClick(offers[1].url)}
               />
             </div>
@@ -67,7 +67,7 @@ const BestMonthOffer = () => {
               <img
                 src={offers[2].image}
                 alt="Offer 3"
-                className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+                className="w-full h-[22rem] object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
                 onClick={() => handleImageClick(offers[2].url)}
               />
             </div>

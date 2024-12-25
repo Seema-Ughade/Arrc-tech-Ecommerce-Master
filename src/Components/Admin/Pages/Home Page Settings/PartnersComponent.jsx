@@ -140,7 +140,7 @@ const PartnersComponent = () => {
               {filteredPartners.map((partner) => (
                 <tr key={partner._id} className='hover:bg-gray-100'>
                   <td className="px-6 py-4 border flex justify-center items-center">
-                    {partner.image ? <img src={partner.image} alt="Partner" className="w-12 h-12 rounded" /> : '-'}
+                    {partner.image ? <img src={partner.image} alt="Partner" className="w-24 h-16 " /> : '-'}
                   </td>
                   <td className="px-6 py-4 border text-center">{partner.link}</td>
                   <td className="py-2 flex justify-center px-4">
