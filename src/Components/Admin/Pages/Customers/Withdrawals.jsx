@@ -204,7 +204,7 @@ const Withdrawals = () => {
                 <tr key={index} className="border-b">
                   <td className="py-2 px-4">{withdrawal.email}</td>
                   <td className="py-2 px-4">{withdrawal.phone}</td>
-                  <td className="py-2 px-4">{withdrawal.amount}$</td>
+                  <td className="py-2 px-4">₹{withdrawal.amount}</td>
                   <td className="py-2 px-4">{withdrawal.method}</td>
                   <td className="py-2 px-4">{formatDate(withdrawal.date)}</td>
                   <td className="py-2 px-4">
@@ -275,11 +275,11 @@ const Withdrawals = () => {
                   </div>
                   <div className="border-b py-2">
                     <span className="font-semibold">Withdraw Amount:</span>
-                    <span className="ml-2">{selectedWithdrawal.amount}$</span>
+                    <span className="ml-2">₹{selectedWithdrawal.amount}</span>
                   </div>
                   <div className="border-b py-2">
                     <span className="font-semibold">Withdraw Charge:</span>
-                    <span className="ml-2">{selectedWithdrawal.charge}$</span>
+                    <span className="ml-2">₹{selectedWithdrawal.charge}</span>
                   </div>
                   <div className="border-b py-2">
                     <span className="font-semibold">Withdraw Process Date:</span>

@@ -4,13 +4,13 @@ const CommissionEarningDashboard = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [commissionData, setCommissionData] = useState([
-    { id: 1, orderNumber: 'ord123', txnID: 'txn001', commission: '$50.00', location: 'New York', createdAt: '05-08-2024' },
-    { id: 2, orderNumber: 'ord124', txnID: 'txn002', commission: '$60.00', location: 'Chicago', createdAt: '05-09-2024' },
-    { id: 3, orderNumber: 'ord125', txnID: 'txn003', commission: '$75.00', location: 'San Francisco', createdAt: '06-01-2024' },
-    { id: 4, orderNumber: 'ord126', txnID: 'txn004', commission: '$40.00', location: 'Los Angeles', createdAt: '06-15-2024' },
-    { id: 5, orderNumber: 'ord127', txnID: 'txn005', commission: '$30.00', location: 'Miami', createdAt: '07-01-2024' },
-    { id: 6, orderNumber: 'ord128', txnID: 'txn006', commission: '$120.00', location: 'Houston', createdAt: '07-10-2024' },
-    { id: 7, orderNumber: 'ord129', txnID: 'txn007', commission: '$90.00', location: 'Dallas', createdAt: '08-02-2024' },
+    { id: 1, orderNumber: 'ord123', txnID: 'txn001', commission: '₹50.00', location: 'New York', createdAt: '05-08-2024' },
+    { id: 2, orderNumber: 'ord124', txnID: 'txn002', commission: '₹60.00', location: 'Chicago', createdAt: '05-09-2024' },
+    { id: 3, orderNumber: 'ord125', txnID: 'txn003', commission: '₹75.00', location: 'San Francisco', createdAt: '06-01-2024' },
+    { id: 4, orderNumber: 'ord126', txnID: 'txn004', commission: '₹40.00', location: 'Los Angeles', createdAt: '06-15-2024' },
+    { id: 5, orderNumber: 'ord127', txnID: 'txn005', commission: '₹30.00', location: 'Miami', createdAt: '07-01-2024' },
+    { id: 6, orderNumber: 'ord128', txnID: 'txn006', commission: '₹120.00', location: 'Houston', createdAt: '07-10-2024' },
+    { id: 7, orderNumber: 'ord129', txnID: 'txn007', commission: '₹90.00', location: 'Dallas', createdAt: '08-02-2024' },
   ]);
   const [filteredCommissionData, setFilteredCommissionData] = useState(commissionData);
   const itemsPerPage = 5; // Number of items per page
@@ -40,7 +40,7 @@ const CommissionEarningDashboard = () => {
   // Calculate Total Commission
   const calculateTotalCommission = () => {
     return filteredCommissionData.reduce((total, item) => {
-      return total + parseFloat(item.commission.replace('$', ''));
+      return total + parseFloat(item.commission.replace('₹', ''));
     }, 0).toFixed(2);
   };
 
@@ -49,7 +49,7 @@ const CommissionEarningDashboard = () => {
     const currentMonth = new Date().getMonth();
     return filteredCommissionData
       .filter((item) => new Date(item.createdAt).getMonth() === currentMonth)
-      .reduce((total, item) => total + parseFloat(item.commission.replace('$', '')), 0)
+      .reduce((total, item) => total + parseFloat(item.commission.replace('₹', '')), 0)
       .toFixed(2);
   };
 
@@ -59,7 +59,7 @@ const CommissionEarningDashboard = () => {
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
     return filteredCommissionData
       .filter((item) => new Date(item.createdAt) >= thirtyDaysAgo)
-      .reduce((total, item) => total + parseFloat(item.commission.replace('$', '')), 0)
+      .reduce((total, item) => total + parseFloat(item.commission.replace('₹', '')), 0)
       .toFixed(2);
   };
 
@@ -116,13 +116,13 @@ const CommissionEarningDashboard = () => {
       {/* Earnings Display */}
       <div className="mb-6 text-center">
         <h5 className="text-lg font-medium">
-          Total Commission: <span className="font-semibold text-green-600">${calculateTotalCommission()}</span>
+          Total Commission: <span className="font-semibold text-green-600">₹{calculateTotalCommission()}</span>
         </h5>
         <h5 className="text-lg font-medium">
-          Current Month Commission: <span className="font-semibold text-blue-600">${calculateCurrentMonthCommission()}</span>
+          Current Month Commission: <span className="font-semibold text-blue-600">₹{calculateCurrentMonthCommission()}</span>
         </h5>
         <h5 className="text-lg font-medium">
-          Last 30 Days Commission: <span className="font-semibold text-teal-600">${calculateLast30DaysCommission()}</span>
+          Last 30 Days Commission: <span className="font-semibold text-teal-600">₹{calculateLast30DaysCommission()}</span>
         </h5>
       </div>
 

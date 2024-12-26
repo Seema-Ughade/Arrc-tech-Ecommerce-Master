@@ -98,7 +98,7 @@ const ProcessingOrders = () => {
                 <td className="border border-gray-300 px-4 py-2">{order.customerEmail}</td>
                 <td className="border border-gray-300 px-4 py-2">{order.orderNumber}</td>
                 <td className="border border-gray-300 px-4 py-2">{order.totalQty}</td>
-                <td className="border border-gray-300 px-4 py-2">${order.totalCost.toFixed(2)}</td>
+                <td className="border border-gray-300 px-4 py-2">₹{order.totalCost.toFixed(2)}</td>
                 <td className="py-2 flex justify-center px-4 border">
                   <div className="group inline-block">
                     {/* Actions Button */}

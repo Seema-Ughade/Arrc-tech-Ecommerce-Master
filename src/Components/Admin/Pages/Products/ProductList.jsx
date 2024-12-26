@@ -237,7 +237,7 @@ export default function ProductList() {
               {/* <td className="py-2 text-center px-4 border">{product.type}</td> */}
               <td className="py-2 text-center px-4 border">Physical</td>
               <td className="py-2 text-center px-4 border">{product.stock}</td>
-              <td className="py-2 text-center px-4 border">${product.price}</td>
+              <td className="py-2 text-center px-4 border">₹{product.price}</td>
               <td className="py-2 text-center px-4 border">
                 <select
                   value={product.status}

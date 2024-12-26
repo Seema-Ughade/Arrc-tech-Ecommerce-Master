@@ -103,7 +103,7 @@ export default function ProductCatalog() {
                 </td>
                 <td className="py-2">{product.type}</td>
                 <td className="py-2">{product.stock}</td>
-                <td className="py-2">{product.price}$</td>
+                <td className="py-2">₹{product.price}</td>
                 <td className="py-2">
                   <button className="bg-green-600 text-white px-4 py-1 rounded">
                     Activated

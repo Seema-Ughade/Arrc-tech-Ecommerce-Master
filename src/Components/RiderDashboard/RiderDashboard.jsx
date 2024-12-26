@@ -115,14 +115,14 @@ export default function RiderDashboard(isAuthenticated) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   const stats = [
-    { id: 1, title: "Order Pending", value: "31", color: "border-orange-500", icon: ShoppingBag },
-    { id: 2, title: "Order Processing", value: "2", color: "border-blue-500", icon: Cog },
-    { id: 3, title: "Orders Completed!", value: "4", color: "border-green-500", icon: Package },
-    { id: 4, title: "Total Products!", value: "20", color: "border-red-500", icon: Package },
-    { id: 5, title: "Delivered Orders", value: "4", color: "border-green-500", icon: Truck },
-    { id: 6, title: "Total Revenue", value: "$803.25", color: "border-orange-500", icon: DollarSign },
-    { id: 7, title: "Total Earnings", value: "$6,849.80", color: "border-purple-500", icon: Wallet },
-    { id: 8, title: "Pending Balance", value: "$0", color: "border-blue-500", icon: Wallet },
+    { id: 1, title: "Order Pending", value: "₹3221", color: "border-orange-500", icon: ShoppingBag },
+    { id: 2, title: "Order Processing", value: "₹2323", color: "border-blue-500", icon: Cog },
+    { id: 3, title: "Orders Completed!", value: "₹4222", color: "border-green-500", icon: Package },
+    { id: 4, title: "Total Products!", value: "₹20222", color: "border-red-500", icon: Package },
+    { id: 5, title: "Delivered Orders", value: "₹4222", color: "border-green-500", icon: Truck },
+    { id: 6, title: "Total Revenue", value: "₹803.25", color: "border-orange-500", icon: DollarSign },
+    { id: 7, title: "Total Earnings", value: "₹6,849.80", color: "border-purple-500", icon: Wallet },
+    { id: 8, title: "Pending Balance", value: "₹0", color: "border-blue-500", icon: Wallet },
   ]
 
   return (

@@ -43,8 +43,8 @@ function RewardsManagement() {
             className="border border-gray-300 rounded px-3 py-1 w-20 mx-2"
             placeholder="15"
           />
-          <span className="text-gray-700">To (USD) Dollar ($)</span>
-          <button
+<span className="text-gray-700">To (INR) Rupee (₹)</span>
+<button
             onClick={togglePopup}
             className="bg-blue-600 text-white px-4 py-2 rounded shadow ml-4 hover:bg-blue-700"
           >

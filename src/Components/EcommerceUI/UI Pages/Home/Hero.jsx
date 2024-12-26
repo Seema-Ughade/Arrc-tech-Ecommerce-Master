@@ -111,61 +111,61 @@ import Carousel from "../Home/Carousel";
   const featured = [
     {
       img: feature1,
-      title: "Luxurious Rose Gold Bracelet with Customizable charms,948.95$",
+      title: "Luxurious Rose Gold Bracelet with Customizable charms,₹948.95",
     },
     {
       img: feature2,
       title:
-        "Flagship 5G Smartphone with 256GB ROM, 12GB RAM, and 108 MP Quad Camera,423.95$",
+        "Flagship 5G Smartphone with 256GB ROM, 12GB RAM, and 108 MP Quad Camera,₹423.95",
     },
     {
       img: feature3,
       title:
-        "5G Smartphone with 128GB storage,48MP Triple Camera,and AMOLED Display,450$",
+        "5G Smartphone with 128GB storage,48MP Triple Camera,and AMOLED Display,₹8450",
     },
     {
       img: feature4,
       title:
-        "Education Learning Toy with Light, Sounds,and Interactive Buttons,220$",
+        "Education Learning Toy with Light, Sounds,and Interactive Buttons,₹3220",
     },
     {
       img: feature5,
       title:
-        "Professional USB Condenser Microphone with Noise Reduction-Perfect for Podcast and Streaming,310$",
+        "Professional USB Condenser Microphone with Noise Reduction-Perfect for Podcast and Streaming,₹7310",
     },
     {
       img: feature6,
       title:
-        "Elegant Evening Clutch with Metallic Finish and Detachable chain Strap-Perfect for Event,350$",
+        "Elegant Evening Clutch with Metallic Finish and Detachable chain Strap-Perfect for Event,₹5350",
     },
     {
       img: feature7,
       title:
-        "Organic Cleansing Balm with Aloe Vera and Green Tea Extract-100ml,320$",
+        "Organic Cleansing Balm with Aloe Vera and Green Tea Extract-100ml,₹2320",
     },
     {
       img: feature8,
       title:
-        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80$",
+        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,₹280",
     },
     {
       img: feature9,
       title:
-        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80$",
+        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,₹5580",
     },
     {
       img: feature10,
       title:
-        "High-Performance BB cream with SPF 30 and Skin-Tone Adapting Formula,280$",
+        "High-Performance BB cream with SPF 30 and Skin-Tone Adapting Formula,₹5280",
     },
     {
       img: feature11,
       title:
-        "Mid-Range Mobile With with 48MP AI Camera,6GB RAM,and 4000mAh fast Charging,480$",
+        "Mid-Range Mobile With with 48MP AI Camera,6GB RAM,and 4000mAh fast Charging,₹4580",
     },
     {
       img: feature12,
-      title: "Elegant Velvent Wrap Dress with Belt-Evening Glamour,155$",
+      title: "Elegant Velvent Wrap Dress with Belt-Evening Glamour,7₹155",
     },
   ];
 
@@ -173,51 +173,51 @@ import Carousel from "../Home/Carousel";
     {
       img: sellingproduct1,
       title:
-        " Smartphone with 128GB storage,48MP Triple Camera,and AMOLED Display,450$",
+        " Smartphone with 128GB storage,48MP Triple Camera,and AMOLED Display,₹5450",
     },
     {
       img: sellingproduct2,
       title:
-        "Education Learning Toy with Light, Sounds,and Interactive Buttons,220$",
+        "Education Learning Toy with Light, Sounds,and Interactive Buttons,₹2200",
     },
     {
       img: sellingproduct3,
       title:
-        "Professional USB Condenser Microphone with Noise Reduction-Perfect for Podcast and Streaming,310$",
+        "Professional USB Condenser Microphone with Noise Reduction-Perfect for Podcast and Streaming,₹3108",
     },
     {
       img: sellingproduct4,
       title:
-        "Elegant Evening Clutch with Metallic Finish and Detachable chain Strap-Perfect for Event,350$",
+        "Elegant Evening Clutch with Metallic Finish and Detachable chain Strap-Perfect for Event,₹3505",
     },
     {
       img: sellingproduct5,
       title:
-        "Organic Cleansing Balm with Aloe Vera and Green Tea Extract-100ml,320$",
+        "Organic Cleansing Balm with Aloe Vera and Green Tea Extract-100ml,₹3205",
     },
     {
       img: sellingproduct6,
       title:
-        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80$",
+        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,₹805",
     },
     {
       img: sellingproduct7,
       title:
-        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80$",
+        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,₹852",
     },
     {
       img: sellingproduct8,
       title:
-        "High-Performance BB cream with SPF 30 and Skin-Tone Adapting Formula,280$",
+        "High-Performance BB cream with SPF 30 and Skin-Tone Adapting Formula,₹5666",
     },
     {
       img: sellingproduct9,
       title:
-        "Mid-Range Mobile With with 48MP AI Camera,6GB RAM,and 4000mAh fast Charging,480$",
+        "Mid-Range Mobile With with 48MP AI Camera,6GB RAM,and 4000mAh fast Charging,₹8545",
     },
     {
       img: sellingproduct10,
-      title: "Elegant Velvent Wrap Dress with Belt-Evening Glamour,155$",
+      title: "Elegant Velvent Wrap Dress with Belt-Evening Glamour,₹4512",
     },
   ];
 

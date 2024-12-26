@@ -37,17 +37,17 @@ const Home5 = () => {
   const featured = [
     {
       img: feature1,
-      title: "Luxurious Rose Gold Bracelet with Customizable charms,948.95$",
+      title: "Luxurious Rose Gold Bracelet with Customizable charms,₹948.950",
     },
     {
       img: feature2,
       title:
-        "Flagship 5G Smartphone with 256GB ROM, 12GB RAM, and 108 MP Quad Camera,423.95$",
+        "Flagship 5G Smartphone with 256GB ROM, 12GB RAM, and 108 MP Quad Camera,₹423.950",
     },
     {
       img: feature4,
       title:
-        "Education Learning Toy with Light, Sounds,and Interactive Buttons,220$",
+        "Education Learning Toy with Light, Sounds,and Interactive Buttons,₹2200",
     },
     {
       img: feature5,
@@ -57,31 +57,31 @@ const Home5 = () => {
     {
       img: feature7,
       title:
-        "Organic Cleansing Balm with Aloe Vera and Green Tea Extract-100ml,320$",
+        "Organic Cleansing Balm with Aloe Vera and Green Tea Extract-100ml,₹3205",
     },
     {
       img: feature8,
       title:
-        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80$",
+        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,₹805",
     },
     {
       img: feature9,
       title:
-        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80$",
+        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,₹805",
     },
     {
       img: feature10,
       title:
-        "High-Performance BB cream with SPF 30 and Skin-Tone Adapting Formula,280$",
+        "High-Performance BB cream with SPF 30 and Skin-Tone Adapting Formula,₹2805",
     },
     {
       img: feature11,
       title:
-        "Mid-Range Mobile With with 48MP AI Camera,6GB RAM,and 4000mAh fast Charging,480$",
+        "Mid-Range Mobile With with 48MP AI Camera,6GB RAM,and 4000mAh fast Charging,₹4805",
     },
     {
       img: feature12,
-      title: "Elegant Velvent Wrap Dress with Belt-Evening Glamour,155$ 4000mAh fast Charging,480$",
+      title: "Elegant Velvent Wrap Dress with Belt-Evening Glamour,₹8452 4000mAh fast Charging,₹4805",
     },
   ];
 

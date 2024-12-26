@@ -118,11 +118,11 @@ const Home4 = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="text-xl font-bold">
-                    ${product.discountPrice ? product.discountPrice.toFixed(2) : product.price.toFixed(2)}
+                  ₹{product.discountPrice ? product.discountPrice.toFixed(2) : product.price.toFixed(2)}
                   </span>
                   {product.discountPrice > 0 && (
                     <span className="text-gray-500 line-through text-sm">
-                      ${product.price.toFixed(2)}
+                      ₹{product.price.toFixed(2)}
                     </span>
                   )}
                 </div>

@@ -10,11 +10,11 @@ const VendorsList = () => {
   useEffect(() => {
     // Use hardcoded demo data for Vendors
     const demoVendors = [
-      { storeName: 'Jerald Spares', vendorEmail: 'jerald.spares.au@phinmaed.com', shopNumber: '', pendingCommission: '0$', status: 'Active' },
-      { storeName: 'Silver Lights', vendorEmail: 'dev6.silverlights@gmail.com', shopNumber: '', pendingCommission: '0$', status: 'Active' },
-      { storeName: 'O Alamin', vendorEmail: 'oalamin23@gmail.com', shopNumber: '', pendingCommission: '0$', status: 'Inactive' },
-      { storeName: 'Akeem Frederick', vendorEmail: 'user@gmail.com', shopNumber: '489', pendingCommission: '0$', status: 'Active' },
-      { storeName: 'Test Stores', vendorEmail: 'vendor@gmail.com', shopNumber: '43543534', pendingCommission: '0$', status: 'Active' },
+      { storeName: 'Jerald Spares', vendorEmail: 'jerald.spares.au@phinmaed.com', shopNumber: '', pendingCommission: '₹0', status: 'Active' },
+      { storeName: 'Silver Lights', vendorEmail: 'dev6.silverlights@gmail.com', shopNumber: '', pendingCommission: '₹0', status: 'Active' },
+      { storeName: 'O Alamin', vendorEmail: 'oalamin23@gmail.com', shopNumber: '', pendingCommission: '₹0', status: 'Inactive' },
+      { storeName: 'Akeem Frederick', vendorEmail: 'user@gmail.com', shopNumber: '489', pendingCommission: '₹0', status: 'Active' },
+      { storeName: 'Test Stores', vendorEmail: 'vendor@gmail.com', shopNumber: '43543534', pendingCommission: '₹0', status: 'Active' },
     ];
 
     setVendors(demoVendors);

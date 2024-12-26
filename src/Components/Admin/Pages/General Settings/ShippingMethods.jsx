@@ -116,7 +116,7 @@ const ShippingMethods = () => {
               <tr key={method._id} className="hover:bg-gray-100">
                 <td className="border text-center border-gray-300 px-4 py-2">{method.title}</td>
                 <td className="border text-center border-gray-300 px-4 py-2">{method.duration}</td>
-                <td className="border text-center border-gray-300 px-4 py-2">{method.price}$</td>
+                <td className="border text-center border-gray-300 px-4 py-2">₹{method.price}</td>
                 <td className="border border-gray-300 px-4 py-2 flex justify-center space-x-2">
                   <button
                     onClick={() => handleEdit(method)}

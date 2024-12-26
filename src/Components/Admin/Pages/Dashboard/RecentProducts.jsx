@@ -77,7 +77,7 @@ function RecentProducts() {
                     <span className="text-gray-600">{product.type}</span>
                   </td>
                   <td className="py-4 px-4">
-                    <span className="text-gray-800">{product.price}$</span>
+                    <span className="text-gray-800">₹{product.price}</span>
                   </td>
                   <td className="py-4 px-4 text-right">
                     <button className="inline-flex items-center px-4 py-2 bg-indigo-900 text-white text-sm font-medium rounded-md hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

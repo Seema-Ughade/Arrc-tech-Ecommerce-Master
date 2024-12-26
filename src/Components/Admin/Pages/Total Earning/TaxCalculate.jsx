@@ -4,13 +4,13 @@ const TaxCalculate = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [taxData, setTaxData] = useState([
-    { id: 1, orderNumber: 'p9xr1717219468', txnID: 'txn12345', tax: '$1.52', taxLocation: 'Dhaka', createdAt: '05-08-2024' },
-    { id: 2, orderNumber: 'RujX1717233941', txnID: 'txn12346', tax: '$1.52', taxLocation: 'Dhaka', createdAt: '05-08-2024' },
-    { id: 3, orderNumber: 'RD0a1717300348', txnID: 'txn12347', tax: '$0.75', taxLocation: 'Comilla', createdAt: '05-08-2024' },
-    { id: 4, orderNumber: 'LmnX1717367481', txnID: 'txn12348', tax: '$2.30', taxLocation: 'Chittagong', createdAt: '06-08-2024' },
-    { id: 5, orderNumber: 'XyZ1717374832', txnID: 'txn12349', tax: '$3.10', taxLocation: 'Khulna', createdAt: '07-08-2024' },
-    { id: 6, orderNumber: 'ABpX1717456289', txnID: '', tax: '$1.90', taxLocation: 'Rajshahi', createdAt: '08-08-2024' },
-    { id: 7, orderNumber: 'KjN1717492837', txnID: 'txn12350', tax: '$0.80', taxLocation: 'Sylhet', createdAt: '09-08-2024' },
+    { id: 1, orderNumber: 'p9xr1717219468', txnID: 'txn12345', tax: '₹1.52', taxLocation: 'Dhaka', createdAt: '05-08-2024' },
+    { id: 2, orderNumber: 'RujX1717233941', txnID: 'txn12346', tax: '₹1.52', taxLocation: 'Dhaka', createdAt: '05-08-2024' },
+    { id: 3, orderNumber: 'RD0a1717300348', txnID: 'txn12347', tax: '₹0.75', taxLocation: 'Comilla', createdAt: '05-08-2024' },
+    { id: 4, orderNumber: 'LmnX1717367481', txnID: 'txn12348', tax: '₹2.30', taxLocation: 'Chittagong', createdAt: '06-08-2024' },
+    { id: 5, orderNumber: 'XyZ1717374832', txnID: 'txn12349', tax: '₹3.10', taxLocation: 'Khulna', createdAt: '07-08-2024' },
+    { id: 6, orderNumber: 'ABpX1717456289', txnID: '', tax: '₹1.90', taxLocation: 'Rajshahi', createdAt: '08-08-2024' },
+    { id: 7, orderNumber: 'KjN1717492837', txnID: 'txn12350', tax: '₹0.80', taxLocation: 'Sylhet', createdAt: '09-08-2024' },
   ]);
   const [filteredTaxData, setFilteredTaxData] = useState(taxData);
   const itemsPerPage = 5; // Number of items per page
@@ -40,7 +40,7 @@ const TaxCalculate = () => {
   // Calculate Total Earning
   const calculateTotalEarnings = () => {
     return filteredTaxData.reduce((total, item) => {
-      return total + parseFloat(item.tax.replace('$', ''));
+      return total + parseFloat(item.tax.replace('₹', ''));
     }, 0).toFixed(2);
   };
 
@@ -49,7 +49,7 @@ const TaxCalculate = () => {
     const currentMonth = new Date().getMonth();
     return filteredTaxData
       .filter((item) => new Date(item.createdAt).getMonth() === currentMonth)
-      .reduce((total, item) => total + parseFloat(item.tax.replace('$', '')), 0)
+      .reduce((total, item) => total + parseFloat(item.tax.replace('₹', '')), 0)
       .toFixed(2);
   };
 
@@ -59,7 +59,7 @@ const TaxCalculate = () => {
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
     return filteredTaxData
       .filter((item) => new Date(item.createdAt) >= thirtyDaysAgo)
-      .reduce((total, item) => total + parseFloat(item.tax.replace('$', '')), 0)
+      .reduce((total, item) => total + parseFloat(item.tax.replace('₹', '')), 0)
       .toFixed(2);
   };
 
@@ -116,13 +116,13 @@ const TaxCalculate = () => {
       {/* Earnings Display */}
       <div className="mb-6 text-center">
         <h5 className="text-lg font-medium">
-          Total Earning: <span className="font-semibold text-green-600">${calculateTotalEarnings()}</span>
+          Total Earning: <span className="font-semibold text-green-600">₹{calculateTotalEarnings()}</span>
         </h5>
         <h5 className="text-lg font-medium">
-          Current Month Earning: <span className="font-semibold text-blue-600">${calculateCurrentMonthEarnings()}</span>
+          Current Month Earning: <span className="font-semibold text-blue-600">₹{calculateCurrentMonthEarnings()}</span>
         </h5>
         <h5 className="text-lg font-medium">
-          Last 30 Days Earning: <span className="font-semibold text-teal-600">${calculateLast30DaysEarnings()}</span>
+          Last 30 Days Earning: <span className="font-semibold text-teal-600">₹{calculateLast30DaysEarnings()}</span>
         </h5>
       </div>
 

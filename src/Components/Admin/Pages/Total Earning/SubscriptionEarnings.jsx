@@ -4,16 +4,16 @@ const SubscriptionEarnings = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [subscriptionData, setSubscriptionData] = useState([
-    { id: 1, orderNumber: '242099342', txnID: '', tax: '$0', taxLocation: '', createdAt: '09-10-2019' },
-    { id: 2, orderNumber: 'txn_1HlTPfJlIV5dN9n72gC9N5YJ', txnID: 'txn_1HlTPfJlIV5dN9n72gC9N5YJ', tax: '$0', taxLocation: '', createdAt: '08-11-2020' },
-    { id: 3, orderNumber: '6KD881488A1277949', txnID: '', tax: '$0', taxLocation: '', createdAt: '08-11-2020' },
-    { id: 4, orderNumber: '0R5121086C3908633', txnID: '', tax: '$0', taxLocation: '', createdAt: '08-11-2020' },
-    { id: 5, orderNumber: '949523367', txnID: '', tax: '$0', taxLocation: '', createdAt: '08-11-2020' },
-    { id: 6, orderNumber: '', txnID: '', tax: '$0', taxLocation: '', createdAt: '08-11-2020' },
-    { id: 7, orderNumber: '', txnID: '', tax: '$0', taxLocation: '', createdAt: '10-11-2020' },
-    { id: 8, orderNumber: '', txnID: '', tax: '$0', taxLocation: '', createdAt: '10-11-2020' },
-    { id: 9, orderNumber: 'tr_GujuVzTkBB', txnID: '', tax: '$0', taxLocation: '', createdAt: '11-09-2021' },
-    { id: 10, orderNumber: 'SSLCZ_TXN_61b9c1097bc27', txnID: '', tax: '$0', taxLocation: '', createdAt: '14-12-2021' },
+    { id: 1, orderNumber: '242099342', txnID: '', tax: '₹0', taxLocation: '', createdAt: '09-10-2019' },
+    { id: 2, orderNumber: 'txn_1HlTPfJlIV5dN9n72gC9N5YJ', txnID: 'txn_1HlTPfJlIV5dN9n72gC9N5YJ', tax: '₹0', taxLocation: '', createdAt: '08-11-2020' },
+    { id: 3, orderNumber: '6KD881488A1277949', txnID: '', tax: '₹0', taxLocation: '', createdAt: '08-11-2020' },
+    { id: 4, orderNumber: '0R5121086C3908633', txnID: '', tax: '₹0', taxLocation: '', createdAt: '08-11-2020' },
+    { id: 5, orderNumber: '949523367', txnID: '', tax: '₹0', taxLocation: '', createdAt: '08-11-2020' },
+    { id: 6, orderNumber: '', txnID: '', tax: '₹0', taxLocation: '', createdAt: '08-11-2020' },
+    { id: 7, orderNumber: '', txnID: '', tax: '₹0', taxLocation: '', createdAt: '10-11-2020' },
+    { id: 8, orderNumber: '', txnID: '', tax: '₹0', taxLocation: '', createdAt: '10-11-2020' },
+    { id: 9, orderNumber: 'tr_GujuVzTkBB', txnID: '', tax: '₹0', taxLocation: '', createdAt: '11-09-2021' },
+    { id: 10, orderNumber: 'SSLCZ_TXN_61b9c1097bc27', txnID: '', tax: '₹0', taxLocation: '', createdAt: '14-12-2021' },
   ]);
   const [filteredSubscriptionData, setFilteredSubscriptionData] = useState(subscriptionData);
   const itemsPerPage = 5;
@@ -43,7 +43,7 @@ const SubscriptionEarnings = () => {
   // Calculate Total Subscription Earnings
   const calculateTotalEarnings = () => {
     return filteredSubscriptionData.reduce((total, item) => {
-      return total + parseFloat(item.tax.replace('$', ''));
+      return total + parseFloat(item.tax.replace('₹', ''));
     }, 0).toFixed(2);
   };
 
@@ -100,7 +100,7 @@ const SubscriptionEarnings = () => {
       {/* Earnings Display */}
       <div className="mb-6 text-center">
         <h5 className="text-lg font-medium">
-          Total Subscription Earnings: <span className="font-semibold text-green-600">${calculateTotalEarnings()}</span>
+          Total Subscription Earnings: <span className="font-semibold text-green-600">₹{calculateTotalEarnings()}</span>
         </h5>
       </div>
 

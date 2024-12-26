@@ -329,7 +329,7 @@ const SetCoupons = () => {
               {newCoupon.type && (
                 <div className="mb-4">
                   <label className="block text-gray-700" htmlFor="discountValue">
-                    {newCoupon.type === "0" ? "Discount Percentage (%)" : "Discount Amount ($)"} *
+                    {newCoupon.type === "0" ? "Discount Percentage (%)" : "Discount Amount (₹)"} *
                   </label>
                   <input
                     type="number"

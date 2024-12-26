@@ -205,7 +205,7 @@ const DeactivatedProducts = () => {
               </td>
               <td className="py-2 px-4 border">Physical</td>
               <td className="py-2 px-4 border">{product.stock}</td>
-              <td className="py-2 px-4 border">${product.price}</td>
+              <td className="py-2 px-4 border">₹{product.price}</td>
               <td className="py-2 px-4 border">
                 <select
                   value={product.status}

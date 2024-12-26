@@ -7,7 +7,7 @@ const Transactions = () => {
   const transactions = [
     {
       customerName: 'User',
-      amount: '+15$',
+      amount: '₹15',
       transactionId: '9o723826yB',
       date: '2024-11-05',
       details: 'Reward Point Convert',
@@ -15,7 +15,7 @@ const Transactions = () => {
     },
     {
       customerName: 'User',
-      amount: '+15$',
+      amount: '₹15',
       transactionId: '9227488c8O',
       date: '2024-08-25',
       details: 'Purchase',
@@ -23,7 +23,7 @@ const Transactions = () => {
     },
     {
       customerName: 'User',
-      amount: '+500$',
+      amount: '₹500',
       transactionId: 'YPq2189Rza',
       date: '2024-08-25',
       details: 'Refund',
@@ -31,7 +31,7 @@ const Transactions = () => {
     },
     {
       customerName: 'User',
-      amount: '+22.50$',
+      amount: '₹22.50',
       transactionId: 'sdk6136y6v',
       date: '2024-08-20',
       details: 'Reward Point Convert',

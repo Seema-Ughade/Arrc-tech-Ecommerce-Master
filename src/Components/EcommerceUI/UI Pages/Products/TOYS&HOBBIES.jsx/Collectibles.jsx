@@ -69,10 +69,10 @@ const ProductCategories = () => {
             <h3 className="mt-4 text-lg font-semibold">{product.name}</h3>
             <div className="flex items-center mt-2">
               <p className="text-red-500 text-xl font-bold">
-                ${product.price}
+                ₹{product.price}
               </p>
               <p className="text-gray-500 text-sm line-through ml-2">
-                ${product.originalPrice}
+                ₹{product.originalPrice}
               </p>
             </div>
             <p className="text-yellow-500 mt-2 text-sm">

@@ -14,7 +14,7 @@ const VendorsWithdraws = () => {
     {
       email: 'vendor@gmail.com',
       phone: '3453453345453411',
-      amount: '37.50$',
+      amount: '₹3700.50',
       method: 'Paypal',
       withdrawDate: '2024-08-25T04:00:15.000000Z',
       status: 'Pending',
@@ -22,7 +22,7 @@ const VendorsWithdraws = () => {
     {
       email: 'vendor@gmail.com',
       phone: '3453453345453411',
-      amount: '9$',
+      amount: '₹900',
       method: 'Paypal',
       withdrawDate: '2024-08-25T03:59:56.000000Z',
       status: 'Pending',
@@ -30,7 +30,7 @@ const VendorsWithdraws = () => {
     {
       email: 'vendor@gmail.com',
       phone: '3453453345453411',
-      amount: '9$',
+      amount: '₹900',
       method: 'Paypal',
       withdrawDate: '2024-08-25T03:59:41.000000Z',
       status: 'Pending',
@@ -38,7 +38,7 @@ const VendorsWithdraws = () => {
     {
       email: 'vendor@gmail.com',
       phone: '3453453345453411',
-      amount: '9$',
+      amount: '₹900',
       method: 'Paypal',
       withdrawDate: '2024-08-25T03:58:30.000000Z',
       status: 'Pending',

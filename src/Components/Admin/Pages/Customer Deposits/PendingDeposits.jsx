@@ -12,21 +12,21 @@ const PendingDeposits = () => {
     const demoData = [
       {
         customerName: 'User',
-        amount: '100$',
+        amount: '₹100',
         paymentMethod: 'Paypal',
         transactionId: 'TXN12345',
         status: 'Pending',
       },
       {
         customerName: 'User',
-        amount: '50$',
+        amount: '₹50',
         paymentMethod: 'Razorpay',
         transactionId: 'TXN67890',
         status: 'Pending',
       },
       {
         customerName: 'User',
-        amount: '25$',
+        amount: '₹25',
         paymentMethod: 'Stripe',
         transactionId: 'TXN11223',
         status: 'Pending',

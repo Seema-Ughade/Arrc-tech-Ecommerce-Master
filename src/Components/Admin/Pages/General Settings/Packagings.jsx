@@ -117,7 +117,7 @@ const Packagings = () => {
               <tr key={packaging._id} className="hover:bg-gray-100">
                 <td className="border text-center border-gray-300 px-4 py-2">{packaging.title}</td>
                 <td className="border text-center border-gray-300 px-4 py-2">{packaging.subtitle}</td>
-                <td className="border text-center border-gray-300 px-4 py-2">{packaging.price}$</td>
+                <td className="border text-center border-gray-300 px-4 py-2">₹{packaging.price}</td>
                 <td className="border border-gray-300 px-4 py-2 flex justify-center space-x-2">
                   <button
                     onClick={() => handleEdit(packaging)}

@@ -71,7 +71,7 @@ const VendorSubscriptionPlans = () => {
               {currentItems.map((plan) => (
                 <tr key={plan._id} className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2">{plan.title}</td>
-                  <td className="border border-gray-300 px-4 py-2">{plan.cost}$</td>
+                  <td className="border border-gray-300 px-4 py-2">₹{plan.cost}</td>
                   <td className="border border-gray-300 px-4 py-2">{plan.duration}</td>
                   <td className="border border-gray-300 px-4 py-2">{plan.productLimitations}</td>
                   <td className="border border-gray-300 px-4 py-2">

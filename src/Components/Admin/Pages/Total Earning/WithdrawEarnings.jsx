@@ -4,10 +4,10 @@ const WithdrawEarnings = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [earningsData, setEarningsData] = useState([
-    { id: 1, orderNumber: 'p9xr1717219468', txnID: 'txn12345', amount: '$56.35', location: 'Dhaka', createdAt: '04-06-2024' },
-    { id: 2, orderNumber: 'RujX1717233941', txnID: 'txn12346', amount: '$45.10', location: 'Dhaka', createdAt: '11-08-2024' },
-    { id: 3, orderNumber: 'RD0a1717300348', txnID: 'txn12347', amount: '$23.75', location: 'Comilla', createdAt: '20-08-2024' },
-    { id: 4, orderNumber: 'LmnX1717367481', txnID: 'txn12348', amount: '$34.20', location: 'Chittagong', createdAt: '03-09-2024' },
+    { id: 1, orderNumber: 'p9xr1717219468', txnID: 'txn12345', amount: '₹56.35', location: 'Dhaka', createdAt: '04-06-2024' },
+    { id: 2, orderNumber: 'RujX1717233941', txnID: 'txn12346', amount: '₹45.10', location: 'Dhaka', createdAt: '11-08-2024' },
+    { id: 3, orderNumber: 'RD0a1717300348', txnID: 'txn12347', amount: '₹23.75', location: 'Comilla', createdAt: '20-08-2024' },
+    { id: 4, orderNumber: 'LmnX1717367481', txnID: 'txn12348', amount: '₹34.20', location: 'Chittagong', createdAt: '03-09-2024' },
   ]);
   const [filteredEarningsData, setFilteredEarningsData] = useState(earningsData);
   const itemsPerPage = 5; // Number of items per page
@@ -37,7 +37,7 @@ const WithdrawEarnings = () => {
   // Calculate Total Earnings
   const calculateTotalEarnings = () => {
     return filteredEarningsData.reduce((total, item) => {
-      return total + parseFloat(item.amount.replace('$', ''));
+      return total + parseFloat(item.amount.replace('₹', ''));
     }, 0).toFixed(2);
   };
 
@@ -94,7 +94,7 @@ const WithdrawEarnings = () => {
       {/* Earnings Display */}
       <div className="mb-6 text-center">
         <h5 className="text-lg font-medium">
-          Total Earnings: <span className="font-semibold text-green-600">${calculateTotalEarnings()}</span>
+          Total Earnings: <span className="font-semibold text-green-600">₹{calculateTotalEarnings()}</span>
         </h5>
       </div>
 
