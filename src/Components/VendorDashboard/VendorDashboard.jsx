@@ -27,7 +27,8 @@ export default function VendorDashboard() {
             >
               <Menu className="w-6 h-6" />
             </button>
-            <h1 className="text-xl font-bold">Genius Shop</h1>
+            <h1 className="text-xl font-bold">ARRC TECHNOLOGY
+            </h1>
           </div>
           <div className="flex items-center gap-4">
             <button className="p-2 hover:bg-gray-100 rounded-full relative">

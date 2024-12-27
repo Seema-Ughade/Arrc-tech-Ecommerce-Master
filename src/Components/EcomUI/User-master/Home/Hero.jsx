@@ -88,304 +88,303 @@ import LatestPost from "./LatestPost";
 import Carousel from "./Carousel";
 
 const Hero = () => {
-  const [currentPage, setCurrentPage] = useState(0);
+  // const [currentPage, setCurrentPage] = useState(0);
 
-  const pages = [];
+  // const pages = [];
 
-  const products = [
-    {
-      id: 1,
-      image: cart1,
-      title: "Chic Off-Shoulder Ruffle Dress with Floral Print",
-      price: 318.95,
-      oldPrice: 423.95,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 2,
-      image: cart2,
-      title: "Cozy Knit Sweater with Turtleneck and Cable Knit",
-      price: 318.95,
-      oldPrice: 423.95,
-      rating: 0,
-      category: "TRENDING",
-    },
-    {
-      id: 2,
-      image: cart2,
-      title: "Cozy Knit Sweater with Turtleneck and Cable Knit",
-      price: 318.95,
-      oldPrice: 423.95,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 3,
-      image: cart3,
-      title: "High-Waisted Skinny Jeans with Distressed Details",
-      price: 267.5,
-      oldPrice: 404,
-      rating: 0,
-      category: "BEST SELLING",
-    },
-    {
-      id: 3,
-      image: cart3,
-      title: "High-Waisted Skinny Jeans with Distressed Details",
-      price: 267.5,
-      oldPrice: 404,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 4,
-      image: cart4,
-      title: "Gaming Headset with Surround Sound, LED Lighting",
-      price: 146.75,
-      oldPrice: 236,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 5,
-      image: cart5,
-      title: "Classic Science Fiction Novel with Dystopian Themes",
-      price: 215,
-      oldPrice: 372.5,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 6,
-      image: cart6,
-      title: "Luxury Smartwatch with Stainless Steel Case",
-      price: 99,
-      oldPrice: 160,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 7,
-      image: cart7,
-      title: "Luxury Smartwatch with Stainless Steel Case",
-      price: 99,
-      oldPrice: 160,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 8,
-      image: cart8,
-      title: "Luxury Smartwatch with Stainless Steel Case",
-      price: 99,
-      oldPrice: 160,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 9,
-      image: cart9,
-      title: "Luxury Smartwatch with Stainless Steel Case",
-      price: 99,
-      oldPrice: 160,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 10,
-      image: cart10,
-      title: "Luxury Smartwatch with Stainless Steel Case",
-      price: 99,
-      oldPrice: 160,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 11,
-      image: cart11,
-      title: "Luxury Smartwatch with Stainless Steel Case",
-      price: 99,
-      oldPrice: 160,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 8,
-      image: cart12,
-      title: "Luxury Smartwatch with Stainless Steel Case",
-      price: 99,
-      oldPrice: 160,
-      rating: 0,
-      category: "NEW ARRIVAL",
-    },
-    {
-      id: 8,
-      image: cart6,
-      title: "Luxury Smartwatch with Stainless Steel Case",
-      price: 99,
-      oldPrice: 160,
-      rating: 0,
-      category: "BEST SELLING",
-    },
-    {
-      id: 8,
-      image: cart6,
-      title: "Luxury Smartwatch with Stainless Steel Case",
-      price: 99,
-      oldPrice: 160,
-      rating: 0,
-      category: "POPULAR",
-    },
-    {
-      id: 8,
-      image: cart6,
-      title: "Luxury Smartwatch with Stainless Steel Case",
-      price: 99,
-      oldPrice: 160,
-      rating: 0,
-      category: "BEST SELLING",
-    },
+  // const products = [
+  //   {
+  //     id: 1,
+  //     image: cart1,
+  //     title: "Chic Off-Shoulder Ruffle Dress with Floral Print",
+  //     price: 318.95,
+  //     oldPrice: 423.95,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 2,
+  //     image: cart2,
+  //     title: "Cozy Knit Sweater with Turtleneck and Cable Knit",
+  //     price: 318.95,
+  //     oldPrice: 423.95,
+  //     rating: 0,
+  //     category: "TRENDING",
+  //   },
+  //   {
+  //     id: 2,
+  //     image: cart2,
+  //     title: "Cozy Knit Sweater with Turtleneck and Cable Knit",
+  //     price: 318.95,
+  //     oldPrice: 423.95,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 3,
+  //     image: cart3,
+  //     title: "High-Waisted Skinny Jeans with Distressed Details",
+  //     price: 267.5,
+  //     oldPrice: 404,
+  //     rating: 0,
+  //     category: "BEST SELLING",
+  //   },
+  //   {
+  //     id: 3,
+  //     image: cart3,
+  //     title: "High-Waisted Skinny Jeans with Distressed Details",
+  //     price: 267.5,
+  //     oldPrice: 404,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 4,
+  //     image: cart4,
+  //     title: "Gaming Headset with Surround Sound, LED Lighting",
+  //     price: 146.75,
+  //     oldPrice: 236,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 5,
+  //     image: cart5,
+  //     title: "Classic Science Fiction Novel with Dystopian Themes",
+  //     price: 215,
+  //     oldPrice: 372.5,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 6,
+  //     image: cart6,
+  //     title: "Luxury Smartwatch with Stainless Steel Case",
+  //     price: 99,
+  //     oldPrice: 160,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 7,
+  //     image: cart7,
+  //     title: "Luxury Smartwatch with Stainless Steel Case",
+  //     price: 99,
+  //     oldPrice: 160,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 8,
+  //     image: cart8,
+  //     title: "Luxury Smartwatch with Stainless Steel Case",
+  //     price: 99,
+  //     oldPrice: 160,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 9,
+  //     image: cart9,
+  //     title: "Luxury Smartwatch with Stainless Steel Case",
+  //     price: 99,
+  //     oldPrice: 160,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 10,
+  //     image: cart10,
+  //     title: "Luxury Smartwatch with Stainless Steel Case",
+  //     price: 99,
+  //     oldPrice: 160,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 11,
+  //     image: cart11,
+  //     title: "Luxury Smartwatch with Stainless Steel Case",
+  //     price: 99,
+  //     oldPrice: 160,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 8,
+  //     image: cart12,
+  //     title: "Luxury Smartwatch with Stainless Steel Case",
+  //     price: 99,
+  //     oldPrice: 160,
+  //     rating: 0,
+  //     category: "NEW ARRIVAL",
+  //   },
+  //   {
+  //     id: 8,
+  //     image: cart6,
+  //     title: "Luxury Smartwatch with Stainless Steel Case",
+  //     price: 99,
+  //     oldPrice: 160,
+  //     rating: 0,
+  //     category: "BEST SELLING",
+  //   },
+  //   {
+  //     id: 8,
+  //     image: cart6,
+  //     title: "Luxury Smartwatch with Stainless Steel Case",
+  //     price: 99,
+  //     oldPrice: 160,
+  //     rating: 0,
+  //     category: "POPULAR",
+  //   },
+  //   {
+  //     id: 8,
+  //     image: cart6,
+  //     title: "Luxury Smartwatch with Stainless Steel Case",
+  //     price: 99,
+  //     oldPrice: 160,
+  //     rating: 0,
+  //     category: "BEST SELLING",
+  //   },
 
 
-    // Add more products with respective categories...
-  ];
+  //   // Add more products with respective categories...
+  // ];
 
-  const featured = [
-    {
-      img: feature1,
-      title: "Luxurious Rose Gold Bracelet with Customizable charms,948.95",
-    },
-    {
-      img: feature2,
-      title:
-        "Flagship 5G Smartphone with 256GB ROM, 12GB RAM, and 108 MP Quad Camera,423.95",
-    },
-    {
-      img: feature3,
-      title:
-        "5G Smartphone with 128GB storage,48MP Triple Camera,and AMOLED Display,450",
-    },
-    {
-      img: feature4,
-      title:
-        "Education Learning Toy with Light, Sounds,and Interactive Buttons,220",
-    },
-    {
-      img: feature5,
-      title:
-        "Professional USB Condenser Microphone with Noise Reduction-Perfect for Podcast and Streaming,310",
-    },
-    {
-      img: feature6,
-      title:
-        "Elegant Evening Clutch with Metallic Finish and Detachable chain Strap-Perfect for Event,350",
-    },
-    {
-      img: feature7,
-      title:
-        "Organic Cleansing Balm with Aloe Vera and Green Tea Extract-100ml,320",
-    },
-    {
-      img: feature8,
-      title:
-        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80",
-    },
-    {
-      img: feature9,
-      title:
-        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80",
-    },
-    {
-      img: feature10,
-      title:
-        "High-Performance BB cream with SPF 30 and Skin-Tone Adapting Formula,280",
-    },
-    {
-      img: feature11,
-      title:
-        "Mid-Range Mobile With with 48MP AI Camera,6GB RAM,and 4000mAh fast Charging,480",
-    },
-    {
-      img: feature12,
-      title: "Elegant Velvent Wrap Dress with Belt-Evening Glamour,155",
-    },
-  ];
+  // const featured = [
+  //   {
+  //     img: feature1,
+  //     title: "Luxurious Rose Gold Bracelet with Customizable charms,948.95",
+  //   },
+  //   {
+  //     img: feature2,
+  //     title:
+  //       "Flagship 5G Smartphone with 256GB ROM, 12GB RAM, and 108 MP Quad Camera,423.95",
+  //   },
+  //   {
+  //     img: feature3,
+  //     title:
+  //       "5G Smartphone with 128GB storage,48MP Triple Camera,and AMOLED Display,450",
+  //   },
+  //   {
+  //     img: feature4,
+  //     title:
+  //       "Education Learning Toy with Light, Sounds,and Interactive Buttons,220",
+  //   },
+  //   {
+  //     img: feature5,
+  //     title:
+  //       "Professional USB Condenser Microphone with Noise Reduction-Perfect for Podcast and Streaming,310",
+  //   },
+  //   {
+  //     img: feature6,
+  //     title:
+  //       "Elegant Evening Clutch with Metallic Finish and Detachable chain Strap-Perfect for Event,350",
+  //   },
+  //   {
+  //     img: feature7,
+  //     title:
+  //       "Organic Cleansing Balm with Aloe Vera and Green Tea Extract-100ml,320",
+  //   },
+  //   {
+  //     img: feature8,
+  //     title:
+  //       "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80",
+  //   },
+  //   {
+  //     img: feature9,
+  //     title:
+  //       "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80",
+  //   },
+  //   {
+  //     img: feature10,
+  //     title:
+  //       "High-Performance BB cream with SPF 30 and Skin-Tone Adapting Formula,280",
+  //   },
+  //   {
+  //     img: feature11,
+  //     title:
+  //       "Mid-Range Mobile With with 48MP AI Camera,6GB RAM,and 4000mAh fast Charging,480",
+  //   },
+  //   {
+  //     img: feature12,
+  //     title: "Elegant Velvent Wrap Dress with Belt-Evening Glamour,155",
+  //   },
+  // ];
 
-  const sellingp = [
-    {
-      img: sellingproduct1,
-      title:
-        " Smartphone with 128GB storage,48MP Triple Camera,and AMOLED Display,450",
-    },
-    {
-      img: sellingproduct2,
-      title:
-        "Education Learning Toy with Light, Sounds,and Interactive Buttons,220",
-    },
-    {
-      img: sellingproduct3,
-      title:
-        "Professional USB Condenser Microphone with Noise Reduction-Perfect for Podcast and Streaming,310",
-    },
-    {
-      img: sellingproduct4,
-      title:
-        "Elegant Evening Clutch with Metallic Finish and Detachable chain Strap-Perfect for Event,350",
-    },
-    {
-      img: sellingproduct5,
-      title:
-        "Organic Cleansing Balm with Aloe Vera and Green Tea Extract-100ml,320",
-    },
-    {
-      img: sellingproduct6,
-      title:
-        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80",
-    },
-    {
-      img: sellingproduct7,
-      title:
-        "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80",
-    },
-    {
-      img: sellingproduct8,
-      title:
-        "High-Performance BB cream with SPF 30 and Skin-Tone Adapting Formula,280",
-    },
-    {
-      img: sellingproduct9,
-      title:
-        "Mid-Range Mobile With with 48MP AI Camera,6GB RAM,and 4000mAh fast Charging,480",
-    },
-    {
-      img: sellingproduct10,
-      title: "Elegant Velvent Wrap Dress with Belt-Evening Glamour,155",
-    },
-  ];
+  // const sellingp = [
+  //   {
+  //     img: sellingproduct1,
+  //     title:
+  //       " Smartphone with 128GB storage,48MP Triple Camera,and AMOLED Display,450",
+  //   },
+  //   {
+  //     img: sellingproduct2,
+  //     title:
+  //       "Education Learning Toy with Light, Sounds,and Interactive Buttons,220",
+  //   },
+  //   {
+  //     img: sellingproduct3,
+  //     title:
+  //       "Professional USB Condenser Microphone with Noise Reduction-Perfect for Podcast and Streaming,310",
+  //   },
+  //   {
+  //     img: sellingproduct4,
+  //     title:
+  //       "Elegant Evening Clutch with Metallic Finish and Detachable chain Strap-Perfect for Event,350",
+  //   },
+  //   {
+  //     img: sellingproduct5,
+  //     title:
+  //       "Organic Cleansing Balm with Aloe Vera and Green Tea Extract-100ml,320",
+  //   },
+  //   {
+  //     img: sellingproduct6,
+  //     title:
+  //       "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80",
+  //   },
+  //   {
+  //     img: sellingproduct7,
+  //     title:
+  //       "Musical Stuffed Animal with Gentle Lullabies and Soft Glow-Perfact for Infants,80",
+  //   },
+  //   {
+  //     img: sellingproduct8,
+  //     title:
+  //       "High-Performance BB cream with SPF 30 and Skin-Tone Adapting Formula,280",
+  //   },
+  //   {
+  //     img: sellingproduct9,
+  //     title:
+  //       "Mid-Range Mobile With with 48MP AI Camera,6GB RAM,and 4000mAh fast Charging,480",
+  //   },
+  //   {
+  //     img: sellingproduct10,
+  //     title: "Elegant Velvent Wrap Dress with Belt-Evening Glamour,155",
+  //   },
+  // ];
 
   return (
     <div className="relative">
-      {pages[currentPage]}
-      
-      <div className="flex justify-center w-full">
+      {/* {pages[currentPage]} */}
+
+      {/* <div className="flex justify-center w-full">
         <div className="flex space-x-2">
           {pages.map((_, index) => (
             <span
               key={index}
-              className={`h-3 w-3 -mt-28 z-100 rounded-full cursor-pointer ${
-                currentPage === index ? "bg-red-500" : "bg-red-300"
-              }`}
+              className={`h-3 w-3 -mt-28 z-100 rounded-full cursor-pointer ${currentPage === index ? "bg-red-500" : "bg-red-300"
+                }`}
               onClick={() => setCurrentPage(index)}
             ></span>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <Carousel />
       <Slider />
       <MonthOffer />
-      <Categories products={products} />;
+      <Categories />;
       <Features />
       <Deal />
       <OurPartners />

@@ -18,16 +18,16 @@ const Privacy = () => {
           Effective Date: [8-24-2024]
         </h5>
         <p>
-          At Genius Shop, we value your privacy and are committed to protecting
+          At Arrc Technology, we value your privacy and are committed to protecting
           your personal information. This Privacy Policy outlines how we
           collect, use, share, and protect your data when you use our platform.
-          By using Genius Shop, you agree to the terms of this Privacy Policy.
+          By using Arrc Technology, you agree to the terms of this Privacy Policy.
           Please take a moment to read it carefully.
         </p>
         <h1 className="text-3xl font-bold mb-2.5">1. Information We Collect</h1>
         <h4 className="text-3xl font-semibold mb-3">a. Personal Information</h4>
         <p>
-          Account Information: When you create an account with Genius Shop, we
+          Account Information: When you create an account with Arrc Technology, we
           collect personal details such as your name, email address, phone
           number, and password. Payment Information: To process your
           transactions, we collect payment details such as your credit card
@@ -44,7 +44,7 @@ const Privacy = () => {
           Usage Data: We collect information about how you use our platform,
           including your browsing history, search queries, and interaction with
           products and services. Device Information: We gather details about the
-          device you use to access Genius Shop, including IP address, browser
+          device you use to access Arrc Technology, including IP address, browser
           type, operating system, and device identifiers. Cookies and Tracking
           Technologies: We use cookies, web beacons, and similar technologies to
           track your activity on our site, remember your preferences, and
@@ -61,7 +61,7 @@ const Privacy = () => {
           Personalization: We use your data to tailor content, recommendations,
           and advertisements to your interests and preferences. Communication:
           We may use your contact information to send you updates, newsletters,
-          marketing materials, and other communications related to Genius Shop.
+          marketing materials, and other communications related to Arrc Technology.
           You can opt out of marketing communications at any time. Security and
           Fraud Prevention: We use your information to protect the integrity of
           our platform, prevent unauthorized access, and detect and combat
@@ -80,7 +80,7 @@ const Privacy = () => {
           order fulfillment, shipping, customer support, and marketing. These
           service providers have access to your information only to perform
           specific tasks on our behalf and are obligated to protect your data.
-          Sellers: When you make a purchase from a seller on Genius Shop, we
+          Sellers: When you make a purchase from a seller on Arrc Technology, we
           share your relevant information, such as your shipping address and
           contact details, with the seller to facilitate order processing and
           delivery. Business Transfers: In the event of a merger, acquisition,
@@ -95,7 +95,7 @@ const Privacy = () => {
         <p>
           You have several rights regarding your personal information,
           including: Access and Update: You can access and update your account
-          information at any time by logging into your Genius Shop account.
+          information at any time by logging into your Arrc Technology account.
           Opt-Out: You can opt out of receiving marketing communications from us
           by following the unsubscribe link in our emails or adjusting your
           account settings. Data Portability: You have the right to request a
@@ -117,7 +117,7 @@ const Privacy = () => {
           6. Cookies and Tracking Technologies
         </h1>
         <p>
-          Genius Shop uses cookies and similar tracking technologies to enhance
+          Arrc Technology uses cookies and similar tracking technologies to enhance
           your experience on our platform. Cookies are small text files stored
           on your device that help us remember your preferences, track your
           activity, and deliver personalized content and ads. You can manage
@@ -128,7 +128,7 @@ const Privacy = () => {
         <h1 className="text-3xl font-bold mb-2.5">7. Third-Party Links</h1>
         <p>
           Our platform may contain links to third-party websites or services
-          that are not operated by Genius Shop. We are not responsible for the
+          that are not operated by Arrc Technology. We are not responsible for the
           privacy practices of these third parties, and we encourage you to
           review their privacy policies before providing any personal
           information.
@@ -137,14 +137,14 @@ const Privacy = () => {
           8. International Data Transfers
         </h1>
         <p>
-          Genius Shop operates globally, and your information may be transferred
+          Arrc Technology operates globally, and your information may be transferred
           to and processed in countries outside of your own. We take steps to
           ensure that your data is treated securely and in accordance with this
           Privacy Policy, regardless of where it is processed.
         </p>
         <h1 className="text-3xl font-bold mb-2.5">9. Children's Privacy</h1>
         <p>
-          Genius Shop is not intended for use by individuals under the age of
+          Arrc Technology is not intended for use by individuals under the age of
           13, and we do not knowingly collect personal information from children
           under 13. If we become aware that we have collected information from a
           child under 13, we will take steps to delete that information

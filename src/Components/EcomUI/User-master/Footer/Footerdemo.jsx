@@ -68,7 +68,8 @@ const Footer = () => {
         <div className="footer-container">
           {/* About Section */}
           <div className="footer-section">
-            <h4>Genius Shop</h4>
+            <h4>ARRC TECHNOLOGY
+            </h4>
             <p className="flex items-center gap-2">
               <IoCallOutline size={20} />
               00 000 000 000

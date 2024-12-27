@@ -736,7 +736,7 @@ export default UINavbar;
 
 //             {/* Logo */}
 //             <a href="/" className="text-xl font-bold hover:text-[#ff3333] transition-colors">
-//               Genius Shop
+//               Arrc Technology
 //             </a>
 
 //             {/* Desktop Navigation */}

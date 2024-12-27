@@ -275,6 +275,7 @@ import EyePage from "./Components/EcomUI/User-master/EyePage/EyePage.jsx";
 import Venderlogin from "./Components/EcomUI/User-master/Login/Venderlogin.jsx";
 import Riderlogin from "./Components/EcomUI/User-master/Login/Riderlogin.jsx";
 import CheckoutForm from "./Components/EcomUI/User-master/cart/Checkout.jsx";
+import CategoryPage from "./Components/EcomUI/User-master/Blog/CategoryPage.jsx";
 
 
 
@@ -389,6 +390,13 @@ const App = () => {
     }
     return children || <Outlet />;
   };
+  const VendorRoute = ({ children }) => {
+    if (isAuthenticated) {
+      return <Navigate to="/vendor/dashboard" />;
+    }
+    return children || <Outlet />;
+  };
+
 
   return (
     <Router>
@@ -413,295 +421,216 @@ const App = () => {
             <main className={`p-5 bg-white ${isAuthenticated ? 'mt-10' : ''}`}>
 
               <Routes>
+
                 {/* Public Routes */}
-
                 <Route element={<PublicRoute />}>
-
                   <Route path='/' element={<Home />} />
-                  {/* <Route path='/products' element={<Products />} />
-                  <Route path='/products/electronics/television' element={<Television />} />
-                  <Route path='/products/electronics/refrigerator' element={<Refrigeartor />} />
-                  <Route path='/products/electronics/washingmachine' element={<WashingMachine />} />
-                  <Route path='/products/electronics/airconditionersy' element={<AirConditioners />} />
-
-                  <Route path='/products/fashionbeauty/accessories' element={<Accessories />} />
-                  <Route path='/products/fashionbeauty/bags' element={<Bags />} />
-                  <Route path='/products/fashionbeauty/clothings' element={<Clothings />} />
-                  <Route path='/products/fashionbeauty/shoes' element={<Shoes />} />
-
-                  <Route path='/products/cameraphoto/dslr' element={<Dslr />} />
-                  <Route path='/products/cameraphoto/cameraphone' element={<CameraPhone />} />
-                  <Route path='/products/cameraphoto/actioncamera' element={<ActionCamera />} />
-                  <Route path='/products/cameraphoto/digitalcamera' element={<DigitalCamera />} />
-
-                  <Route path='/products/samartphonetable/apple' element={< Apple />} />
-                  <Route path='/products/samartphonetable/samsung' element={<Samsung />} />
-                  <Route path='/products/samartphonetable/lg' element={<Lg />} />
-                  <Route path='/products/samartphonetable/sony' element={<Sony />} />
-
-                  <Route path='/products/sportoutdoor/sportequipment' element={<SportsEquipment />} />
-                  <Route path='/products/sportoutdoor/outdoorapparel' element={<OutdoorApparel />} />
-                  <Route path='/products/sportoutdoor/campinghiking' element={<CampingHiking />} />
-                  <Route path='/products/sportoutdoor/watersports' element={<WaterSports />} />
-
-                  <Route path='/products/jewelrywatches/finejewelry' element={<FineJewelry />} />
-                  <Route path='/products/jewelrywatches/fashionjewelry' element={<FashionJewelry />} />
-                  <Route path='/products/jewelrywatches/meansjewelry' element={<MensJewelry />} />
-                  <Route path='/products/jewelrywatches/womensjewelry' element={< WomaensJewelry />} />
-
-                  <Route path='/products/healthbeauty/skincare' element={<Skincare />} />
-                  <Route path='/products/healthbeauty/haircare' element={<HairCare />} />
-                  <Route path='/products/healthbeauty/makeup' element={<Makeup />} />
-                  <Route path='/products/healthbeauty/personalcare' element={<PersonalCare />} />
-
-                  <Route path='/products/booksoffice/books' element={<Books />} />
-                  <Route path='/products/booksoffice/officesupplies' element={<OfficeSupplies />} />
-                  <Route path='/products/booksoffice/officefurniture' element={<OfficeFurniture />} />
-                  <Route path='/products/booksoffice/computerselectronics' element={<ComputersElectroics />} />
-
-                  <Route path='/products/toyshobbies/toys' element={<Toys />} />
-                  <Route path='/products/toyshobbies/artscrafts' element={<ArtsCrafts />} />
-                  <Route path='/products/toyshobbies/gamespuzzles' element={<GamesPuzzles />} />
-                  <Route path='/products/toyshobbies/collectibles' element={<Collectibles />} />
-
-                  <Route path='/products/automobiles/newcars' element={<NewCars />} />
-                  <Route path='/products/automobiles/usedcars' element={<UsedCars />} />
-                  <Route path='/products/automobiles/caraccessories' element={<CarAccessories />} />
-                  <Route path='/products/automobiles/fluidschemical' element={<FluidsChemicals />} />
-
-                  <Route path='/products/homedecoration/wallart' element={<WallArt />} />
-                  <Route path='/products/homedecoration/lighting' element={<Lighting />} />
-                  <Route path='/products/homedecoration/furniture' element={<Furniture />} />
-                  <Route path='/products/homedecoration/textiles' element={<Textiles />} />
-
-                  <Route path='/products/portablepersonal/portableelectronics' element={<PortableElectronics />} />
-                  <Route path='/products/portablepersonal/personalcaredevices' element={<PersonalCareDevice />} />
-                  <Route path='/products/portablepersonal/travelessentials' element={<TravelEssentials />} />
-                  <Route path='/products/portablepersonal/healthfitnessgadgets' element={<HealthFitnessGadgets />} />
-
-                  <Route path='/aboutus' element={<AboutUs />} />
-                  <Route path='/privacy' element={<Privacy />} />
-                  <Route path='/faq' element={<Faq />} />
-                  <Route path='/contact' element={<Contact />} />
-                  <Route path='/Blog' element={<Blog />} />
-                  <Route path='blogdetails/:id' element={<Blogdetails />} />
-                  <Route path='/UILogin' element={<UILogin />} />
-                  <Route path='/search' element={<Search />} />
-                  <Route path='/compare' element={<Compare />} />
-                  <Route path='/Cart' element={<Cart />} /> */}
 
                   {/* vonder code */}
                   <Route path="/user/vendor-register" element={<VendorAuthForm />} />
                   <Route path="/user/rider-register" element={<RiderAuthForm />} />
                   <Route path="/user/VendorDashboard" element={<VendorDashboard />} />
-                  <Route path="/vendor/login" element={<VendorLoginForm  />} />
+                  <Route path="/vendor/login" element={<VendorLoginForm />} />
                   <Route path="/vendor/dashboard" element={<VendorDashboard />} />
                   <Route path="/appdashboard" element={<VendorLayout />} />
 
-                {/* EcomUI */}
-                <Route path="/products" element={<Products />} />
-          <Route
-            path="/products/electronic/television"
-            element={<Television />}
-          />
-          <Route
-            path="/products/electronic/refrigerator"
-            element={<Refrigeartor />}
-          />
-          <Route
-            path="/products/electronic/washingmachine"
-            element={<WashingMachine />}
-          />
-          <Route
-            path="/products/electronic/airconditionersy"
-            element={<AirConditioners />}
-          />
+                  {/* EcomUI */}
+                  <Route path="/products" element={<Products />} />
+                  <Route
+                    path="/products/electronic/television"
+                    element={<Television />}
+                  />
+                  <Route
+                    path="/products/electronic/refrigerator"
+                    element={<Refrigeartor />}
+                  />
+                  <Route
+                    path="/products/electronic/washingmachine"
+                    element={<WashingMachine />}
+                  />
+                  <Route
+                    path="/products/electronic/airconditionersy"
+                    element={<AirConditioners />}
+                  />
 
-          <Route
-            path="/products/fashion-beauty/accessories"
-            element={<Accessories />}
-          />
-          <Route path="/products/fashion-beauty/bags" element={<Bags />} />
-          <Route
-            path="/products/fashion-beauty/clothings"
-            element={<Clothings />}
-          />
-          <Route path="/products/fashion-beauty/shoes" element={<Shoes />} />
+                  <Route
+                    path="/products/fashion-beauty/accessories"
+                    element={<Accessories />}
+                  />
+                  <Route path="/products/fashion-beauty/bags" element={<Bags />} />
+                  <Route
+                    path="/products/fashion-beauty/clothings"
+                    element={<Clothings />}
+                  />
+                  <Route path="/products/fashion-beauty/shoes" element={<Shoes />} />
 
-          <Route path="/products/camera-photo/dslr" element={<Dslr />} />
-          <Route
-            path="/products/camera-photo/cameraphone"
-            element={<CameraPhone />}
-          />
-          <Route
-            path="/products/camera-photo/actioncamera"
-            element={<ActionCamera />}
-          />
-          <Route
-            path="/products/camera-photo/digitalcamera"
-            element={<DigitalCamera />}
-          />
+                  <Route path="/products/camera-photo/dslr" element={<Dslr />} />
+                  <Route
+                    path="/products/camera-photo/cameraphone"
+                    element={<CameraPhone />}
+                  />
+                  <Route
+                    path="/products/camera-photo/actioncamera"
+                    element={<ActionCamera />}
+                  />
+                  <Route
+                    path="/products/camera-photo/digitalcamera"
+                    element={<DigitalCamera />}
+                  />
 
-          <Route path="/products/smart-phone-table/apple" element={<Apple />} />
-          <Route
-            path="/products/smart-phone-table/samsung"
-            element={<Samsung />}
-          />
-          <Route path="/products/smart-phone-table/lg" element={<Lg />} />
-          <Route path="/products/smart-phone-table/sony" element={<Sony />} />
+                  <Route path="/products/smart-phone-table/apple" element={<Apple />} />
+                  <Route
+                    path="/products/smart-phone-table/samsung"
+                    element={<Samsung />}
+                  />
+                  <Route path="/products/smart-phone-table/lg" element={<Lg />} />
+                  <Route path="/products/smart-phone-table/sony" element={<Sony />} />
 
-          <Route
-            path="/products/sport-outdoor/sports-equipment"
-            element={<SportsEquipment />}
-          />
-          <Route
-            path="/products/sport-outdoor/outdoor-apparel"
-            element={<OutdoorApparel />}
-          />
-          <Route
-            path="/products/sport-outdoor/camping-&-hiking"
-            element={<CampingHiking />}
-          />
-          <Route
-            path="/products/sport-outdoor/water-sports"
-            element={<WaterSports />}
-          />
+                  <Route
+                    path="/products/sport-outdoor/sports-equipment"
+                    element={<SportsEquipment />}
+                  />
+                  <Route
+                    path="/products/sport-outdoor/outdoor-apparel"
+                    element={<OutdoorApparel />}
+                  />
+                  <Route
+                    path="/products/sport-outdoor/camping-&-hiking"
+                    element={<CampingHiking />}
+                  />
+                  <Route
+                    path="/products/sport-outdoor/water-sports"
+                    element={<WaterSports />}
+                  />
 
-          <Route
-            path="/products/jewelry-watches/fine-jewelry"
-            element={<FineJewelry />}
-          />
-          <Route
-            path="/products/jewelry-watches/fashionjewelry"
-            element={<FashionJewelry />}
-          />
-          <Route
-            path="/products/jewelry-watches/men's-jewelry"
-            element={<MensJewelry />}
-          />
-          <Route
-            path="/products/jewelry-watches/womensjewelry"
-            element={<WomaensJewelry />}
-          />
+                  <Route
+                    path="/products/jewelry-watches/fine-jewelry"
+                    element={<FineJewelry />}
+                  />
+                  <Route
+                    path="/products/jewelry-watches/fashionjewelry"
+                    element={<FashionJewelry />}
+                  />
+                  <Route
+                    path="/products/jewelry-watches/men's-jewelry"
+                    element={<MensJewelry />}
+                  />
+                  <Route
+                    path="/products/jewelry-watches/womensjewelry"
+                    element={<WomaensJewelry />}
+                  />
 
-          <Route
-            path="/products/health-beauty/skincare"
-            element={<Skincare />}
-          />
-          <Route
-            path="/products/health-beauty/hair-care"
-            element={<HairCare />}
-          />
-          <Route path="/products/health-beauty/makeup" element={<Makeup />} />
-          <Route
-            path="/products/health-beauty/personal-care"
-            element={<PersonalCare />}
-          />
+                  <Route
+                    path="/products/health-beauty/skincare"
+                    element={<Skincare />}
+                  />
+                  <Route
+                    path="/products/health-beauty/hair-care"
+                    element={<HairCare />}
+                  />
+                  <Route path="/products/health-beauty/makeup" element={<Makeup />} />
+                  <Route
+                    path="/products/health-beauty/personal-care"
+                    element={<PersonalCare />}
+                  />
 
-          <Route path="/products/books-office/books" element={<Books />} />
-          <Route
-            path="/products/books-officee/office-supplies"
-            element={<OfficeSupplies />}
-          />
-          <Route
-            path="/products/books-office/office-furniture"
-            element={<OfficeFurniture />}
-          />
-          <Route
-            path="/products/books-office/computers-&-electronics"
-            element={<ComputersElectroics />}
-          />
+                  <Route path="/products/books-office/books" element={<Books />} />
+                  <Route
+                    path="/products/books-officee/office-supplies"
+                    element={<OfficeSupplies />}
+                  />
+                  <Route
+                    path="/products/books-office/office-furniture"
+                    element={<OfficeFurniture />}
+                  />
+                  <Route
+                    path="/products/books-office/computers-&-electronics"
+                    element={<ComputersElectroics />}
+                  />
 
-          <Route path="/products/toys-hobbies/toys" element={<Toys />} />
-          <Route
-            path="/products/toys-hobbies/arts-&-crafts"
-            element={<ArtsCrafts />}
-          />
-          <Route
-            path="/products/toys-hobbies/games-&-puzzle"
-            element={<GamesPuzzles />}
-          />
-          <Route
-            path="/products/toys-hobbies/collectibles"
-            element={<Collectibles />}
-          />
+                  <Route path="/products/toys-hobbies/toys" element={<Toys />} />
+                  <Route
+                    path="/products/toys-hobbies/arts-&-crafts"
+                    element={<ArtsCrafts />}
+                  />
+                  <Route
+                    path="/products/toys-hobbies/games-&-puzzle"
+                    element={<GamesPuzzles />}
+                  />
+                  <Route
+                    path="/products/toys-hobbies/collectibles"
+                    element={<Collectibles />}
+                  />
 
-          <Route path="/products/automobiles/new-cars" element={<NewCars />} />
-          <Route
-            path="/products/automobiles/used-cars"
-            element={<UsedCars />}
-          />
-          <Route
-            path="/products/automobiles/car-accessories"
-            element={<CarAccessories />}
-          />
-          <Route
-            path="/products/automobiles/fluids-&-chemicals"
-            element={<FluidsChemicals />}
-          />
+                  <Route path="/products/automobiles/new-cars" element={<NewCars />} />
+                  <Route
+                    path="/products/automobiles/used-cars"
+                    element={<UsedCars />}
+                  />
+                  <Route
+                    path="/products/automobiles/car-accessories"
+                    element={<CarAccessories />}
+                  />
+                  <Route
+                    path="/products/automobiles/fluids-&-chemicals"
+                    element={<FluidsChemicals />}
+                  />
 
-          <Route
-            path="/products/home-decoration/wall-art"
-            element={<WallArt />}
-          />
-          <Route
-            path="/products/home-decoration/lighting"
-            element={<Lighting />}
-          />
-          <Route
-            path="/products/home-decoration/furniture"
-            element={<Furniture />}
-          />
-          <Route
-            path="/products/home-decoration/textiles"
-            element={<Textiles />}
-          />
+                  <Route
+                    path="/products/home-decoration/wall-art"
+                    element={<WallArt />}
+                  />
+                  <Route
+                    path="/products/home-decoration/lighting"
+                    element={<Lighting />}
+                  />
+                  <Route
+                    path="/products/home-decoration/furniture"
+                    element={<Furniture />}
+                  />
+                  <Route
+                    path="/products/home-decoration/textiles"
+                    element={<Textiles />}
+                  />
 
-          <Route
-            path="/products/portablepersonal/portableelectronics"
-            element={<PortableElectronics />}
-          />
-          <Route
-            path="/products/portablepersonal/personalcaredevices"
-            element={<PersonalCareDevice />}
-          />
-          <Route
-            path="/products/portablepersonal/travelessentials"
-            element={<TravelEssentials />}
-          />
-          <Route
-            path="/products/portablepersonal/HealthFitnessGadgets"
-            element={<HealthFitnessGadgets />}
-          />
+                  <Route
+                    path="/products/portablepersonal/portableelectronics"
+                    element={<PortableElectronics />}
+                  />
+                  <Route
+                    path="/products/portablepersonal/personalcaredevices"
+                    element={<PersonalCareDevice />}
+                  />
+                  <Route
+                    path="/products/portablepersonal/travelessentials"
+                    element={<TravelEssentials />}
+                  />
+                  <Route
+                    path="/products/portablepersonal/HealthFitnessGadgets"
+                    element={<HealthFitnessGadgets />}
+                  />
 
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/faq" element={<Faq />} /> 
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/Blog" element={<Blog />} />
-          <Route path="blogdetails/:id" element={<Blogdetails />} />
-          {/* <Route path="/Login" element={<Login />} /> */}
-          <Route path="/wishlist" element={<Wishlist products={products} />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/Checkout" element={<CheckoutForm />} />
-          <Route path="/compare" element={<Compare />} />
-          <Route path="/Cart" element={<Cart />} />
-          <Route path="/infopage" element={<EyePage />} />
-          <Route path="/products/childpage" element={<ChildPage />} />
-          <Route path="/venderlogin" element={<Venderlogin />} />
-          <Route path="/Riderlogin" element={<Riderlogin />} />
+                  <Route path="/aboutus" element={<AboutUs />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                  <Route path="/faq" element={<Faq />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/Blog" element={<Blog />} />
+                  <Route path="blogdetails/:id" element={<Blogdetails />} />
+                  <Route path="/category/:categoryId" element={<CategoryPage />} />
 
-
-
-
-          </Route>
+                  {/* <Route path="/Login" element={<Login />} /> */}
+                  <Route path="/wishlist" element={<Wishlist products={products} />} />
+                  <Route path="/search" element={<Search />} />
+                  <Route path="/Checkout" element={<CheckoutForm />} />
+                  <Route path="/compare" element={<Compare />} />
+                  <Route path="/Cart" element={<Cart />} />
+                  <Route path="/product/:id" element={<EyePage />} />
+                  <Route path="/products/childpage" element={<ChildPage />} />
+                  <Route path="/venderlogin" element={<Venderlogin />} />
+                  <Route path="/Riderlogin" element={<Riderlogin />} />
 
 
-
-
-
-
-
+                </Route>
 
 
                 {/* Protected Admin Routes */}

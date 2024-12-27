@@ -173,6 +173,10 @@ const ProductCard = ({ product }) => {
     dispatch(addToWishlist(product));
     message.success(`${product.productName} added to wishlist!`);
   };
+  const handleViewDetails = () => {
+    // Navigate to product detail page using product ID
+    navigate(`/product/${product._id}`);
+  };
 
   return (
     <div 
@@ -200,6 +204,7 @@ const ProductCard = ({ product }) => {
           <img
             src={product.featureImage}
             alt={product.productName}
+            
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           
@@ -221,7 +226,7 @@ const ProductCard = ({ product }) => {
             </button>
             
             <button
-              onClick={() => navigate("/infopage")}
+              onClick={handleViewDetails} // Navigate to product detail page
               className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-md hover:bg-red-500 hover:text-white transition-colors duration-300"
             >
               <IoEyeOutline size={20} />
@@ -321,7 +326,7 @@ const Categories = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`relative font-semibold text-sm sm:text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ${
+              className={`relative  font-semibold text-sm sm:text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ${
                 activeTab === tab ? 'text-red-500' : 'hover:text-red-500'
               }`}
             >

@@ -44,6 +44,7 @@ const EcomNavbar = () => {
     setNav1(false);
   };
 
+
   const categories = [
     "Electronic",
     "Fashion & Beauty",
@@ -70,13 +71,19 @@ const EcomNavbar = () => {
 
   const navigate = useNavigate();
 
+
+
   const VendorClickHandler = () => {
-    console.log("Vendor button clicked");
-    navigate("/venderlogin");
+    navigate("/vendor/login");
   };
   const RiderClickHandler = () => {
-    navigate("/Riderlogin");
+    navigate("/user/rider-register");
   };
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
 
   return (
     <div className="w-full">
@@ -105,18 +112,28 @@ const EcomNavbar = () => {
                 Rider Login
               </button>
               <div className="flex items-center space-x-2">
-                <button className="flex items-center space-x-1 hover:opacity-80 transition-opacity">
-                  <span>English</span>
-                  <ChevronDown size={16} />
+                <button className="flex items-center bg-white/10 rounded hover:bg-white/20 transition-colors space-x-1 ">
+                <select className="bg-transparent  text-white   px-2   rounded focus:outline-none">
+              <option className="bg-teal-400">English</option>
+              <option className="bg-teal-400">Hindi</option>
+              <option className="bg-teal-400">Marathi</option>
+            </select>
+                  {/* <ChevronDown size={16} /> */}
                 </button>
               </div>
               <div className="flex items-center space-x-2">
-                <button className="flex items-center space-x-1 hover:opacity-80 transition-opacity">
-                  <span>USD</span>
-                  <ChevronDown size={16} />
+              <button className="flex items-center bg-white/10 rounded hover:bg-white/20 transition-colors space-x-1 ">
+              <select className="bg-teal-400 text-white  px-2 rounded focus:outline-none">
+              <option>INR</option>
+              <option>USD</option>
+
+            </select>
+                  {/* <ChevronDown size={16} /> */}
                 </button>
               </div>
-              <button className="hidden md:block hover:opacity-80 transition-opacity">
+              <button 
+                              onClick={handleLogin}
+                              className="hidden md:block hover:opacity-80 transition-opacity">
                 My Account
               </button>
             </div>
@@ -137,7 +154,7 @@ const EcomNavbar = () => {
             <div className="fixed inset-0 bg-black bg-opacity-25 z-50">
               <div className="w-72 bg-white h-full shadow-lg fixed left-0 top-0 z-50">
                 <div className="p-4 flex justify-between items-center border-b bg-red-500 text-white">
-                  <h2 className="font-bold text-lg"> Genius shop </h2>
+                  <h2 className="font-bold text-lg"> ARRC TECHNOLOGY </h2>
                   <button onClick={toggleDrawer}>X</button>
                 </div>
 
@@ -193,7 +210,9 @@ const EcomNavbar = () => {
                       >
                         Rider Login
                       </button>
-                      <button className="px-2 py-1  border bg-red-500 text-white transition rounded-md">
+                      <button
+                                              onClick={handleLogin}
+                                              className="px-2 py-1  border bg-red-500 text-white transition rounded-md">
                         User Login
                       </button>
                     </div>
@@ -667,10 +686,10 @@ const EcomNavbar = () => {
                     </div>
                   )}
                 </li>
+                <Link to={"/Blog"}>BLOG</Link>
 
                 <Link to={"/Faq"}>FAQ</Link>
                 <Link to={"/contact"}>CONTACT US</Link>
-                <Link to={"/Blog"}>BLOG</Link>
               </div>
             </div>
           </nav>

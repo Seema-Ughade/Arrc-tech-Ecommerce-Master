@@ -335,7 +335,7 @@ export default function VendorLoginForm() {
           <div className="text-center text-sm">
             Don't have an account?{" "}
             <Link 
-              to="/vendor/register" 
+              to="/user/vendor-register" 
               className="font-medium text-indigo-600 hover:text-indigo-500"
             >
               Create New Account
