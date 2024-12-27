@@ -14,8 +14,8 @@ const CategoryPage = () => {
     const fetchCategoryBlogs = async () => {
       try {
         const [categoryResponse, blogsResponse] = await Promise.all([
-          axios.get(`http://127.0.0.1:5000/api/categories/${categoryId}`),
-          axios.get(`http://127.0.0.1:5000/api/posts?category=${categoryId}`)
+          axios.get(`https://ecommerce-panel-backend.onrender.com/api/categories/${categoryId}`),
+          axios.get(`https://ecommerce-panel-backend.onrender.com/api/posts?category=${categoryId}`)
         ]);
         setCategory(categoryResponse.data);
         setBlogs(blogsResponse.data);

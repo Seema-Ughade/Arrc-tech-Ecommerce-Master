@@ -427,8 +427,8 @@ const Sidebar = () => {
   const fetchSidebarData = async () => {
     try {
       const [categoriesResponse, postsResponse] = await Promise.all([
-        fetchWithRetry('http://127.0.0.1:5000/api/categories'),
-        fetchWithRetry('http://127.0.0.1:5000/api/posts?limit=5')
+        fetchWithRetry('https://ecommerce-panel-backend.onrender.com/api/categories'),
+        fetchWithRetry('https://ecommerce-panel-backend.onrender.com/api/posts?limit=5')
       ]);
       setCategories(categoriesResponse.data);
       setRecentPosts(postsResponse.data);
@@ -542,7 +542,7 @@ const Blogdetails = () => {
 
   const fetchBlogDetails = async () => {
     try {
-      const response = await fetchWithRetry(`http://127.0.0.1:5000/api/posts/${id}`);
+      const response = await fetchWithRetry(`https://ecommerce-panel-backend.onrender.com/api/posts/${id}`);
       setBlog(response.data);
       setLoading(false);
     } catch (err) {

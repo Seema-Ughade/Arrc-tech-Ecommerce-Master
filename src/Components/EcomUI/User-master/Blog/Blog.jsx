@@ -236,7 +236,7 @@ const BlogPage = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://127.0.0.1:5000/api/posts");
+        const response = await axios.get("https://ecommerce-panel-backend.onrender.com/api/posts");
         const blogData = response.data;
         setBlogs(blogData);
         

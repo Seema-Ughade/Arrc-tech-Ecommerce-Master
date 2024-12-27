@@ -20,7 +20,7 @@
 //   useEffect(() => {
 //     const fetchPosts = async () => {
 //       try {
-//         const response = await axios.get('http://127.0.0.1:5000/api/posts'); // Replace with your API endpoint for posts
+//         const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/posts'); // Replace with your API endpoint for posts
 //         setPosts(response.data);
 //       } catch (error) {
 //         console.error('Error fetching posts:', error);
@@ -29,7 +29,7 @@
 
 //     const fetchCategories = async () => {
 //       try {
-//         const response = await axios.get('http://127.0.0.1:5000/api/Blogcategories'); // Replace with your API endpoint for categories
+//         const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/Blogcategories'); // Replace with your API endpoint for categories
 //         setCategories(response.data);
 //       } catch (error) {
 //         console.error('Error fetching categories:', error);
@@ -60,7 +60,7 @@
 //     formData.append('tags', newPost.tags);
 
 //     try {
-//       await axios.post('http://127.0.0.1:5000/api/posts', formData); // Replace with your API endpoint for creating posts
+//       await axios.post('https://ecommerce-panel-backend.onrender.com/api/posts', formData); // Replace with your API endpoint for creating posts
 //       setPosts([...posts, newPost]); // Update local state (you might want to fetch posts again instead)
 //       setNewPost({
 //         title: '',
@@ -265,7 +265,7 @@ const Posts = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/api/posts');
+      const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/posts');
       setPosts(response.data);
     } catch (error) {
       console.error('Error fetching posts:', error);
@@ -275,7 +275,7 @@ const Posts = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/api/Blogcategories');
+      const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/Blogcategories');
       setCategories(response.data);
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -301,10 +301,10 @@ const Posts = () => {
 
     try {
       if (isEditMode) {
-        await axios.put(`http://127.0.0.1:5000/api/posts/${currentPost._id}`, formData);
+        await axios.put(`https://ecommerce-panel-backend.onrender.com/api/posts/${currentPost._id}`, formData);
         message.success('Post updated successfully');
       } else {
-        await axios.post('http://127.0.0.1:5000/api/posts', formData);
+        await axios.post('https://ecommerce-panel-backend.onrender.com/api/posts', formData);
         message.success('Post created successfully');
       }
       fetchPosts();
@@ -331,7 +331,7 @@ const Posts = () => {
 
   const handleDelete = async (postId) => {
     try {
-      await axios.delete(`http://127.0.0.1:5000/api/posts/${postId}`);
+      await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/posts/${postId}`);
       message.success('Post deleted successfully');
       fetchPosts();
     } catch (error) {
