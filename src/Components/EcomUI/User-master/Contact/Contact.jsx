@@ -135,7 +135,7 @@ const ContactPage = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/contacts", formData);
+      const response = await axios.post("https://ecommerce-panel-backend.onrender.com/api/contacts", formData);
       if (response.status === 201) {
         toast.success("Message sent successfully!");
         setFormData({ name: "", phone: "", email: "", comment: "" });

@@ -11,7 +11,7 @@ import {
   updateDealFail,
 } from "../reducers/dealReducer";
 
-const server = "http://localhost:5000"; // Replace with your server URL
+const server = "https://ecommerce-panel-backend.onrender.com"; // Replace with your server URL
 
 export const getDeal = () => async (dispatch) => {
   try {

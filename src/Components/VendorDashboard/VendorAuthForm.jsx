@@ -216,7 +216,7 @@ export default function VendorAuthForm() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/vendor/register', formData)
+      const response = await axios.post('https://ecommerce-panel-backend.onrender.com/api/auth/vendor/register', formData)
       if (response.data.success) {
         navigate('/vendor/login')
       }

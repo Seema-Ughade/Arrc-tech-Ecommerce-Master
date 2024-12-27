@@ -230,7 +230,7 @@ export default function VendorLoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/vendor/login', formData)
+      const response = await axios.post('https://ecommerce-panel-backend.onrender.com/api/auth/vendor/login', formData)
       if (response.data.success) {
         localStorage.setItem('token', response.data.token)
         navigate('/vendor/dashboard')
