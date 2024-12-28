@@ -120,7 +120,8 @@ const Blogdetails = () => {
       id: 1,
       title: "The Power of Personalization",
       date: "Jan 02, 2019",
-      excerpt: "In an age where consumers are bombarded with countless options...",
+      excerpt:
+        "In an age where consumers are bombarded with countless options...",
       category: "Technology",
       image: blog1,
     },
@@ -128,7 +129,8 @@ const Blogdetails = () => {
       id: 2,
       title: "Fashion on a Budget",
       date: "Jan 15, 2024",
-      excerpt: "Looking chic and stylish doesn’t have to come with a hefty price tag. With the right strategies, you can build a fashionable wardrobe that reflects your personal style while staying within your budget...",
+      excerpt:
+        "Looking chic and stylish doesn’t have to come with a hefty price tag. With the right strategies, you can build a fashionable wardrobe that reflects your personal style while staying within your budget...",
       image: blog2,
       category: "Fashion",
     },
@@ -144,7 +146,8 @@ const Blogdetails = () => {
       id: 4,
       title: "Maximizing Your E-Commerce Potential",
       date: "Jan 20, 2019",
-      excerpt: "In the competitive world of e-commerce, standing out and driving sales requires more than just having a great product....",
+      excerpt:
+        "In the competitive world of e-commerce, standing out and driving sales requires more than just having a great product....",
       image: blog4,
       category: "Fashion",
     },
@@ -152,7 +155,8 @@ const Blogdetails = () => {
       id: 5,
       title: "Behind the Scenes",
       date: "Jan 02, 2019",
-      excerpt: "At Genius Ocean, curating a fashion collection isn’t just about picking out stylish pieces; it’s an intricate process that involves creativity, trend analysis, and a keen understanding of our customers' needs...",
+      excerpt:
+        "At Genius Ocean, curating a fashion collection isn’t just about picking out stylish pieces; it’s an intricate process that involves creativity, trend analysis, and a keen understanding of our customers' needs...",
       image: blog5,
       category: "Fashion",
     },
@@ -160,7 +164,8 @@ const Blogdetails = () => {
       id: 6,
       title: "The Ultimate Guide to Sustainable Fashion",
       date: "Jan 02, 2019",
-      excerpt: "As consumers become more conscious of their impact on the environment, the demand for sustainable fashion has grown significantly...",
+      excerpt:
+        "As consumers become more conscious of their impact on the environment, the demand for sustainable fashion has grown significantly...",
       image: blog6,
       category: "Fashion",
     },
@@ -168,7 +173,8 @@ const Blogdetails = () => {
       id: 7,
       title: "Building a Mobile-Friendly E-Commerce Site",
       date: "Aug 02, 2018",
-      excerpt: "In today’s digital landscape, mobile commerce is no longer a trend—it's a fundamental aspect of online shoppingy...",
+      excerpt:
+        "In today’s digital landscape, mobile commerce is no longer a trend—it's a fundamental aspect of online shoppingy...",
       image: blog7,
       category: "Fashion",
     },
@@ -176,7 +182,8 @@ const Blogdetails = () => {
       id: 8,
       title: "How to Create an Irresistible E-Commerce Website",
       date: "Aug 02, 2018",
-      excerpt: "Creating an irresistible e-commerce website is crucial for attracting and retaining customers in today’s competitive online market. ...",
+      excerpt:
+        "Creating an irresistible e-commerce website is crucial for attracting and retaining customers in today’s competitive online market. ...",
       image: blog8,
       category: "Fashion",
     },
@@ -184,7 +191,8 @@ const Blogdetails = () => {
       id: 9,
       title: "Versatile Outfits for the Modern Woman",
       date: "Aug 02, 2018",
-      excerpt: "in today’s dynamic world, women are constantly juggling multiple roles—professional, personal, and social...",
+      excerpt:
+        "in today’s dynamic world, women are constantly juggling multiple roles—professional, personal, and social...",
       image: blog9,
       category: "Fashion",
     },
@@ -192,7 +200,8 @@ const Blogdetails = () => {
       id: 10,
       title: "From Click to Cart",
       date: "Aug 02, 2018",
-      excerpt: "The checkout process is a critical juncture in the e-commerce journey...",
+      excerpt:
+        "The checkout process is a critical juncture in the e-commerce journey...",
       matters: "",
       image: blog10,
       category: "Fashion",
@@ -201,7 +210,8 @@ const Blogdetails = () => {
       id: 11,
       title: "Creating an Engaging E-Commerce Experience",
       date: "Aug 02, 2018",
-      excerpt: "In the competitive world of e-commerce, providing a static and unremarkable shopping experience is no longer sufficient....",
+      excerpt:
+        "In the competitive world of e-commerce, providing a static and unremarkable shopping experience is no longer sufficient....",
       image: blog11,
       category: "Fashion",
     },
@@ -209,11 +219,11 @@ const Blogdetails = () => {
       id: 12,
       title: "How to design effective arts?",
       date: "Apr 06, 2018",
-      excerpt: "The recording starts with the patter of a summer squall. Later, a drifting tone like that of a not-quite-tuned-in radio station rises and for a while drowns out the patter...",
+      excerpt:
+        "The recording starts with the patter of a summer squall. Later, a drifting tone like that of a not-quite-tuned-in radio station rises and for a while drowns out the patter...",
       image: blog12,
       category: "Fashion",
     },
-
   ];
 
   // Fetch blog data based on ID
@@ -236,16 +246,8 @@ const Blogdetails = () => {
         <a href="https://www.geniusocean.com" class="text-blue-400 underline">
           Source
         </a>
-        <h1 className="font-bold text-2xl ">
-          {
-            blog.title
-          }
-        </h1>
-        <p>
-          {
-            blog.excerpt
-          }
-        </p>
+        <h1 className="font-bold text-2xl ">{blog.title}</h1>
+        <p>{blog.excerpt}</p>
         <h1 className="font-bold text-2xl ">Why Personalization Matters</h1>
         <p>
           Personalization goes beyond simply addressing customers by their

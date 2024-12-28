@@ -4,6 +4,7 @@ import blog1 from "../Assets/blog1.png";
 import blog2 from "../Assets/blog2.png";
 import blog3 from "../Assets/blog3.png";
 import blog4 from "../Assets/blog4.png";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGoogle, FaDribbble } from "react-icons/fa";
 
 export default function EcomFooter() {
   const recentPosts = [
@@ -62,32 +63,32 @@ export default function EcomFooter() {
               </div>
             </div>
             <div className="flex gap-4 mt-6">
-              <a href="#" className="hover:opacity-80">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                  <span className="text-black text-xl">f</span>
-                </div>
-              </a>
-              <a href="#" className="hover:opacity-80">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                  <span className="text-black text-xl">t</span>
-                </div>
-              </a>
-              <a href="#" className="hover:opacity-80">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                  <span className="text-black text-xl">in</span>
-                </div>
-              </a>
-              <a href="#" className="hover:opacity-80">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                  <span className="text-black text-xl">G+</span>
-                </div>
-              </a>
-              <a href="#" className="hover:opacity-80">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                  <span className="text-black text-xl">D</span>
-                </div>
-              </a>
-            </div>
+      <a href="#" className="hover:opacity-80">
+        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+          <FaFacebookF className="text-black text-xl" />
+        </div>
+      </a>
+      <a href="#" className="hover:opacity-80">
+        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+          <FaTwitter className="text-black text-xl" />
+        </div>
+      </a>
+      <a href="#" className="hover:opacity-80">
+        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+          <FaLinkedinIn className="text-black text-xl" />
+        </div>
+      </a>
+      <a href="#" className="hover:opacity-80">
+        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+          <FaGoogle className="text-black text-xl" />
+        </div>
+      </a>
+      <a href="#" className="hover:opacity-80">
+        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+          <FaDribbble className="text-black text-xl" />
+        </div>
+      </a>
+    </div>
           </div>
 
           {/* Product Category */}
