@@ -321,7 +321,7 @@ const Categories = () => {
       </div>
 
       <div className="flex justify-center mb-12 overflow-x-auto">
-        <div className="inline-flex gap-4 md:gap-8">
+        <div className="inline-flex gap-4 md:gap-8 flex-wrap ">
           {tabs.map((tab) => (
             <button
               key={tab}

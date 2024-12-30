@@ -83,7 +83,7 @@ import VendorSubscriptionPlans from './Components/Admin/Pages/Vendor Subscriptio
 
 
 //Ui component 
-import UINavbar from './Components/EcommerceUI/UI Pages/navbar/UINavbar.jsx';
+// import UINavbar from './Components/EcommerceUI/UI Pages/navbar/UINavbar.jsx';
 // import Footer from './Components/EcommerceUI/UI Pages/Footer/Footer.jsx';
 // import Home from './Components/EcommerceUI/UI Pages/Home/Home.jsx';
 // import Products from './Components/EcommerceUI/UI Pages/Products/Products.jsx';
@@ -98,7 +98,7 @@ import UINavbar from './Components/EcommerceUI/UI Pages/navbar/UINavbar.jsx';
 // import Cart from './Components/EcommerceUI/UI Pages/cart/Cart.jsx';
 
 
-import Footer from './Components/EcommerceUI/UI Pages/Footer/Footer.jsx';
+// import Footer from './Components/EcommerceUI/UI Pages/Footer/Footer.jsx';
 // import Home from './Components/EcommerceUI/UI Pages/Home/Hero.jsx';
 // import Products from './Components/EcommerceUI/UI Pages/Products/Products.jsx';
 // import AboutUs from './Components/EcommerceUI/UI Pages/Pages/AboutUs.jsx';
@@ -276,6 +276,8 @@ import Venderlogin from "./Components/EcomUI/User-master/Login/Venderlogin.jsx";
 import Riderlogin from "./Components/EcomUI/User-master/Login/Riderlogin.jsx";
 import CheckoutForm from "./Components/EcomUI/User-master/cart/Checkout.jsx";
 import CategoryPage from "./Components/EcomUI/User-master/Blog/CategoryPage.jsx";
+import Slider from "./Components/EcomUI/User-master/Home/Slider.jsx";
+import CategoryProducts from "./Components/EcomUI/User-master/Home/CategoryProducts.jsx";
 
 
 
@@ -436,180 +438,56 @@ const App = () => {
 
                   {/* EcomUI */}
                   <Route path="/products" element={<Products />} />
-                  <Route
-                    path="/products/electronic/television"
-                    element={<Television />}
-                  />
-                  <Route
-                    path="/products/electronic/refrigerator"
-                    element={<Refrigeartor />}
-                  />
-                  <Route
-                    path="/products/electronic/washingmachine"
-                    element={<WashingMachine />}
-                  />
-                  <Route
-                    path="/products/electronic/airconditionersy"
-                    element={<AirConditioners />}
-                  />
-
-                  <Route
-                    path="/products/fashion-beauty/accessories"
-                    element={<Accessories />}
-                  />
+                  <Route path="/products/electronic/television" element={<Television />} />
+                  <Route path="/products/electronic/refrigerator" element={<Refrigeartor />} />
+                  <Route path="/products/electronic/washingmachine" element={<WashingMachine />} />
+                  <Route path="/products/electronic/airconditionersy" element={<AirConditioners />} />
+                  <Route path="/" element={<Slider />} />
+                  <Route path="/category/:categoryId" element={<CategoryProducts />} />
+                  <Route path="/products/fashion-beauty/accessories" element={<Accessories />} />
                   <Route path="/products/fashion-beauty/bags" element={<Bags />} />
-                  <Route
-                    path="/products/fashion-beauty/clothings"
-                    element={<Clothings />}
-                  />
+                  <Route path="/products/fashion-beauty/clothings" element={<Clothings />} />
                   <Route path="/products/fashion-beauty/shoes" element={<Shoes />} />
-
                   <Route path="/products/camera-photo/dslr" element={<Dslr />} />
-                  <Route
-                    path="/products/camera-photo/cameraphone"
-                    element={<CameraPhone />}
-                  />
-                  <Route
-                    path="/products/camera-photo/actioncamera"
-                    element={<ActionCamera />}
-                  />
-                  <Route
-                    path="/products/camera-photo/digitalcamera"
-                    element={<DigitalCamera />}
-                  />
-
+                  <Route path="/products/camera-photo/cameraphone" element={<CameraPhone />} />
+                  <Route path="/products/camera-photo/actioncamera" element={<ActionCamera />} />
+                  <Route path="/products/camera-photo/digitalcamera" element={<DigitalCamera />} />
                   <Route path="/products/smart-phone-table/apple" element={<Apple />} />
-                  <Route
-                    path="/products/smart-phone-table/samsung"
-                    element={<Samsung />}
-                  />
+                  <Route path="/products/smart-phone-table/samsung" element={<Samsung />} />
                   <Route path="/products/smart-phone-table/lg" element={<Lg />} />
                   <Route path="/products/smart-phone-table/sony" element={<Sony />} />
-
-                  <Route
-                    path="/products/sport-outdoor/sports-equipment"
-                    element={<SportsEquipment />}
-                  />
-                  <Route
-                    path="/products/sport-outdoor/outdoor-apparel"
-                    element={<OutdoorApparel />}
-                  />
-                  <Route
-                    path="/products/sport-outdoor/camping-&-hiking"
-                    element={<CampingHiking />}
-                  />
-                  <Route
-                    path="/products/sport-outdoor/water-sports"
-                    element={<WaterSports />}
-                  />
-
-                  <Route
-                    path="/products/jewelry-watches/fine-jewelry"
-                    element={<FineJewelry />}
-                  />
-                  <Route
-                    path="/products/jewelry-watches/fashionjewelry"
-                    element={<FashionJewelry />}
-                  />
-                  <Route
-                    path="/products/jewelry-watches/men's-jewelry"
-                    element={<MensJewelry />}
-                  />
-                  <Route
-                    path="/products/jewelry-watches/womensjewelry"
-                    element={<WomaensJewelry />}
-                  />
-
-                  <Route
-                    path="/products/health-beauty/skincare"
-                    element={<Skincare />}
-                  />
-                  <Route
-                    path="/products/health-beauty/hair-care"
-                    element={<HairCare />}
-                  />
+                  <Route path="/products/sport-outdoor/sports-equipment" element={<SportsEquipment />} />
+                  <Route path="/products/sport-outdoor/outdoor-apparel" element={<OutdoorApparel />} />
+                  <Route path="/products/sport-outdoor/camping-&-hiking" element={<CampingHiking />} />
+                  <Route path="/products/sport-outdoor/water-sports" element={<WaterSports />} />
+                  <Route path="/products/jewelry-watches/fine-jewelry" element={<FineJewelry />} />
+                  <Route path="/products/jewelry-watches/fashionjewelry" element={<FashionJewelry />} />
+                  <Route path="/products/jewelry-watches/men's-jewelry" element={<MensJewelry />} />
+                  <Route path="/products/jewelry-watches/womensjewelry" element={<WomaensJewelry />} />
+                  <Route path="/products/health-beauty/skincare" element={<Skincare />} />
+                  <Route path="/products/health-beauty/hair-care" element={<HairCare />} />
                   <Route path="/products/health-beauty/makeup" element={<Makeup />} />
-                  <Route
-                    path="/products/health-beauty/personal-care"
-                    element={<PersonalCare />}
-                  />
-
+                  <Route path="/products/health-beauty/personal-care" element={<PersonalCare />} />
                   <Route path="/products/books-office/books" element={<Books />} />
-                  <Route
-                    path="/products/books-officee/office-supplies"
-                    element={<OfficeSupplies />}
-                  />
-                  <Route
-                    path="/products/books-office/office-furniture"
-                    element={<OfficeFurniture />}
-                  />
-                  <Route
-                    path="/products/books-office/computers-&-electronics"
-                    element={<ComputersElectroics />}
-                  />
-
+                  <Route path="/products/books-officee/office-supplies" element={<OfficeSupplies />} />
+                  <Route path="/products/books-office/office-furniture" element={<OfficeFurniture />} />
+                  <Route path="/products/books-office/computers-&-electronics" element={<ComputersElectroics />} />
                   <Route path="/products/toys-hobbies/toys" element={<Toys />} />
-                  <Route
-                    path="/products/toys-hobbies/arts-&-crafts"
-                    element={<ArtsCrafts />}
-                  />
-                  <Route
-                    path="/products/toys-hobbies/games-&-puzzle"
-                    element={<GamesPuzzles />}
-                  />
-                  <Route
-                    path="/products/toys-hobbies/collectibles"
-                    element={<Collectibles />}
-                  />
-
+                  <Route path="/products/toys-hobbies/arts-&-crafts" element={<ArtsCrafts />} />
+                  <Route path="/products/toys-hobbies/games-&-puzzle" element={<GamesPuzzles />} />
+                  <Route path="/products/toys-hobbies/collectibles" element={<Collectibles />} />
                   <Route path="/products/automobiles/new-cars" element={<NewCars />} />
-                  <Route
-                    path="/products/automobiles/used-cars"
-                    element={<UsedCars />}
-                  />
-                  <Route
-                    path="/products/automobiles/car-accessories"
-                    element={<CarAccessories />}
-                  />
-                  <Route
-                    path="/products/automobiles/fluids-&-chemicals"
-                    element={<FluidsChemicals />}
-                  />
-
-                  <Route
-                    path="/products/home-decoration/wall-art"
-                    element={<WallArt />}
-                  />
-                  <Route
-                    path="/products/home-decoration/lighting"
-                    element={<Lighting />}
-                  />
-                  <Route
-                    path="/products/home-decoration/furniture"
-                    element={<Furniture />}
-                  />
-                  <Route
-                    path="/products/home-decoration/textiles"
-                    element={<Textiles />}
-                  />
-
-                  <Route
-                    path="/products/portablepersonal/portableelectronics"
-                    element={<PortableElectronics />}
-                  />
-                  <Route
-                    path="/products/portablepersonal/personalcaredevices"
-                    element={<PersonalCareDevice />}
-                  />
-                  <Route
-                    path="/products/portablepersonal/travelessentials"
-                    element={<TravelEssentials />}
-                  />
-                  <Route
-                    path="/products/portablepersonal/HealthFitnessGadgets"
-                    element={<HealthFitnessGadgets />}
-                  />
-
+                  <Route path="/products/automobiles/used-cars" element={<UsedCars />} />
+                  <Route path="/products/automobiles/car-accessories" element={<CarAccessories />} />
+                  <Route path="/products/automobiles/fluids-&-chemicals" element={<FluidsChemicals />} />
+                  <Route path="/products/home-decoration/wall-art" element={<WallArt />} />
+                  <Route path="/products/home-decoration/lighting" element={<Lighting />} />
+                  <Route path="/products/home-decoration/furniture" element={<Furniture />} />
+                  <Route path="/products/home-decoration/textiles" element={<Textiles />} />
+                  <Route path="/products/portablepersonal/portableelectronics" element={<PortableElectronics />} />
+                  <Route path="/products/portablepersonal/personalcaredevices" element={<PersonalCareDevice />} />
+                  <Route path="/products/portablepersonal/travelessentials" element={<TravelEssentials />} />
+                  <Route path="/products/portablepersonal/HealthFitnessGadgets" element={<HealthFitnessGadgets />} />
                   <Route path="/aboutus" element={<AboutUs />} />
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/faq" element={<Faq />} />
