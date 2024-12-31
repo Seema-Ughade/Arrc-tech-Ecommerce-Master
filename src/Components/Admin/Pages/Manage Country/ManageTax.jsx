@@ -116,7 +116,7 @@ export default function ManageTax() {
 
   const fetchCountries = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/countries');
+      const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/countries');
       setCountries(response.data);
       setFilteredCountries(response.data);
       setLoading(false);
@@ -128,7 +128,7 @@ export default function ManageTax() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/countries/${id}`);
+      await axios.delete(`https://ecommerce-panel-backend.onrender.com/api/countries/${id}`);
       setCountries(countries.filter((country) => country._id !== id));
       toast.success('Country deleted successfully!');
     } catch (error) {
@@ -139,7 +139,7 @@ export default function ManageTax() {
 
   const handleCountryStatusChange = async (countryId, newStatus) => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/countries/${countryId}/status`, { status: newStatus });
+      const response = await axios.put(`https://ecommerce-panel-backend.onrender.com/api/countries/${countryId}/status`, { status: newStatus });
       setCountries(prev =>
         prev.map(country => (country._id === countryId ? { ...country, status: newStatus } : country))
       );

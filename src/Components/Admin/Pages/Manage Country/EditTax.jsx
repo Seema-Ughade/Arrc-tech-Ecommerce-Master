@@ -22,7 +22,7 @@ export default function EditTax() {
 
   const fetchCountryData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/countries/${id}`);
+      const response = await axios.get(`https://ecommerce-panel-backend.onrender.com/api/countries/${id}`);
       setTaxData(response.data);
       setLoading(false);
     } catch (err) {
@@ -34,7 +34,7 @@ export default function EditTax() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/countries/${id}`, taxData);
+      await axios.put(`https://ecommerce-panel-backend.onrender.com/api/countries/${id}`, taxData);
       toast.success('Country tax data updated successfully');
       navigate('/manage-tax');
     } catch (err) {
