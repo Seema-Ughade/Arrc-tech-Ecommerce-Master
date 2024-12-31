@@ -202,7 +202,7 @@ import SubscriberTable from "./Components/Admin/Pages/Subscribers/SubscriberTabl
 //EcomUI\User-master
 import EcomNavbar from "./Components/EcomUI/User-master/navbar/EcomNavbar.jsx";
 import EcomFooter from "./Components/EcomUI/User-master/Footer/EcomFooter.jsx";
-import Home from "./Components/EcomUI/User-master/Home/Hero.jsx";
+import Home from "./Components/EcomUI/User-master/Home/Home.jsx";
 import Products from "./Components/EcomUI/User-master/Products/Products.jsx";
 import AboutUs from "./Components/EcomUI/User-master/Pages/AboutUs.jsx";
 import Privacy from "./Components/EcomUI/User-master/Pages/Privacy.jsx";
@@ -278,6 +278,7 @@ import CheckoutForm from "./Components/EcomUI/User-master/cart/Checkout.jsx";
 import CategoryPage from "./Components/EcomUI/User-master/Blog/CategoryPage.jsx";
 import Slider from "./Components/EcomUI/User-master/Home/Slider.jsx";
 import CategoryProducts from "./Components/EcomUI/User-master/Home/CategoryProducts.jsx";
+import OrderDetails from "./Components/EcomUI/User-master/cart/OrderDetails.jsx";
 
 
 
@@ -437,12 +438,12 @@ const App = () => {
                   <Route path="/appdashboard" element={<VendorLayout />} />
 
                   {/* EcomUI */}
+                  <Route path="/" element={<Slider />} />
                   <Route path="/products" element={<Products />} />
                   <Route path="/products/electronic/television" element={<Television />} />
                   <Route path="/products/electronic/refrigerator" element={<Refrigeartor />} />
                   <Route path="/products/electronic/washingmachine" element={<WashingMachine />} />
                   <Route path="/products/electronic/airconditionersy" element={<AirConditioners />} />
-                  <Route path="/" element={<Slider />} />
                   <Route path="/category/:categoryId" element={<CategoryProducts />} />
                   <Route path="/products/fashion-beauty/accessories" element={<Accessories />} />
                   <Route path="/products/fashion-beauty/bags" element={<Bags />} />
@@ -488,7 +489,9 @@ const App = () => {
                   <Route path="/products/portablepersonal/personalcaredevices" element={<PersonalCareDevice />} />
                   <Route path="/products/portablepersonal/travelessentials" element={<TravelEssentials />} />
                   <Route path="/products/portablepersonal/HealthFitnessGadgets" element={<HealthFitnessGadgets />} />
-                  <Route path="/aboutus" element={<AboutUs />} />
+                  {/* <Route path="/aboutus" element={<AboutUs />} /> */}
+                  <Route path="/pages/:id" element={<AboutUs />} />
+
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/faq" element={<Faq />} />
                   <Route path="/contact" element={<Contact />} />
@@ -571,6 +574,7 @@ const App = () => {
                   <Route path="/admin/orderscompleted" element={<CompletedOrders />} />
                   <Route path="/admin/ordersdeclined" element={<DeclinedOrders />} />
                   <Route path="/admin/order/create" element={<ProductUserDetail />} />
+                  <Route path="/admin/orders/:id" element={<OrderDetails />} />
 
                   <Route path="/admin/fonts" element={<Fonts />} />
                   <Route path="/admin/role" element={<Roles />} />
@@ -578,6 +582,8 @@ const App = () => {
                   <Route path="/admin/states" element={<States />} />
                   <Route path="/admin/TaxManagementForm" element={<TaxManagementForm />} />
                   <Route path="/admin/manage/country/tax" element={<ManageTax />} />
+                  <Route path="/tax/country/:id" element={<EditTax />} />
+
                   <Route path="/tax/country" element={<EditTax />} />
                   <Route path="/admin/manage/country" element={<Countries />} />
 

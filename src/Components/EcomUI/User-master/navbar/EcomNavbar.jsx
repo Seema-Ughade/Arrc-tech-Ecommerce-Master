@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import { FaDollarSign, FaLanguage, FaUser } from "react-icons/fa";
 import { GrLanguage } from "react-icons/gr";
 import { CiDollar } from "react-icons/ci";
@@ -25,6 +26,7 @@ const EcomNavbar = () => {
   const [dropdownPages, setDropdownPages] = useState(false);
   const [nav1, setNav1] = useState(true);
   const [nav2, setNav2] = useState(false);
+  const [pages, setPages] = useState([]);
 
   const cartItemCount = useSelector((state) => state.cart.cartItems.length);
   const compareItemCount = useSelector(
@@ -43,6 +45,19 @@ const EcomNavbar = () => {
     setNav2(!nav2);
     setNav1(false);
   };
+
+  useEffect(() => {
+    const fetchPages = async () => {
+      try {
+        const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/pages');
+        setPages(response.data.filter(page => page.Header === "Showed"));
+      } catch (error) {
+        console.error('Error fetching pages:', error);
+      }
+    };
+    fetchPages();
+  }, []);
+
 
 
   const categories = [
@@ -86,10 +101,10 @@ const EcomNavbar = () => {
 
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       {/* Top Bar */}
       <div className="bg-teal-400 text-white">
-        <div className="container mx-auto px-4">
+        <div className="container  mx-auto px-4">
           <div className="flex items-center justify-between h-12">
             {/* Contact Info */}
             <div className="hidden md:flex items-center space-x-2">
@@ -142,7 +157,7 @@ const EcomNavbar = () => {
       </div>
 
       <div className="bg-white shadow-md sticky top-0 z-50 p-4 md:p-0">
-        <div className="max-w-7xl mx-auto py-0 flex justify-between items-center">
+        <div className="max-w-7xl   mx-auto py-0 flex justify-between items-center">
           {/* Mobile Menu Button */}
           <button className="block md:hidden" onClick={toggleDrawer}>
             <RiMenu5Fill className="text-xl" />
@@ -152,7 +167,7 @@ const EcomNavbar = () => {
 
           {isOpen && (
             <div className="fixed inset-0 bg-black bg-opacity-25 z-50">
-              <div className="w-72 bg-white h-full shadow-lg fixed left-0 top-0 z-50">
+              <div className="w-72   bg-white h-full shadow-lg fixed left-0 top-0 z-50">
                 <div className="p-4 flex justify-between items-center border-b bg-red-500 text-white">
                   <h2 className="font-bold text-lg"> ARRC TECHNOLOGY </h2>
                   <button onClick={toggleDrawer}>X</button>
@@ -240,7 +255,7 @@ const EcomNavbar = () => {
           )}
 
           {/* Logo */}
-          <div className="flex items-center space-x-4">
+          <div className="flex   items-center space-x-4">
             {/* <img src={Logo} alt="Logo" className="w-10 h-10" /> */}
             <h1 className="text-sm md:text-lg font-bold text-gray-800 ml-3">
               <a href="/">ARRC TECHNOLOGY</a>
@@ -248,8 +263,8 @@ const EcomNavbar = () => {
           </div>
 
           {/* Desktop Links */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <div class="main font-semibold">
+          <nav className="hidden  md:flex items-center space-x-6">
+            <div class="main  font-semibold">
               <div className="navigations">
                 <a href="/" className="font-semibold">
                   HOME
@@ -665,28 +680,31 @@ const EcomNavbar = () => {
                 </Link>
 
                 <li
-                  className="navbar-item dropdown font-semibold list-none"
-                  onMouseEnter={toggleDropdownPages}
-                  onMouseLeave={toggleDropdownPages}
-                >
-                  PAGES
-                    <span className={`fa ${dropdownOpen ? 'fa-times' : 'fa-plus'} ml-2  text-md font-bold text-gray-800 `}></span>
-                  {dropdownPages && (
-                    <div className="dropdown-menu2 w-[170px]">
-                      <div className="">
-                        <ul className="flex flex-col font-semibold">
-                          <li>
-                            <Link to={"/aboutus"}>ABOUT US</Link>
-                          </li>
-                          <li>
-                            <Link to={"/Privacy"}>PRIVACY & POLICY</Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  )}
-                </li>
-                <Link to={"/Blog"}>BLOG</Link>
+  className="navbar-item dropdown font-semibold list-none relative"
+  onMouseEnter={toggleDropdownPages}
+  onMouseLeave={toggleDropdownPages}
+>
+  <button className="flex items-center">
+    PAGES
+    <span className={`fa ${dropdownPages ? 'fa-times' : 'fa-plus'} ml-2 text-md font-bold text-gray-800`}></span>
+  </button>
+  {dropdownPages && (
+    <div className="dropdown-menu2 absolute left-0 mt- w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+      <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+        {pages.map((page) => (
+          <Link
+            key={page._id}
+            to={`/pages/${page._id}`}
+            className="block px-4 py-2  text-gray-700 hover:text-red-400"
+            role="menuitem"
+          >
+            {page.title}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )}
+</li>                <Link to={"/Blog"}>BLOG</Link>
 
                 <Link to={"/Faq"}>FAQ</Link>
                 <Link to={"/contact"}>CONTACT US</Link>
