@@ -242,7 +242,7 @@ const AllOrders = () => {
     const fetchOrders = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://127.0.0.1:5000/api/Uiorder');
+        const response = await axios.get('https://ecommerce-panel-backend.onrender.com/api/Uiorder');
         const fetchedOrders = Array.isArray(response.data.orders) ? response.data.orders : [];
         setOrders(fetchedOrders);
         setFilteredOrders(fetchedOrders);

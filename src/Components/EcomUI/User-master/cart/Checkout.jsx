@@ -461,7 +461,7 @@ export default function CheckoutForm() {
             totalAmount: calculateTotal()
           };
 
-          const response = await axios.post('http://127.0.0.1:5000/api/Uiorder', orderData);
+          const response = await axios.post('https://ecommerce-panel-backend.onrender.com/api/Uiorder', orderData);
           
           if (response.data.success) {
             dispatch(clearCart());

@@ -12,7 +12,7 @@ const OrderDetails = () => {
   useEffect(() => {
     const fetchOrderDetails = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:5000/api/Uiorder/${id}`);
+        const response = await axios.get(`https://ecommerce-panel-backend.onrender.com/api/Uiorder/${id}`);
         setOrder(response.data.order);
         setLoading(false);
       } catch (error) {
